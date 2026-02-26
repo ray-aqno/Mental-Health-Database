@@ -1,0 +1,61 @@
+# =========================
+# .NET / Visual Studio
+# =========================
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
+*.dbmdl
+*.jfm
+*.dacpac
+
+# NuGet
+*.nupkg
+packages/
+
+# =========================
+# SQLite Database
+# =========================
+*.db
+*.db-shm
+*.db-wal
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.venv/
+venv/
+env/
+
+# =========================
+# Intermediate / Backup Data Files
+# =========================
+Scripts/minified_section.txt
+Scripts/minified_colleges.json
+Scripts/scraped_colleges_data_backup.json
+Scripts/scraped_colleges_data_fixed.json
+Scripts/sample_colleges_data.json
+
+# =========================
+# OS Files
+# =========================
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# =========================
+# IDE
+# =========================
+*.swp
+*.swo
+*~

@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "MentalHealthDatabase": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://0.0.0.0:58346;https://0.0.0.0:58345"
+      },
+      "applicationUrl": "http://0.0.0.0:58346;https://0.0.0.0:58345"
+    }
+  }
+}

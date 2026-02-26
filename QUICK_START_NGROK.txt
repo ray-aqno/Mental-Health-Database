@@ -1,0 +1,91 @@
+╔════════════════════════════════════════════════════════════════╗
+║              NGROK QUICK START - 5 MINUTE SETUP                ║
+╚════════════════════════════════════════════════════════════════╝
+
+📥 STEP 1: DOWNLOAD
+   → Go to: https://ngrok.com/download
+   → Sign up (free)
+   → Download for Windows
+
+📂 STEP 2: EXTRACT
+   → Extract ngrok.exe to: C:\ngrok\
+   → Should have: C:\ngrok\ngrok.exe
+
+🔑 STEP 3: GET YOUR TOKEN
+   → Go to: https://dashboard.ngrok.com/get-started/your-authtoken
+   → Copy your authtoken
+
+⚙️ STEP 4: AUTHENTICATE
+   → Open Command Prompt
+   → Run these commands:
+   
+   cd C:\ngrok
+   ngrok config add-authtoken YOUR_TOKEN_HERE
+   
+   (Replace YOUR_TOKEN_HERE with your actual token)
+
+✅ DONE WITH SETUP!
+
+═══════════════════════════════════════════════════════════════
+
+🚀 HOW TO USE (Every Time):
+
+1️⃣ Start your app in Visual Studio (F5)
+
+2️⃣ Double-click: start-ngrok.bat
+   
+3️⃣ You'll see output like:
+   
+   Forwarding: https://abc123.ngrok-free.app → http://localhost:58346
+   
+4️⃣ Copy that URL (https://abc123.ngrok-free.app)
+
+5️⃣ Open it on your phone/any device!
+
+═══════════════════════════════════════════════════════════════
+
+📱 ON YOUR PHONE:
+
+→ Open browser (Safari, Chrome, etc.)
+→ Go to: https://abc123.ngrok-free.app
+→ Click "Visit Site" if you see a warning (first time only)
+→ Your app is now running on your phone! 🎉
+
+═══════════════════════════════════════════════════════════════
+
+⚠️ IMPORTANT:
+
+✓ Keep the ngrok windWHERE in the world
+ow OPEN
+✓ Keep Visual Studio app RUNNING
+✓ URL changes each time you restart ngrok
+✓ URL works from ANY
+═══════════════════════════════════════════════════════════════
+
+🐛 TROUBLESHOOTING:
+
+Problem: "ngrok is not recognized"
+Fix: Make sure you're in C:\ngrok folder
+     cd C:\ngrok
+
+Problem: "tunnel failed"
+Fix: Make sure your app is running in Visual Studio first
+
+Problem: URL doesn't work
+Fix: Check ngrok is still running
+     Check app is still running
+
+═══════════════════════════════════════════════════════════════
+
+💡 PRO TIPS:
+
+→ Bookmark the ngrok dashboard: https://dashboard.ngrok.com
+→ View live traffic: http://localhost:4040 (while ngrok running)
+→ Free tier = perfect for development & testing
+→ URL is good as long as you keep ngrok running
+
+═══════════════════════════════════════════════════════════════
+
+QUESTIONS? Check NGROK_SETUP.md for detailed guide!
+
+Good luck! 🚀

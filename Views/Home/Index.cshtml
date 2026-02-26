@@ -1,0 +1,142 @@
+@{
+    ViewData["Title"] = "College Mental Health Resources Map";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find mental health resources at colleges in the Midwest. Interactive map showing counseling services, crisis support, and freshman-specific information.">
+    <title>@ViewData["Title"]</title>
+    
+    <!-- Leaflet CSS - Local copy -->
+    <link rel="stylesheet" href="~/css/leaflet.css" />
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="~/css/main.css" />
+</head>
+<body>
+    
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <h1>🏥 College Mental Health Resources</h1>
+            <p class="subtitle">Find mental health support services at colleges in the Midwest region</p>
+        </div>
+    </header>
+
+    <!-- Controls Section -->
+    <section class="controls">
+        <div class="controls-content">
+            <!-- Search Box -->
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" 
+                       id="search-input" 
+                       placeholder="Search by college name or location..."
+                       aria-label="Search colleges">
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="btn btn-secondary filter-btn active" data-filter="all">
+                    🌐 All States
+                </button>
+                <button class="btn btn-secondary filter-btn" data-filter="ohio">
+                    Ohio
+                </button>
+                <button class="btn btn-secondary filter-btn" data-filter="kentucky">
+                    Kentucky
+                </button>
+                <button class="btn btn-secondary filter-btn" data-filter="indiana">
+                    Indiana
+                </button>
+                <button class="btn btn-secondary filter-btn" data-filter="illinois">
+                    Illinois
+                </button>
+                <button class="btn btn-secondary filter-btn" data-filter="michigan">
+                    Michigan
+                </button>
+                <button class="btn btn-secondary filter-btn" data-filter="pennsylvania">
+                    Pennsylvania
+                </button>
+                <button class="btn btn-secondary filter-btn" data-filter="new york">
+                    New York
+                </button>
+                <button class="btn btn-primary" id="refresh-btn">
+                    🔄 Refresh
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Bar -->
+    <section class="stats-bar">
+        <div class="stats-content">
+            <div class="stat-item">
+                <span class="stat-number" id="stat-colleges">0</span>
+                <span class="stat-label">Colleges</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="stat-resources">0</span>
+                <span class="stat-label">Resources</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="stat-states">0</span>
+                <span class="stat-label">States</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alert Container -->
+    <div id="alert-container" style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Sidebar with College List -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>📚 Colleges</h3>
+                <span class="college-count" id="college-count">0</span>
+            </div>
+            <ul class="college-list" id="college-list">
+                <!-- College items will be dynamically added here -->
+            </ul>
+        </aside>
+
+        <!-- Map Container -->
+        <section class="map-container">
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Loading colleges and resources...</p>
+            </div>
+            <div id="map"></div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>🎓 <strong>Mental Health Resources Database</strong></p>
+        <p>Helping college students find the support they need</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            Built with ❤️ for college mental health awareness | 
+            <a href="https://github.com" target="_blank">View on GitHub</a>
+        </p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem;">
+            🆘 <strong>Crisis Support:</strong> 
+            Call or text <strong>988</strong> (Suicide & Crisis Lifeline) | 
+            Text <strong>HELLO</strong> to <strong>741741</strong> (Crisis Text Line)
+        </p>
+    </footer>
+
+    <!-- Leaflet JavaScript - Local copy (must load first, no defer/async) -->
+    <script src="~/js/leaflet.js"></script>
+    
+    <!-- Main Application Script (no defer - runs immediately after Leaflet) -->
+    <script src="~/js/app.js"></script>
+
+</body>
+</html>

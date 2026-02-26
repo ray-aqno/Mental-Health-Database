@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>MentalHealthDatabase</RootNamespace>
+    <DefaultItemExcludes>$(DefaultItemExcludes);MentalHealthDatabase.Tests\**;Mental_Health_Database\**</DefaultItemExcludes>
+  </PropertyGroup>
+
+  <!-- Exclude test project subfolder from compilation -->
+  <ItemGroup>
+    <Compile Remove="MentalHealthDatabase.Tests\**" />
+    <Content Remove="MentalHealthDatabase.Tests\**" />
+    <EmbeddedResource Remove="MentalHealthDatabase.Tests\**" />
+    <None Remove="MentalHealthDatabase.Tests\**" />
+  </ItemGroup>
+
+  <!-- Exclude SQL project subfolder from compilation -->
+  <ItemGroup>
+    <Compile Remove="Mental_Health_Database\**" />
+    <Content Remove="Mental_Health_Database\**" />
+    <EmbeddedResource Remove="Mental_Health_Database\**" />
+    <None Remove="Mental_Health_Database\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.3" />
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
