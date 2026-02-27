@@ -1,0 +1,12 @@
+**/.git
+**/.vs
+**/bin
+**/obj
+**/__pycache__
+**/.pytest_cache
+*.db
+*.db-shm
+*.db-wal
+MentalHealthDatabase.Tests/
+Mental_Health_Database/
+Scripts/
