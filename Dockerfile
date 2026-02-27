@@ -4,11 +4,11 @@ WORKDIR /src
 
 # Copy project file and restore dependencies
 COPY MentalHealthDatabase.csproj .
-RUN dotnet restore
+RUN dotnet restore MentalHealthDatabase.csproj
 
 # Copy everything else and publish as self-contained
 COPY . .
-RUN dotnet publish -c Release -o /app/publish --self-contained true -r linux-x64
+RUN dotnet publish MentalHealthDatabase.csproj -c Release -o /app/publish --self-contained true -r linux-x64
 
 # Runtime stage - no .NET needed since it's self-contained
 FROM mcr.microsoft.com/dotnet/runtime-deps:10.0-preview AS runtime
