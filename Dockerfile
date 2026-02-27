@@ -6,19 +6,21 @@ WORKDIR /src
 COPY MentalHealthDatabase.csproj .
 RUN dotnet restore
 
-# Copy everything else and publish
+# Copy everything else and publish as self-contained
 COPY . .
-RUN dotnet publish -c Release -o /app/publish
+RUN dotnet publish -c Release -o /app/publish --self-contained true -r linux-x64
 
-# Runtime stage
-FROM mcr.microsoft.com/dotnet/aspnet:10.0-preview AS runtime
+# Runtime stage - no .NET needed since it's self-contained
+FROM mcr.microsoft.com/dotnet/runtime-deps:10.0-preview AS runtime
 WORKDIR /app
 
 # Copy published output
 COPY --from=build /app/publish .
 
-# Render sets the PORT environment variable
+# Make the executable runnable
+RUN chmod +x /app/MentalHealthDatabase
+
 ENV ASPNETCORE_URLS=http://+:10000
 EXPOSE 10000
 
-CMD dotnet MentalHealthDatabase.dll
+CMD ["/app/MentalHealthDatabase"]
