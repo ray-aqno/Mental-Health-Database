@@ -1,19 +1,19 @@
-# 🏥 College Mental Health Resources Database
+#  College Mental Health Resources Database
 
 A modern web application that displays mental health resources available at colleges in the Midwest region using an interactive map interface. Features real-time search, filtering, and detailed resource information with special emphasis on freshman guidance.
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🗺️ Interactive Map
+###  Interactive Map
 - **Leaflet.js Integration**: Lightweight, no API key needed
 - **OpenStreetMap Tiles**: Free, high-quality map tiles
 - **Smart Zoom**: Automatically fits all colleges in view
 - **Custom Markers**: Click to view detailed information
 - **Smooth Animations**: Professional transitions and effects
 
-### 🎨 Modern UI
+###  Modern UI
 - **Gradient Header**: Professional blue gradient design
 - **Real-time Search**: Filter by college name or location
 - **State Filters**: Quick buttons for Ohio, Kentucky, Indiana
@@ -22,22 +22,22 @@ A modern web application that displays mental health resources available at coll
 - **Loading States**: Visual feedback during data fetching
 - **Error Handling**: User-friendly error messages
 
-### 📊 Detailed Information
+###  Detailed Information
 - College name and location
 - Direct website links
 - Complete mental health resources
 - Contact information (clickable email/phone)
 - Office hours and locations
-- **Highlighted freshman-specific guidance** 🎓
+- **Highlighted freshman-specific guidance** 
 
-### 🆘 Crisis Support
+###  Crisis Support
 - 988 Suicide & Crisis Lifeline
 - Crisis Text Line information
 - Prominently displayed in footer
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 ### Backend
 - **Framework**: ASP.NET Core 6+
@@ -60,7 +60,7 @@ A modern web application that displays mental health resources available at coll
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 Mental_Health_Database/
@@ -102,7 +102,7 @@ Mental_Health_Database/
 
 ---
 
-## 💾 Database Schema
+##  Database Schema
 
 ### Colleges Table
 ```
@@ -137,7 +137,7 @@ Mental_Health_Database/
 
 ---
 
-## 🌐 API Endpoints
+##  API Endpoints
 
 ### Colleges
 - `GET /api/colleges` - Get all colleges with resources
@@ -158,7 +158,7 @@ Mental_Health_Database/
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - .NET 6.0 SDK or later
@@ -227,7 +227,7 @@ dotnet run
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 ### Getting Started
 - **UI_QUICK_START.md** - Quick guide to the UI
@@ -241,7 +241,7 @@ dotnet run
 
 ---
 
-## 🎨 Customization
+##  Customization
 
 ### Change Colors
 Edit `wwwroot/css/main.css`:
@@ -278,7 +278,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Map Not Displaying
 **Problem**: Empty white box where map should be
@@ -318,7 +318,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 ---
 
-## 📱 Mobile Testing
+##  Mobile Testing
 
 ### Responsive Breakpoints
 - **Desktop**: > 1200px (two columns)
@@ -334,7 +334,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 ---
 
-## 🎯 Target Colleges
+##  Target Colleges
 
 ### Ohio (8 colleges)
 1. University of Cincinnati
@@ -354,7 +354,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 ---
 
-## 📊 Project Stats
+##  Project Stats
 
 - **Total Files**: 25+
 - **Lines of Code**: 2,000+
@@ -395,28 +395,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 - [ ] Admin panel
 - [ ] Reviews and ratings
 - [ ] Mobile app version
-
 ---
 
-## 🎓 Skills Demonstrated
-
-By building this project, you've learned:
-
-- ✅ Full-stack web development (C# + JavaScript)
-- ✅ REST API design and implementation
-- ✅ Database design with relationships
-- ✅ Entity Framework Core ORM
-- ✅ Web scraping with Python
-- ✅ Modern responsive UI/UX design
-- ✅ CSS Grid and Flexbox layouts
-- ✅ Interactive mapping with Leaflet.js
-- ✅ Async programming patterns
-- ✅ Data pipeline development
-- ✅ Comprehensive technical documentation
-
----
-
-## 🆘 Crisis Resources
+##  Crisis Resources
 
 **Available 24/7:**
 - **Suicide & Crisis Lifeline**: Call or text **988**
@@ -426,7 +407,7 @@ By building this project, you've learned:
 
 ---
 
-## 🚀 Deployment
+##  Deployment
 
 ### Azure App Service (Recommended)
 ```bash
@@ -453,7 +434,7 @@ dotnet publish -c Release
 
 ---
 
-## 🔐 Production Checklist
+##  Production Checklist
 
 Before deploying to production:
 
@@ -472,7 +453,7 @@ Before deploying to production:
 
 ---
 
-## 📖 Code Quality
+##  Code Quality
 
 ### Best Practices
 - ✅ Semantic HTML5
@@ -493,7 +474,7 @@ Before deploying to production:
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 This is an educational project. Feel free to:
 - Add more colleges
@@ -504,13 +485,13 @@ This is an educational project. Feel free to:
 
 ---
 
-## 📜 License
+##  License
 
 MIT License - Free to use for educational and non-commercial purposes
 
 ---
 
-## 💬 Support
+##  Support
 
 **Need Help?**
 1. Check the documentation files
@@ -525,9 +506,9 @@ MIT License - Free to use for educational and non-commercial purposes
 
 ---
 
-## 🎉 Status
+##  Status
 
-**✅ Production Ready**
+**Production Ready**
 
 This project is complete and fully functional. All features work as designed:
 - Backend API with database
@@ -540,7 +521,7 @@ This project is complete and fully functional. All features work as designed:
 
 ---
 
-## 📬 Contact
+##  Contact
 
 Built with ❤️ for college mental health awareness
 
