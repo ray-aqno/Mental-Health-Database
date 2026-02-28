@@ -9,4 +9,5 @@
 *.db-wal
 MentalHealthDatabase.Tests/
 Mental_Health_Database/
-Scripts/
+Scripts/*
+!Scripts/starter_colleges_data.json

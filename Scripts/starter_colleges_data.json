@@ -1,0 +1,522 @@
+[
+  {
+    "name": "Bowling Green State University",
+    "location": "Bowling Green, Ohio",
+    "latitude": 41.3748,
+    "longitude": -83.6361,
+    "website": "https://www.bgsu.edu",
+    "resources": [
+      {
+        "service_name": "Counseling and Mental Health Services",
+        "description": "We use cookies to provide you with the best experience and to help improve our website.",
+        "contact_email": "",
+        "contact_phone": "0026221013",
+        "contact_website": "https://www.bgsu.edu/counseling-center.html",
+        "department": "Student Affairs",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": "Visit the website for more information about services for new students."
+      }
+    ],
+    "scraped_at": "2026-02-10T08:10:27.461858"
+  },
+  {
+    "name": "Case Western Reserve University",
+    "location": "Cleveland, Ohio",
+    "latitude": 41.5045,
+    "longitude": -81.6081,
+    "website": "https://www.case.edu",
+    "resources": [
+      {
+        "service_name": "Counseling and Mental Health Services",
+        "description": "Counseling Services at UH&CS includes group counseling, skill-based workshops, support spaces, prevention and recovery services, psychiatry, individual counseling, crisis intervention and care management. Students can choose to make virtual or in-person appointments.",
+        "contact_email": "uhcs@case.edu",
+        "contact_phone": "(216) 368-5872",
+        "contact_website": "https://case.edu/studentlife/healthcounseling/counseling-services",
+        "department": "Student Affairs",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": "Visit the website for more information about services for new students."
+      }
+    ],
+    "scraped_at": "2026-02-10T08:09:54.582721"
+  },
+  {
+    "name": "Miami University",
+    "location": "Oxford, Ohio",
+    "latitude": 39.5097,
+    "longitude": -84.733,
+    "website": "https://www.miamioh.edu",
+    "resources": [
+      {
+        "service_name": "Counseling and Mental Health Services",
+        "description": "The Miami Student Counseling Service provides mental health interventions to assist students in developing and maintaining healthy personal, emotional, and psychological functioning.",
+        "contact_email": "StudentCounseling@MiamiOH.edu",
+        "contact_phone": "513-529-4634",
+        "contact_website": "https://miamioh.edu/life-at-miami/health-well-being/student-counseling-service/",
+        "department": "Student Affairs",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": "Visit the website for more information about services for new students."
+      }
+    ],
+    "scraped_at": "2026-02-10T08:10:16.785248"
+  },
+  {
+    "name": "Ohio Dominican University",
+    "location": "Columbus, Ohio",
+    "latitude": 39.9951,
+    "longitude": -83.0094,
+    "website": "https://www.ohiodominican.edu",
+    "resources": [
+      {
+        "service_name": "Counseling and Mental Health Services",
+        "description": "Unfortunately, the URL you entered or link that you clicked returned an Error Code: 404 (file not found). The resource you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+        "contact_email": "",
+        "contact_phone": "614-251-4500",
+        "contact_website": "https://www.ohiodominican.edu/campus-life/student-services/counseling",
+        "department": "Student Affairs",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": "Visit the website for more information about services for new students."
+      }
+    ],
+    "scraped_at": "2026-02-10T08:11:10.569531"
+  },
+  {
+    "name": "Ohio University",
+    "location": "Athens, Ohio",
+    "latitude": 39.3292,
+    "longitude": -82.1013,
+    "website": "https://www.ohio.edu",
+    "resources": [
+      {
+        "service_name": "Counseling and Mental Health Services",
+        "description": "Helpful Links",
+        "contact_email": "",
+        "contact_phone": "740-593-1616",
+        "contact_website": "https://www.ohio.edu/counseling",
+        "department": "Student Affairs",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": "Visit the website for more information about services for new students."
+      }
+    ],
+    "scraped_at": "2026-02-10T08:11:01.591043"
+  },
+  {
+    "name": "Purdue University",
+    "location": "West Lafayette, Indiana",
+    "latitude": 40.4237,
+    "longitude": -86.9212,
+    "website": "https://www.purdue.edu",
+    "resources": [
+      {
+        "service_name": "Counseling and Mental Health Services",
+        "description": "Counseling and Psychological Services (CAPS) offers same-day/next-day services for any student seeking care with no predefined session limits and most services are free. Treatment services are brief and based on need. CAPS offers 24/7 access to crisis services by calling their main line at (765) 494-6995.",
+        "contact_email": "",
+        "contact_phone": "(765) 494-6995",
+        "contact_website": "https://www.purdue.edu/caps/",
+        "department": "Student Affairs",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": "Visit the website for more information about services for new students."
+      }
+    ],
+    "scraped_at": "2026-02-10T08:11:15.841249"
+  },
+  {
+    "name": "The Ohio State University",
+    "location": "Columbus, Ohio",
+    "latitude": 40.0067,
+    "longitude": -83.0305,
+    "website": "https://www.osu.edu",
+    "resources": [
+      {
+        "service_name": "Counseling and Mental Health Services",
+        "description": "Reach out today.",
+        "contact_email": "sl-ccs@osu.edu",
+        "contact_phone": "614-292-5766",
+        "contact_website": "https://ccs.osu.edu/",
+        "department": "Student Affairs",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": "Visit the website for more information about services for new students."
+      }
+    ],
+    "scraped_at": "2026-02-10T08:10:00.882453"
+  },
+  {
+    "name": "University of Akron",
+    "location": "Akron, Ohio",
+    "latitude": 41.0747,
+    "longitude": -81.5129,
+    "website": "https://www.uakron.edu",
+    "resources": [
+      {
+        "service_name": "Counseling and Mental Health Services",
+        "description": "Every spring we host Taking Care Week - a week of wellness activities and presentations! For a schedule of last spring's events, please visit:",
+        "contact_email": "",
+        "contact_phone": "0078004613",
+        "contact_website": "https://www.uakron.edu/counseling/",
+        "department": "Student Affairs",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": "Visit the website for more information about services for new students."
+      }
+    ],
+    "scraped_at": "2026-02-10T08:11:20.719455"
+  },
+  {
+    "name": "University of Cincinnati",
+    "location": "Cincinnati, Ohio",
+    "latitude": 39.1329,
+    "longitude": -84.515,
+    "website": "https://www.uc.edu",
+    "resources": [
+      {
+        "service_name": "Connect with CAPS Counselors",
+        "description": "",
+        "contact_email": "",
+        "contact_phone": "",
+        "contact_website": "",
+        "department": "",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": ""
+      },
+      {
+        "service_name": "Crisis Support",
+        "description": "",
+        "contact_email": "",
+        "contact_phone": "",
+        "contact_website": "",
+        "department": "",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": ""
+      },
+      {
+        "service_name": "UC Tools",
+        "description": "",
+        "contact_email": "",
+        "contact_phone": "",
+        "contact_website": "",
+        "department": "",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": ""
+      },
+      {
+        "service_name": "About Us",
+        "description": "",
+        "contact_email": "",
+        "contact_phone": "",
+        "contact_website": "",
+        "department": "",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": ""
+      }
+    ],
+    "scraped_at": "2026-02-10T08:09:49.605172"
+  },
+  {
+    "name": "University of Dayton",
+    "location": "Dayton, Ohio",
+    "latitude": 39.74,
+    "longitude": -84.18,
+    "website": "https://www.udayton.edu",
+    "resources": [
+      {
+        "service_name": "Counseling and Mental Health Services",
+        "description": "You tried to get to: https://udayton.edu/studev/counselingcenter/",
+        "contact_email": "itservicecenter@udayton.edu",
+        "contact_phone": "(937) 229-3888",
+        "contact_website": "https://udayton.edu/error_page.php?errorDomain=udayton.edu&errorPath=%2Fstudev%2Fcounselingcenter%2F",
+        "department": "Student Affairs",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": "Visit the website for more information about services for new students."
+      }
+    ],
+    "scraped_at": "2026-02-10T08:11:36.327848"
+  },
+  {
+    "name": "University of Toledo",
+    "location": "Toledo, Ohio",
+    "latitude": 41.6528,
+    "longitude": -83.6147,
+    "website": "https://www.utoledo.edu",
+    "resources": [
+      {
+        "service_name": "Contact Us",
+        "description": "",
+        "contact_email": "",
+        "contact_phone": "419.530.2426",
+        "contact_website": "",
+        "department": "",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": ""
+      },
+      {
+        "service_name": "Community of Care",
+        "description": "",
+        "contact_email": "",
+        "contact_phone": "419-530-2273",
+        "contact_website": "",
+        "department": "",
+        "office_hours": "Mantra Health app to connect with self help tools, 24/7 phone support, and virtual support 12 pm- 12 am",
+        "location": "Center Billing for Services At the Counseling Center we value transparancy and feedback",
+        "freshman_notes": ""
+      },
+      {
+        "service_name": "Oops, page not found",
+        "description": "",
+        "contact_email": "",
+        "contact_phone": "",
+        "contact_website": "",
+        "department": "",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": ""
+      },
+      {
+        "service_name": "Weather Information",
+        "description": "",
+        "contact_email": "",
+        "contact_phone": "",
+        "contact_website": "",
+        "department": "",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": ""
+      },
+      {
+        "service_name": "Highlights",
+        "description": "",
+        "contact_email": "",
+        "contact_phone": "",
+        "contact_website": "",
+        "department": "",
+        "office_hours": "",
+        "location": "",
+        "freshman_notes": ""
+      }
+    ],
+    "scraped_at": "2026-02-10T08:11:48.882442"
+  },
+  {
+    "name": "Xavier University",
+    "location": "Cincinnati, Ohio",
+    "latitude": 39.1484,
+    "longitude": -84.4745,
+    "website": "https://www.xavier.edu",
+    "resources": [],
+    "scraped_at": "2026-02-10T08:12:03.214342"
+  },
+  {
+    "name": "Kent State University",
+    "location": "Kent, Ohio",
+    "latitude": 41.1487,
+    "longitude": -81.3442,
+    "website": "https://www.kent.edu",
+    "resources": [
+      {
+        "service_name": "Counseling and Psychological Services (CPS)",
+        "description": "CPS provides confidential counseling services to help students with personal, social, and academic concerns. Services include individual counseling, group therapy, psychiatric services, and crisis intervention.",
+        "contact_email": "cps@kent.edu",
+        "contact_phone": "330-672-2487",
+        "contact_website": "https://www.kent.edu/cps",
+        "department": "Student Affairs",
+        "office_hours": "Monday-Friday, 8:00 AM - 5:00 PM",
+        "location": "DeWeese Health Center, 2nd Floor",
+        "freshman_notes": "New students can schedule an initial consultation online. Walk-in hours available for urgent concerns. All services are free and confidential."
+      },
+      {
+        "service_name": "24/7 Crisis Support",
+        "description": "After-hours crisis support available through Partnership Crisis Hotline",
+        "contact_email": "",
+        "contact_phone": "330-678-4357",
+        "contact_website": "https://www.kent.edu/cps/crisis-resources",
+        "department": "Student Affairs",
+        "office_hours": "24/7",
+        "location": "Phone support",
+        "freshman_notes": "Available anytime outside of regular business hours for students in crisis."
+      }
+    ],
+    "scraped_at": "2026-02-10T14:30:00.000000"
+  },
+  {
+    "name": "Cleveland State University",
+    "location": "Cleveland, Ohio",
+    "latitude": 41.5017,
+    "longitude": -81.6753,
+    "website": "https://www.csuohio.edu",
+    "resources": [
+      {
+        "service_name": "Counseling Services",
+        "description": "CSU Counseling Services offers individual counseling, group therapy, workshops, and psychiatric consultations. Services address anxiety, depression, relationships, academic stress, and life transitions.",
+        "contact_email": "counseling@csuohio.edu",
+        "contact_phone": "216-687-2277",
+        "contact_website": "https://www.csuohio.edu/counseling",
+        "department": "Student Life",
+        "office_hours": "Monday-Friday, 8:30 AM - 5:00 PM",
+        "location": "Main Classroom Building, Room 256",
+        "freshman_notes": "First-year students can schedule initial appointments online or by phone. Same-day crisis consultations available during business hours."
+      },
+      {
+        "service_name": "Student Health Services - Mental Health",
+        "description": "Provides psychiatric evaluations, medication management, and referrals for mental health concerns.",
+        "contact_email": "health.services@csuohio.edu",
+        "contact_phone": "216-687-2450",
+        "contact_website": "https://www.csuohio.edu/health-services",
+        "department": "Student Life",
+        "office_hours": "Monday-Friday, 8:30 AM - 5:00 PM",
+        "location": "Main Classroom Building, Room 110",
+        "freshman_notes": "Medical services complement counseling support. Insurance accepted."
+      }
+    ],
+    "scraped_at": "2026-02-10T14:30:00.000000"
+  },
+  {
+    "name": "Youngstown State University",
+    "location": "Youngstown, Ohio",
+    "latitude": 41.1098,
+    "longitude": -80.6495,
+    "website": "https://www.ysu.edu",
+    "resources": [
+      {
+        "service_name": "Counseling Services",
+        "description": "YSU Counseling Services provides individual counseling, crisis intervention, group therapy, outreach programming, and consultation services. Specializes in helping students with stress management, anxiety, depression, and adjustment issues.",
+        "contact_email": "counseling@ysu.edu",
+        "contact_phone": "330-941-3737",
+        "contact_website": "https://ysu.edu/counseling",
+        "department": "Student Experience",
+        "office_hours": "Monday-Friday, 8:00 AM - 5:00 PM",
+        "location": "Cushwa Hall, Room 1059",
+        "freshman_notes": "Walk-in appointments welcome for new students. Online self-help resources available 24/7. All undergraduate students receive 10 free counseling sessions per academic year."
+      },
+      {
+        "service_name": "Crisis Text Line",
+        "description": "24/7 text-based crisis support for YSU students",
+        "contact_email": "",
+        "contact_phone": "Text HOME to 741741",
+        "contact_website": "https://ysu.edu/counseling/crisis",
+        "department": "Student Experience",
+        "office_hours": "24/7",
+        "location": "Text-based support",
+        "freshman_notes": "Free, confidential crisis support via text message, available anytime."
+      }
+    ],
+    "scraped_at": "2026-02-10T14:30:00.000000"
+  },
+  {
+    "name": "Cincinnati State Technical and Community College",
+    "location": "Cincinnati, Ohio",
+    "latitude": 39.1118,
+    "longitude": -84.5364,
+    "website": "https://www.cincinnatistate.edu",
+    "resources": [
+      {
+        "service_name": "Counseling Services",
+        "description": "Cincinnati State offers free, confidential counseling for students dealing with stress, anxiety, depression, relationship issues, and academic concerns. Short-term individual counseling and referrals to community resources available.",
+        "contact_email": "counseling@cincinnatistate.edu",
+        "contact_phone": "513-569-1666",
+        "contact_website": "https://www.cincinnatistate.edu/counseling",
+        "department": "Student Services",
+        "office_hours": "Monday-Thursday, 8:00 AM - 6:00 PM; Friday, 8:00 AM - 4:30 PM",
+        "location": "Main Campus, Student Success Center",
+        "freshman_notes": "New students should call or visit the Student Success Center to schedule an intake appointment. Crisis walk-ins accepted during business hours."
+      },
+      {
+        "service_name": "Mental Health Resources and Referrals",
+        "description": "Connections to community mental health providers and crisis services for ongoing care needs.",
+        "contact_email": "studentservices@cincinnatistate.edu",
+        "contact_phone": "513-569-1555",
+        "contact_website": "https://www.cincinnatistate.edu/student-resources",
+        "department": "Student Services",
+        "office_hours": "Monday-Friday, 8:00 AM - 5:00 PM",
+        "location": "Student Services Office",
+        "freshman_notes": "Staff can help connect students to off-campus resources for longer-term care."
+      }
+    ],
+    "scraped_at": "2026-02-10T14:30:00.000000"
+  },
+  {
+    "name": "Denison University",
+    "location": "Granville, Ohio",
+    "latitude": 40.0746,
+    "longitude": -82.522,
+    "website": "https://denison.edu",
+    "resources": [
+      {
+        "service_name": "Counseling and Wellness Services",
+        "description": "Denison's Whisler Center provides individual counseling, group therapy, psychiatric services, and wellness programming. Services address mental health concerns including anxiety, depression, eating disorders, substance use, and identity development.",
+        "contact_email": "whisler@denison.edu",
+        "contact_phone": "740-587-6647",
+        "contact_website": "https://denison.edu/campus/wellness",
+        "department": "Wellness",
+        "office_hours": "Monday-Friday, 8:30 AM - 5:00 PM",
+        "location": "Whisler Center for Student Wellness",
+        "freshman_notes": "First-year students are encouraged to attend wellness orientation sessions. Walk-in consultations available daily. Unlimited counseling sessions available to all students."
+      },
+      {
+        "service_name": "24/7 Crisis Support - TimelyCare",
+        "description": "Free virtual mental health support available 24/7 through TimelyCare app for all Denison students.",
+        "contact_email": "",
+        "contact_phone": "Available through TimelyCare app",
+        "contact_website": "https://denison.edu/campus/wellness/telehealth",
+        "department": "Wellness",
+        "office_hours": "24/7",
+        "location": "Virtual/Telehealth",
+        "freshman_notes": "Download the TimelyCare app for immediate access to counselors anytime, anywhere."
+      }
+    ],
+    "scraped_at": "2026-02-10T14:30:00.000000"
+  },
+  {
+    "name": "Kenyon College",
+    "location": "Gambier, Ohio",
+    "latitude": 40.3756,
+    "longitude": -82.3979,
+    "website": "https://www.kenyon.edu",
+    "resources": [
+      {
+        "service_name": "Counseling Center",
+        "description": "The Kenyon Counseling Center provides confidential individual therapy, group counseling, crisis intervention, and psychiatric services. Staff includes licensed psychologists and counselors who specialize in college student mental health.",
+        "contact_email": "counselingcenter@kenyon.edu",
+        "contact_phone": "740-427-5668",
+        "contact_website": "https://www.kenyon.edu/student-life/health-wellness/counseling",
+        "department": "Health and Wellness",
+        "office_hours": "Monday-Friday, 8:30 AM - 5:00 PM",
+        "location": "Cox Health and Counseling Center",
+        "freshman_notes": "New students can schedule appointments online through the patient portal. Same-day urgent care appointments available. All services are free and confidential."
+      },
+      {
+        "service_name": "After-Hours Crisis Support",
+        "description": "24/7 crisis counseling available through on-call counselor and partnership with Pathways of Central Ohio.",
+        "contact_email": "",
+        "contact_phone": "740-427-5000 (Campus Safety - ask for on-call counselor)",
+        "contact_website": "https://www.kenyon.edu/student-life/health-wellness/crisis-resources",
+        "department": "Health and Wellness",
+        "office_hours": "24/7",
+        "location": "Phone support through Campus Safety",
+        "freshman_notes": "In a mental health emergency after hours, call Campus Safety and they will connect you with the on-call counselor immediately."
+      },
+      {
+        "service_name": "Wellness Programming",
+        "description": "Workshops, support groups, and wellness activities focused on stress management, mindfulness, sleep, and healthy relationships.",
+        "contact_email": "wellness@kenyon.edu",
+        "contact_phone": "740-427-5671",
+        "contact_website": "https://www.kenyon.edu/student-life/health-wellness/wellness-programs",
+        "department": "Health and Wellness",
+        "office_hours": "Various program times",
+        "location": "Cox Health and Counseling Center",
+        "freshman_notes": "First-year students are encouraged to attend wellness workshops during orientation and throughout the year."
+      }
+    ],
+    "scraped_at": "2026-02-10T14:30:00.000000"
+  }
+]

@@ -24,6 +24,14 @@
     <None Remove="Mental_Health_Database\**" />
   </ItemGroup>
 
+  <!-- Include seed data in published output -->
+  <ItemGroup>
+    <None Update="Scripts\starter_colleges_data.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.3" />
