@@ -6,12 +6,12 @@ WORKDIR /src
 COPY MentalHealthDatabase.csproj .
 RUN dotnet restore MentalHealthDatabase.csproj
 
-# Copy everything else and publish as self-contained
+# Copy everything else and publish as framework-dependent (no runtime bundled)
 COPY . .
-RUN dotnet publish MentalHealthDatabase.csproj -c Release -o /app/publish --self-contained true -r linux-x64
+RUN dotnet publish MentalHealthDatabase.csproj -c Release -o /app/publish
 
-# Runtime stage - use bookworm-slim which includes apt-get
-FROM mcr.microsoft.com/dotnet/runtime-deps:8.0-bookworm-slim AS runtime
+# Runtime stage - use full runtime for framework-dependent deployment
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-bookworm-slim AS runtime
 WORKDIR /app
 
 # Install Python and required packages for the importer
