@@ -1,5 +1,5 @@
 # Build stage
-FROM mcr.microsoft.com/dotnet/sdk:10.0-preview AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy project file and restore dependencies
@@ -11,7 +11,7 @@ COPY . .
 RUN dotnet publish MentalHealthDatabase.csproj -c Release -o /app/publish --self-contained true -r linux-x64
 
 # Runtime stage - use bookworm-slim which includes apt-get
-FROM mcr.microsoft.com/dotnet/runtime-deps:10.0-preview-bookworm-slim AS runtime
+FROM mcr.microsoft.com/dotnet/runtime-deps:8.0-bookworm-slim AS runtime
 WORKDIR /app
 
 # Install Python and required packages for the importer
