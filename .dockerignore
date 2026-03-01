@@ -11,3 +11,5 @@ MentalHealthDatabase.Tests/
 Mental_Health_Database/
 Scripts/*
 !Scripts/starter_colleges_data.json
+!Scripts/scraped_colleges_data.json
+!Scripts/importer.py

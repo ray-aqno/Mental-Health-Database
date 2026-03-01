@@ -14,13 +14,28 @@ RUN dotnet publish MentalHealthDatabase.csproj -c Release -o /app/publish --self
 FROM mcr.microsoft.com/dotnet/runtime-deps:10.0-preview AS runtime
 WORKDIR /app
 
+# Install Python and required packages for the importer
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 \
+    python3-pip \
+    curl \
+    && rm -rf /var/lib/apt/lists/* \
+    && pip3 install --no-cache-dir requests urllib3
+
 # Copy published output
 COPY --from=build /app/publish .
 
-# Make the executable runnable
-RUN chmod +x /app/MentalHealthDatabase
+# Copy Scripts folder (importer + data files)
+COPY Scripts/ ./Scripts/
+
+# Copy startup script
+COPY start.sh ./
+
+# Make the executable and startup script runnable
+RUN chmod +x /app/MentalHealthDatabase && \
+    chmod +x /app/start.sh
 
 ENV ASPNETCORE_URLS=http://+:10000
 EXPOSE 10000
 
-CMD ["/app/MentalHealthDatabase"]
+CMD ["/app/start.sh"]
