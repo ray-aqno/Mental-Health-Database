@@ -10,8 +10,8 @@ RUN dotnet restore MentalHealthDatabase.csproj
 COPY . .
 RUN dotnet publish MentalHealthDatabase.csproj -c Release -o /app/publish --self-contained true -r linux-x64
 
-# Runtime stage - no .NET needed since it's self-contained
-FROM mcr.microsoft.com/dotnet/runtime-deps:10.0-preview AS runtime
+# Runtime stage - use bookworm-slim which includes apt-get
+FROM mcr.microsoft.com/dotnet/runtime-deps:10.0-preview-bookworm-slim AS runtime
 WORKDIR /app
 
 # Install Python and required packages for the importer
@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-pip \
     curl \
     && rm -rf /var/lib/apt/lists/* \
-    && pip3 install --no-cache-dir requests urllib3
+    && pip3 install --no-cache-dir --break-system-packages requests urllib3
 
 # Copy published output
 COPY --from=build /app/publish .
