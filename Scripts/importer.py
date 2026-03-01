@@ -25,8 +25,8 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 DEFAULT_API_BASE = "http://localhost:58346/api"
 DEFAULT_DATA_FILE = "scraped_colleges_data.json"
 
-# Validation thresholds
-MIN_DESCRIPTION_LENGTH = 20
+# Validation thresholds - relaxed for real-world scraped data
+MIN_DESCRIPTION_LENGTH = 10
 
 
 def validate_email(email):
@@ -38,11 +38,12 @@ def validate_email(email):
 
 
 def validate_phone(phone):
-    """Validate phone format."""
+    """Validate phone format - lenient for scraped data."""
     if not phone:
         return True
-    cleaned = re.sub(r'[\s\-\(\)\.]', '', phone)
-    return cleaned.isdigit() and len(cleaned) >= 10
+    # Allow any reasonable phone-like string (digits, spaces, dashes, parens, dots, plus)
+    cleaned = re.sub(r'[\s\-\(\)\.\+]', '', phone)
+    return len(cleaned) >= 7 and cleaned.replace('x', '').isdigit()
 
 
 def validate_resource(resource):
