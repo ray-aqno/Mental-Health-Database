@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import json; data = json.load\\(open\\('/mnt/c/Users/raygo/source/repos/Mental_Health_Database/Scripts/college_targets.json'\\)\\); print\\(f'Total colleges: {len\\(data[\\\\\"colleges\\\\\"]\\)}'\\)\")",
+      "Bash(python3 -c \"\nimport json\ndata = json.load\\(open\\('/mnt/c/Users/raygo/source/repos/Mental_Health_Database/Scripts/college_targets.json'\\)\\)\nfrom collections import Counter\nstates = Counter\\(c['state'] for c in data['colleges']\\)\nprint\\('Colleges by state:'\\)\nfor state, count in sorted\\(states.items\\(\\)\\):\n    print\\(f'  {state}: {count}'\\)\nprint\\(f'\\\\nTotal: {sum\\(states.values\\(\\)\\)}'\\)\")",
+      "Bash(cd /mnt/c/Users/raygo/source/repos/Mental_Health_Database/Scripts && python3 -c \"\nfrom simple_scraper import CollegeScraper\nscraper = CollegeScraper\\(\\)\ncolleges = scraper.load_targets\\(\\)\nprint\\(f'Loaded {len\\(colleges\\)} colleges from targets'\\)\nprint\\(f'States: {set\\(c[\\\\\"state\\\\\"] for c in colleges\\)}'\\)\")",
+      "Bash(pip install beautifulsoup4 requests lxml -q && cd /mnt/c/Users/raygo/source/repos/Mental_Health_Database/Scripts && python3 -c \"\nfrom simple_scraper import CollegeScraper\nscraper = CollegeScraper\\(\\)\ncolleges = scraper.load_targets\\(\\)\nprint\\(f'Loaded {len\\(colleges\\)} colleges'\\)\nstates = set\\(c['state'] for c in colleges\\)\nprint\\(f'States: {sorted\\(states\\)}'\\)\")",
+      "Bash(pip3 install beautifulsoup4 requests lxml -q 2>/dev/null || python3 -m pip install beautifulsoup4 requests lxml -q)",
+      "Bash(python3 -m py_compile /mnt/c/Users/raygo/source/repos/Mental_Health_Database/Scripts/simple_scraper.py && echo \"Syntax OK\")",
+      "Bash(python3 -m py_compile /mnt/c/Users/raygo/source/repos/Mental_Health_Database/Scripts/validate_data.py && echo \"Syntax OK\")",
+      "Bash(python3 -m py_compile /mnt/c/Users/raygo/source/repos/Mental_Health_Database/Scripts/importer.py && echo \"Syntax OK\")",
+      "Bash(python3 -c \"\nimport json\nwith open\\('/mnt/c/Users/raygo/source/repos/Mental_Health_Database/Scripts/manual_ohio_schools.json'\\) as f:\n    data = json.load\\(f\\)\nprint\\('First entry keys:', list\\(data[0].keys\\(\\)\\) if data else 'empty'\\)\n\")",
+      "Bash(cd /mnt/c/Users/raygo/source/repos/Mental_Health_Database/Scripts && python3 simple_scraper.py 2>&1)"
+    ]
+  }
+}
