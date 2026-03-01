@@ -1,7 +1,6 @@
 """
-Simple College Mental Health Resource Scraper
-Lightweight alternative using requests + BeautifulSoup
-Targets: UC, OSU, Miami, Xavier, UDayton, OU, NKU, Wright State, Purdue, Case Western
+College Mental Health Resource Scraper
+Reads targets from college_targets.json and scrapes mental health service pages.
 """
 
 import requests
@@ -9,239 +8,149 @@ from bs4 import BeautifulSoup
 import re
 import json
 import time
+import os
 from datetime import datetime
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
+# Configuration
+TARGETS_FILE = os.path.join(os.path.dirname(__file__), 'college_targets.json')
+OUTPUT_FILE = os.path.join(os.path.dirname(__file__), 'scraped_colleges_data.json')
+MIN_QUALITY_SCORE = 30  # Minimum score to keep a resource (0-100)
 
-# College configuration
-COLLEGES_CONFIG = [
-    {
-        "name": "University of Cincinnati",
-        "short_name": "UC",
-        "location": "Cincinnati, Ohio",
-        "latitude": 39.1329,
-        "longitude": -84.5150,
-        "website": "https://www.uc.edu",
-        "mental_health_urls": [
-            "https://www.uc.edu/campus-life/caps.html",
-            "https://www.uc.edu/studentaffairs/counseling.html"
-        ]
-    },
-    {
-        "name": "The Ohio State University",
-        "short_name": "OSU",
-        "location": "Columbus, Ohio",
-        "latitude": 40.0067,
-        "longitude": -83.0305,
-        "website": "https://www.osu.edu",
-        "mental_health_urls": [
-            "https://ccs.osu.edu/",
-            "https://swc.osu.edu/"
-        ]
-    },
-    {
-        "name": "Miami University",
-        "short_name": "Miami",
-        "location": "Oxford, Ohio",
-        "latitude": 39.5097,
-        "longitude": -84.7330,
-        "website": "https://www.miamioh.edu",
-        "mental_health_urls": [
-            "https://miamioh.edu/student-life/student-counseling-service/",
-            "https://miamioh.edu/student-wellness/"
-        ]
-    },
-    {
-        "name": "Xavier University",
-        "short_name": "Xavier",
-        "location": "Cincinnati, Ohio",
-        "latitude": 39.1484,
-        "longitude": -84.4745,
-        "website": "https://www.xavier.edu",
-        "mental_health_urls": [
-            "https://www.xavier.edu/counseling/",
-            "https://www.xavier.edu/health-wellness/"
-        ]
-    },
-    {
-        "name": "University of Dayton",
-        "short_name": "UDayton",
-        "location": "Dayton, Ohio",
-        "latitude": 39.7400,
-        "longitude": -84.1800,
-        "website": "https://www.udayton.edu",
-        "mental_health_urls": [
-            "https://www.udayton.edu/studev/counselingcenter/",
-            "https://www.udayton.edu/studenthealth/"
-        ]
-    },
-    {
-        "name": "Ohio University",
-        "short_name": "OU",
-        "location": "Athens, Ohio",
-        "latitude": 39.3292,
-        "longitude": -82.1013,
-        "website": "https://www.ohio.edu",
-        "mental_health_urls": [
-            "https://www.ohio.edu/student-affairs/counseling",
-            "https://www.ohio.edu/wellness/"
-        ]
-    },
-    {
-        "name": "Northern Kentucky University",
-        "short_name": "NKU",
-        "location": "Highland Heights, Kentucky",
-        "latitude": 39.0325,
-        "longitude": -84.4661,
-        "website": "https://www.nku.edu",
-        "mental_health_urls": [
-            "https://www.nku.edu/academics/hhs/programs/counseling.html",
-            "https://inside.nku.edu/healthwellness.html"
-        ]
-    },
-    {
-        "name": "Wright State University",
-        "short_name": "Wright State",
-        "location": "Dayton, Ohio",
-        "latitude": 39.7806,
-        "longitude": -84.0533,
-        "website": "https://www.wright.edu",
-        "mental_health_urls": [
-            "https://www.wright.edu/student-affairs/student-counseling-and-wellness",
-            "https://www.wright.edu/wellness/"
-        ]
-    },
-    {
-        "name": "Purdue University",
-        "short_name": "Purdue",
-        "location": "West Lafayette, Indiana",
-        "latitude": 40.4237,
-        "longitude": -86.9212,
-        "website": "https://www.purdue.edu",
-        "mental_health_urls": [
-            "https://www.purdue.edu/caps/",
-            "https://www.purdue.edu/wellness/"
-        ]
-    },
-    {
-        "name": "Case Western Reserve University",
-        "short_name": "Case Western",
-        "location": "Cleveland, Ohio",
-        "latitude": 41.5045,
-        "longitude": -81.6081,
-        "website": "https://www.case.edu",
-        "mental_health_urls": [
-            "https://case.edu/studentlife/healthcounseling/counseling-services/",
-            "https://case.edu/wellness/"
-        ]
-    }
+# Quality indicators - words that suggest real content vs garbage
+QUALITY_KEYWORDS = [
+    'counseling', 'therapy', 'psychological', 'mental health', 'wellness',
+    'crisis', 'support', 'anxiety', 'depression', 'stress', 'appointment',
+    'session', 'confidential', 'psychiatry', 'psychologist', 'therapist'
+]
+
+# Garbage indicators - words that suggest error pages or cookie notices
+GARBAGE_KEYWORDS = [
+    '404', 'not found', 'error', 'page not found', 'cookie', 'cookies',
+    'accept', 'privacy policy', 'terms of use', 'javascript required',
+    'enable javascript', 'we use cookies', 'just a moment'
 ]
 
 
-class SimpleCollegeScraper:
+class CollegeScraper:
     def __init__(self):
         self.session = requests.Session()
         self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
         })
+        self.session.timeout = 15
         self.colleges_data = []
-
-    def scrape_all_colleges(self):
-        """Scrape all configured colleges"""
-        print(f"Starting scrape of {len(COLLEGES_CONFIG)} colleges...\n")
-        
-        for i, college_config in enumerate(COLLEGES_CONFIG, 1):
-            print(f"[{i}/{len(COLLEGES_CONFIG)}] Scraping {college_config['name']}...")
-            
-            college_data = self.scrape_college(college_config)
-            if college_data:
-                self.colleges_data.append(college_data)
-                print(f"  ✓ Found {len(college_data['resources'])} resources")
-            else:
-                print(f"  ✗ No resources found")
-            
-            # Be polite - wait between requests
-            time.sleep(2)
-            print()
-        
-        return self.colleges_data
-
-    def scrape_college(self, college_config):
-        """Scrape a single college's mental health resources"""
-        all_resources = []
-        
-        for url in college_config['mental_health_urls']:
-            try:
-                print(f"  Fetching: {url}")
-                response = self.session.get(url, timeout=10)
-                response.raise_for_status()
-                
-                soup = BeautifulSoup(response.content, 'html.parser')
-                resources = self.extract_resources(soup, url)
-                all_resources.extend(resources)
-                
-            except requests.RequestException as e:
-                print(f"  Error fetching {url}: {str(e)}")
-                continue
-        
-        # Deduplicate resources
-        unique_resources = self.deduplicate_resources(all_resources)
-        
-        # If no resources found, create a default one
-        if not unique_resources:
-            unique_resources = [self.create_default_resource(college_config)]
-        
-        college_data = {
-            "name": college_config['name'],
-            "location": college_config['location'],
-            "latitude": college_config['latitude'],
-            "longitude": college_config['longitude'],
-            "website": college_config['website'],
-            "resources": unique_resources,
-            "scraped_at": datetime.now().isoformat()
+        self.stats = {
+            'total': 0,
+            'success': 0,
+            'failed': 0,
+            'skipped': 0,
+            'low_quality': 0
         }
-        
-        return college_data
+
+    def load_targets(self):
+        """Load college targets from JSON file."""
+        with open(TARGETS_FILE, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return data['colleges']
+
+    def is_valid_url(self, url):
+        """Check if URL is valid and reachable."""
+        try:
+            parsed = urlparse(url)
+            return all([parsed.scheme, parsed.netloc])
+        except Exception:
+            return False
+
+    def fetch_page(self, url):
+        """Fetch a page with error handling."""
+        try:
+            response = self.session.get(url, timeout=15)
+            response.raise_for_status()
+            return response
+        except requests.RequestException as e:
+            return None
+
+    def score_content(self, soup, text):
+        """Score content quality (0-100)."""
+        score = 50  # Base score
+        text_lower = text.lower()
+
+        # Check for quality keywords
+        for keyword in QUALITY_KEYWORDS:
+            if keyword in text_lower:
+                score += 5
+
+        # Check for garbage keywords
+        for keyword in GARBAGE_KEYWORDS:
+            if keyword in text_lower:
+                score -= 15
+
+        # Check for actual content length
+        if len(text) > 200:
+            score += 10
+        if len(text) > 500:
+            score += 10
+
+        # Check for contact info (good sign)
+        if re.search(r'\b[\w.-]+@[\w.-]+\.\w+\b', text):  # Email
+            score += 10
+        if re.search(r'\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}', text):  # Phone
+            score += 10
+
+        return max(0, min(100, score))
 
     def extract_resources(self, soup, url):
-        """Extract mental health resources from HTML"""
+        """Extract mental health resources from HTML."""
         resources = []
-        
+
         # Remove script and style elements
-        for script in soup(["script", "style"]):
-            script.decompose()
-        
-        # Get page text
+        for element in soup(["script", "style", "nav", "footer", "header"]):
+            element.decompose()
+
         page_text = soup.get_text()
-        
-        # Strategy 1: Look for contact information sections
-        contact_sections = soup.find_all(['div', 'section', 'article'], class_=re.compile(r'contact|service|resource', re.I))
-        
-        if contact_sections:
-            for section in contact_sections[:5]:
-                resource = self.extract_resource_from_section(section, url)
-                if resource and resource.get('service_name'):
-                    resources.append(resource)
-        
-        # Strategy 2: Look for headings + following content
+
+        # Skip low-quality pages early
+        quality_score = self.score_content(soup, page_text)
+        if quality_score < MIN_QUALITY_SCORE:
+            return resources
+
+        # Strategy 1: Look for contact/service sections
+        contact_sections = soup.find_all(['div', 'section', 'article'],
+            class_=re.compile(r'contact|service|resource|info', re.I))
+
+        for section in contact_sections[:5]:
+            resource = self.extract_from_section(section, url)
+            if resource and resource.get('service_name'):
+                resources.append(resource)
+
+        # Strategy 2: Look for relevant headings
         headings = soup.find_all(['h1', 'h2', 'h3', 'h4'])
         for heading in headings[:10]:
             heading_text = heading.get_text(strip=True).lower()
-            if any(keyword in heading_text for keyword in ['counseling', 'mental health', 'wellness', 'caps', 'psychological']):
-                resource = self.extract_resource_near_heading(heading, url)
+            if any(kw in heading_text for kw in ['counseling', 'mental', 'wellness', 'caps', 'psych', 'health']):
+                resource = self.extract_near_heading(heading, url)
                 if resource:
                     resources.append(resource)
-        
-        # If no structured resources, create one from page content
+
+        # Strategy 3: Fallback - create from page content
         if not resources:
-            resource = self.extract_from_full_page(soup, page_text, url)
+            resource = self.extract_fallback(soup, page_text, url)
             if resource:
                 resources.append(resource)
-        
+
         return resources
 
-    def extract_resource_from_section(self, section, url):
-        """Extract resource data from a section element"""
+    def extract_from_section(self, section, url):
+        """Extract resource from a section element."""
+        section_text = section.get_text()
+
+        # Skip low-quality sections
+        if self.score_content(section, section_text) < MIN_QUALITY_SCORE:
+            return None
+
         resource = {
             "service_name": "",
             "description": "",
@@ -253,31 +162,28 @@ class SimpleCollegeScraper:
             "location": "",
             "freshman_notes": ""
         }
-        
-        # Get section text
-        section_text = section.get_text()
-        
-        # Service name from heading
+
+        # Get heading
         heading = section.find(['h1', 'h2', 'h3', 'h4', 'h5'])
         if heading:
             resource['service_name'] = self.clean_text(heading.get_text())
-        
-        # Description from paragraph
-        para = section.find('p')
-        if para:
-            resource['description'] = self.clean_text(para.get_text())[:500]
-        
+
+        # Get description from paragraphs
+        paragraphs = section.find_all('p')
+        descriptions = [p.get_text(strip=True) for p in paragraphs if len(p.get_text(strip=True)) > 30]
+        if descriptions:
+            resource['description'] = self.clean_text(descriptions[0])[:500]
+
         # Extract contact info
         resource['contact_email'] = self.extract_email(section_text)
         resource['contact_phone'] = self.extract_phone(section_text)
         resource['office_hours'] = self.extract_hours(section_text)
         resource['location'] = self.extract_location(section_text)
-        resource['freshman_notes'] = self.extract_freshman_info(section_text)
-        
+
         return resource
 
-    def extract_resource_near_heading(self, heading, url):
-        """Extract resource from content near a heading"""
+    def extract_near_heading(self, heading, url):
+        """Extract resource from content near a heading."""
         resource = {
             "service_name": self.clean_text(heading.get_text()),
             "description": "",
@@ -289,32 +195,31 @@ class SimpleCollegeScraper:
             "location": "",
             "freshman_notes": ""
         }
-        
-        # Get next siblings (following content)
+
+        # Get following content
         content_parts = []
         for sibling in heading.find_next_siblings(limit=5):
             if sibling.name in ['h1', 'h2', 'h3', 'h4']:
                 break
             content_parts.append(sibling.get_text())
-        
+
         content_text = ' '.join(content_parts)
-        
-        # Extract first paragraph as description
+
+        # Get description
         first_para = heading.find_next('p')
         if first_para:
             resource['description'] = self.clean_text(first_para.get_text())[:500]
-        
+
         # Extract contact info
         resource['contact_email'] = self.extract_email(content_text)
         resource['contact_phone'] = self.extract_phone(content_text)
         resource['office_hours'] = self.extract_hours(content_text)
         resource['location'] = self.extract_location(content_text)
-        resource['freshman_notes'] = self.extract_freshman_info(content_text)
-        
+
         return resource
 
-    def extract_from_full_page(self, soup, page_text, url):
-        """Extract resource from full page when no structure found"""
+    def extract_fallback(self, soup, page_text, url):
+        """Fallback extraction when no structure found."""
         resource = {
             "service_name": "Counseling and Mental Health Services",
             "description": "",
@@ -324,14 +229,14 @@ class SimpleCollegeScraper:
             "department": "Student Affairs",
             "office_hours": "",
             "location": "",
-            "freshman_notes": "Visit the website for information about services for new students."
+            "freshman_notes": "Visit the counseling center website for information about services."
         }
-        
+
         # Get main title
         title = soup.find('h1')
         if title:
             resource['service_name'] = self.clean_text(title.get_text())
-        
+
         # Get first meaningful paragraph
         paragraphs = soup.find_all('p')
         for para in paragraphs:
@@ -339,111 +244,177 @@ class SimpleCollegeScraper:
             if len(text) > 50:
                 resource['description'] = self.clean_text(text)[:500]
                 break
-        
-        # Extract contact info from full page
+
+        # Extract contact info
         resource['contact_email'] = self.extract_email(page_text)
         resource['contact_phone'] = self.extract_phone(page_text)
         resource['office_hours'] = self.extract_hours(page_text)
         resource['location'] = self.extract_location(page_text)
-        
-        return resource if resource['contact_email'] or resource['contact_phone'] else None
 
-    # Helper extraction methods
+        # Only return if we have some useful data
+        if resource['contact_email'] or resource['contact_phone'] or resource['description']:
+            return resource
+        return None
+
     def extract_email(self, text):
-        """Extract email address"""
+        """Extract email address."""
         match = re.search(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', text)
         return match.group(0) if match else ""
 
     def extract_phone(self, text):
-        """Extract phone number"""
+        """Extract phone number."""
         match = re.search(r'(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}', text)
         return match.group(0) if match else ""
 
     def extract_hours(self, text):
-        """Extract office hours"""
-        pattern = r'(Monday|Mon|M)[\s\w,-]*(Friday|Fri|F)[^\.]*(?:\d{1,2}[:\s]*(?:AM|PM|am|pm))'
+        """Extract office hours."""
+        pattern = r'(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)[\s\w,-]*(?:AM|PM|am|pm|\d{1,2}[:\s]\d{1,2})'
         match = re.search(pattern, text, re.IGNORECASE)
         return self.clean_text(match.group(0))[:200] if match else ""
 
     def extract_location(self, text):
-        """Extract location/address"""
-        location_keywords = ['room', 'building', 'hall', 'center', 'floor', 'suite', 'address']
-        for keyword in location_keywords:
-            pattern = rf'{keyword}\s+[\w\s,.-]{{10,100}}'
+        """Extract location/address."""
+        keywords = ['room', 'building', 'hall', 'center', 'floor', 'suite', 'address']
+        for keyword in keywords:
+            pattern = rf'{keyword}\s+[\w\s,.-]{{5,100}}'
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
                 return self.clean_text(match.group(0))[:200]
         return ""
 
-    def extract_freshman_info(self, text):
-        """Extract freshman-specific information"""
-        freshman_keywords = ['freshman', 'first-year', 'new student', 'incoming student', 'first year']
-        for keyword in freshman_keywords:
-            if keyword.lower() in text.lower():
-                # Get context around keyword
-                idx = text.lower().find(keyword.lower())
-                start = max(0, idx - 100)
-                end = min(len(text), idx + 300)
-                context = text[start:end]
-                return self.clean_text(context)
-        return ""
-
     def clean_text(self, text):
-        """Clean and normalize text"""
+        """Clean and normalize text."""
         if not text:
             return ""
         text = re.sub(r'\s+', ' ', text)
         return text.strip()
 
     def deduplicate_resources(self, resources):
-        """Remove duplicate resources"""
+        """Remove duplicate resources by name."""
         unique = {}
         for resource in resources:
-            name = resource.get('service_name', '')
+            name = resource.get('service_name', '').lower().strip()
             if name and name not in unique:
                 unique[name] = resource
         return list(unique.values())
 
-    def create_default_resource(self, college_config):
-        """Create a default resource entry"""
-        return {
-            "service_name": "Counseling and Mental Health Services",
-            "description": f"Mental health support services available to students at {college_config['name']}. Contact the counseling center for more information.",
-            "contact_email": "",
-            "contact_phone": "",
-            "contact_website": college_config['mental_health_urls'][0] if college_config['mental_health_urls'] else college_config['website'],
-            "department": "Student Affairs / Counseling Center",
-            "office_hours": "Please visit the website for current hours",
-            "location": "Check website for location details",
-            "freshman_notes": "New students should visit the counseling center website or contact them directly for information about available services."
-        }
+    def filter_low_quality(self, resources):
+        """Filter out low-quality resources."""
+        filtered = []
+        for resource in resources:
+            text = json.dumps(resource)
+            score = self.score_content(None, text)
+            if score >= MIN_QUALITY_SCORE:
+                filtered.append(resource)
+            else:
+                self.stats['low_quality'] += 1
+        return filtered
 
-    def save_to_json(self, filename='scraped_colleges_data.json'):
-        """Save scraped data to JSON file"""
-        with open(filename, 'w', encoding='utf-8') as f:
+    def scrape_college(self, college):
+        """Scrape mental health resources for a single college."""
+        all_resources = []
+        urls = college.get('mental_health_urls', [])
+
+        for url in urls:
+            if not self.is_valid_url(url):
+                continue
+
+            response = self.fetch_page(url)
+            if not response:
+                continue
+
+            soup = BeautifulSoup(response.content, 'html.parser')
+            resources = self.extract_resources(soup, url)
+            all_resources.extend(resources)
+
+            # Rate limiting
+            time.sleep(1)
+
+        # Deduplicate
+        unique_resources = self.deduplicate_resources(all_resources)
+
+        # Filter low quality
+        unique_resources = self.filter_low_quality(unique_resources)
+
+        return unique_resources
+
+    def scrape_all(self):
+        """Scrape all target colleges."""
+        colleges = self.load_targets()
+        self.stats['total'] = len(colleges)
+
+        print(f"Starting scrape of {len(colleges)} colleges...\n")
+
+        for i, college in enumerate(colleges, 1):
+            # Skip manual entries
+            if college.get('source') == 'manual':
+                print(f"[{i}/{len(colleges)}] {college['name']}: SKIP (manual entry)")
+                self.stats['skipped'] += 1
+                continue
+
+            print(f"[{i}/{len(colleges)}] Scraping {college['name']} ({college.get('state', 'unknown')})...")
+
+            resources = self.scrape_college(college)
+
+            college_data = {
+                "name": college['name'],
+                "location": college['location'],
+                "latitude": college['latitude'],
+                "longitude": college['longitude'],
+                "website": college['website'],
+                "resources": resources,
+                "scraped_at": datetime.now().isoformat()
+            }
+
+            if resources:
+                self.colleges_data.append(college_data)
+                print(f"  [OK] Found {len(resources)} resource(s)")
+                self.stats['success'] += 1
+            else:
+                print(f"  [FAIL] No resources found")
+                self.stats['failed'] += 1
+
+            time.sleep(1)  # Rate limiting between colleges
+
+        return self.colleges_data
+
+    def save_results(self):
+        """Save scraped data to JSON file."""
+        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             json.dump(self.colleges_data, f, indent=2, ensure_ascii=False)
-        print(f"\n✓ Saved {len(self.colleges_data)} colleges to {filename}")
+
+        print(f"\n[OK] Saved {len(self.colleges_data)} colleges to {OUTPUT_FILE}")
+
+    def print_stats(self):
+        """Print scraping statistics."""
+        print("\n" + "="*50)
+        print("SCRAPING STATISTICS")
+        print("="*50)
+        print(f"Total colleges:     {self.stats['total']}")
+        print(f"Successfully scraped: {self.stats['success']}")
+        print(f"Failed:            {self.stats['failed']}")
+        print(f"Skipped (manual):  {self.stats['skipped']}")
+        print(f"Low quality filtered: {self.stats['low_quality']}")
+        print("="*50)
 
 
 def main():
-    print("="*70)
-    print("College Mental Health Resource Scraper - Simple Version")
-    print("="*70)
-    print("\nTarget Colleges:")
-    for college in COLLEGES_CONFIG:
-        print(f"  • {college['name']} ({college['short_name']})")
-    print("\n" + "="*70 + "\n")
-    
-    scraper = SimpleCollegeScraper()
-    data = scraper.scrape_all_colleges()
-    
+    print("="*60)
+    print("College Mental Health Resource Scraper")
+    print("="*60)
+    print(f"Targets: {TARGETS_FILE}")
+    print(f"Output:  {OUTPUT_FILE}")
+    print("="*60 + "\n")
+
+    scraper = CollegeScraper()
+    data = scraper.scrape_all()
+
     if data:
-        scraper.save_to_json()
-        print(f"\n{'='*70}")
-        print(f"Scraping Complete! Collected data from {len(data)} colleges.")
-        print(f"{'='*70}\n")
+        scraper.save_results()
+        scraper.print_stats()
+        print(f"\n[OK] Complete! Scraped {len(data)} colleges.")
     else:
-        print("\n✗ No data collected. Please check URLs and try again.\n")
+        print("\n[FAIL] No data collected. Check URLs and try again.")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,722 @@
+{
+  "description": "Master list of 47 target colleges for mental health resource scraping. States: OH, KY, IN, IL, MI, PA, NY",
+  "states": [
+    "ohio",
+    "kentucky",
+    "indiana",
+    "illinois",
+    "michigan",
+    "pennsylvania",
+    "new york",
+    "wisconsin",
+    "minnesota",
+    "iowa",
+    "nebraska",
+    "maryland",
+    "new jersey"
+  ],
+  "colleges": [
+    {
+      "name": "Bowling Green State University",
+      "state": "ohio",
+      "location": "Bowling Green, Ohio",
+      "latitude": 41.3748,
+      "longitude": -83.6361,
+      "website": "https://www.bgsu.edu",
+      "mental_health_urls": [
+        "https://www.bgsu.edu/counseling-center.html",
+        "https://www.bgsu.edu/student-life/counseling-services.html"
+      ],
+      "source": "scraped"
+    },
+    {
+      "name": "Case Western Reserve University",
+      "state": "ohio",
+      "location": "Cleveland, Ohio",
+      "latitude": 41.5045,
+      "longitude": -81.6081,
+      "website": "https://www.case.edu",
+      "mental_health_urls": [
+        "https://case.edu/studentlife/healthcounseling/counseling-services",
+        "https://case.edu/wellness/"
+      ],
+      "source": "scraped"
+    },
+    {
+      "name": "Cleveland State University",
+      "state": "ohio",
+      "location": "Cleveland, Ohio",
+      "latitude": 41.5017,
+      "longitude": -81.6753,
+      "website": "https://www.csuohio.edu",
+      "mental_health_urls": [
+        "https://www.csuohio.edu/counseling",
+        "https://www.csuohio.edu/student-life/counseling-services"
+      ],
+      "source": "manual"
+    },
+    {
+      "name": "Kent State University",
+      "state": "ohio",
+      "location": "Kent, Ohio",
+      "latitude": 41.1487,
+      "longitude": -81.3442,
+      "website": "https://www.kent.edu",
+      "mental_health_urls": [
+        "https://www.kent.edu/cps",
+        "https://www.kent.edu/counseling"
+      ],
+      "source": "manual"
+    },
+    {
+      "name": "Miami University",
+      "state": "ohio",
+      "location": "Oxford, Ohio",
+      "latitude": 39.5097,
+      "longitude": -84.733,
+      "website": "https://www.miamioh.edu",
+      "mental_health_urls": [
+        "https://miamioh.edu/life-at-miami/health-well-being/student-counseling-service/",
+        "https://miamioh.edu/student-life/student-counseling-service/"
+      ],
+      "source": "scraped"
+    },
+    {
+      "name": "Ohio University",
+      "state": "ohio",
+      "location": "Athens, Ohio",
+      "latitude": 39.3292,
+      "longitude": -82.1013,
+      "website": "https://www.ohio.edu",
+      "mental_health_urls": [
+        "https://www.ohio.edu/counseling",
+        "https://www.ohio.edu/student-affairs/counseling"
+      ],
+      "source": "scraped"
+    },
+    {
+      "name": "The Ohio State University",
+      "state": "ohio",
+      "location": "Columbus, Ohio",
+      "latitude": 40.0067,
+      "longitude": -83.0305,
+      "website": "https://www.osu.edu",
+      "mental_health_urls": [
+        "https://ccs.osu.edu/",
+        "https://studentlife.osu.edu/counseling"
+      ],
+      "source": "scraped"
+    },
+    {
+      "name": "University of Akron",
+      "state": "ohio",
+      "location": "Akron, Ohio",
+      "latitude": 41.0747,
+      "longitude": -81.5129,
+      "website": "https://www.uakron.edu",
+      "mental_health_urls": [
+        "https://www.uakron.edu/counseling/",
+        "https://www.uakron.edu/student-life/counseling-services.html"
+      ],
+      "source": "scraped"
+    },
+    {
+      "name": "University of Cincinnati",
+      "state": "ohio",
+      "location": "Cincinnati, Ohio",
+      "latitude": 39.1329,
+      "longitude": -84.515,
+      "website": "https://www.uc.edu",
+      "mental_health_urls": [
+        "https://www.uc.edu/campus-life/caps.html",
+        "https://www.uc.edu/studentaffairs/counseling.html"
+      ],
+      "source": "scraped"
+    },
+    {
+      "name": "University of Dayton",
+      "state": "ohio",
+      "location": "Dayton, Ohio",
+      "latitude": 39.74,
+      "longitude": -84.18,
+      "website": "https://www.udayton.edu",
+      "mental_health_urls": [
+        "https://www.udayton.edu/studev/counselingcenter/",
+        "https://www.udayton.edu/student-development/counseling-center.html"
+      ],
+      "source": "scraped"
+    },
+    {
+      "name": "University of Toledo",
+      "state": "ohio",
+      "location": "Toledo, Ohio",
+      "latitude": 41.6528,
+      "longitude": -83.6147,
+      "website": "https://www.utoledo.edu",
+      "mental_health_urls": [
+        "https://www.utoledo.edu/students/counseling/",
+        "https://www.utoledo.edu/healthservices/counseling.html"
+      ],
+      "source": "scraped"
+    },
+    {
+      "name": "Youngstown State University",
+      "state": "ohio",
+      "location": "Youngstown, Ohio",
+      "latitude": 41.1098,
+      "longitude": -80.6495,
+      "website": "https://www.ysu.edu",
+      "mental_health_urls": [
+        "https://ysu.edu/counseling",
+        "https://www.ysu.edu/student-services/counseling-services.html"
+      ],
+      "source": "manual"
+    },
+    {
+      "name": "Northern Kentucky University",
+      "state": "kentucky",
+      "location": "Highland Heights, Kentucky",
+      "latitude": 39.0325,
+      "longitude": -84.4661,
+      "website": "https://www.nku.edu",
+      "mental_health_urls": [
+        "https://www.nku.edu/studentaffairs/healthwellness.html",
+        "https://nku.medicatconnect.com/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "University of Kentucky",
+      "state": "kentucky",
+      "location": "Lexington, Kentucky",
+      "latitude": 38.0346,
+      "longitude": -84.5037,
+      "website": "https://www.uky.edu",
+      "mental_health_urls": [
+        "https://www.uky.edu/counseling/",
+        "https://www.uky.edu/studentlife/counseling-services"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "University of Louisville",
+      "state": "kentucky",
+      "location": "Louisville, Kentucky",
+      "latitude": 38.2159,
+      "longitude": -85.7588,
+      "website": "https://louisville.edu",
+      "mental_health_urls": [
+        "https://louisville.edu/counseling",
+        "https://louisville.edu/studentwellness/counseling"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Western Kentucky University",
+      "state": "kentucky",
+      "location": "Bowling Green, Kentucky",
+      "latitude": 36.9868,
+      "longitude": -86.4557,
+      "website": "https://www.wku.edu",
+      "mental_health_urls": [
+        "https://www.wku.edu/counseling/",
+        "https://www.wku.edu/student-services/counseling-services.html"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Murray State University",
+      "state": "kentucky",
+      "location": "Murray, Kentucky",
+      "latitude": 36.6123,
+      "longitude": -88.3272,
+      "website": "https://www.murraystate.edu",
+      "mental_health_urls": [
+        "https://www.murraystate.edu/counseling",
+        "https://www.murraystate.edu/student-services/counseling-services.html"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Eastern Kentucky University",
+      "state": "kentucky",
+      "location": "Richmond, Kentucky",
+      "latitude": 37.7486,
+      "longitude": -84.3052,
+      "website": "https://www.eku.edu",
+      "mental_health_urls": [
+        "https://www.eku.edu/counselingcenter/",
+        "https://www.eku.edu/student-services/counseling/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Purdue University",
+      "state": "indiana",
+      "location": "West Lafayette, Indiana",
+      "latitude": 40.4237,
+      "longitude": -86.9212,
+      "website": "https://www.purdue.edu",
+      "mental_health_urls": [
+        "https://www.purdue.edu/caps/",
+        "https://www.purdue.edu/wellness/"
+      ],
+      "source": "scraped"
+    },
+    {
+      "name": "Indiana University Bloomington",
+      "state": "indiana",
+      "location": "Bloomington, Indiana",
+      "latitude": 39.1682,
+      "longitude": -86.523,
+      "website": "https://www.iu.edu",
+      "mental_health_urls": [
+        "https://studentaffairs.iu.edu/counseling/",
+        "https://healthcenter.iu.edu/counseling/index.html"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Ball State University",
+      "state": "indiana",
+      "location": "Muncie, Indiana",
+      "latitude": 40.2044,
+      "longitude": -85.4113,
+      "website": "https://www.bsu.edu",
+      "mental_health_urls": [
+        "https://www.bsu.edu/counselingcenter",
+        "https://www.bsu.edu/student-services/counseling"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "University of Notre Dame",
+      "state": "indiana",
+      "location": "Notre Dame, Indiana",
+      "latitude": 41.7055,
+      "longitude": -86.2353,
+      "website": "https://www.nd.edu",
+      "mental_health_urls": [
+        "https://counselingcenter.nd.edu/",
+        "https://www.nd.edu/student-services/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Indiana State University",
+      "state": "indiana",
+      "location": "Terre Haute, Indiana",
+      "latitude": 39.4706,
+      "longitude": -87.4086,
+      "website": "https://www.indstate.edu",
+      "mental_health_urls": [
+        "https://www.indstate.edu/counseling",
+        "https://www.indstate.edu/student-affairs/counseling-services"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "University of Illinois Urbana-Champaign",
+      "state": "illinois",
+      "location": "Champaign, Illinois",
+      "latitude": 40.102,
+      "longitude": -88.2272,
+      "website": "https://illinois.edu",
+      "mental_health_urls": [
+        "https://www.counselingcenter.illinois.edu/",
+        "https://www.mckinley.illinois.edu/counseling"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "University of Chicago",
+      "state": "illinois",
+      "location": "Chicago, Illinois",
+      "latitude": 41.7886,
+      "longitude": -87.5987,
+      "website": "https://www.uchicago.edu",
+      "mental_health_urls": [
+        "https://wellness.uchicago.edu/",
+        "https://counseling.uchicago.edu/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Northwestern University",
+      "state": "illinois",
+      "location": "Evanston, Illinois",
+      "latitude": 42.0565,
+      "longitude": -87.6753,
+      "website": "https://www.northwestern.edu",
+      "mental_health_urls": [
+        "https://www.northwestern.edu/counseling/",
+        "https://www.northwestern.edu/student-affairs/counseling-services"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Illinois State University",
+      "state": "illinois",
+      "location": "Normal, Illinois",
+      "latitude": 40.5106,
+      "longitude": -89.0153,
+      "website": "https://illinoisstate.edu",
+      "mental_health_urls": [
+        "https://counseling.illinoisstate.edu/",
+        "https://www.illinoisstate.edu/counseling/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Northern Illinois University",
+      "state": "illinois",
+      "location": "DeKalb, Illinois",
+      "latitude": 41.9465,
+      "longitude": -88.7679,
+      "website": "https://www.niu.edu",
+      "mental_health_urls": [
+        "https://www.niu.edu/counseling/",
+        "https://www.niu.edu/cap/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Southern Illinois University Carbondale",
+      "state": "illinois",
+      "location": "Carbondale, Illinois",
+      "latitude": 37.709,
+      "longitude": -89.2172,
+      "website": "https://siu.edu",
+      "mental_health_urls": [
+        "https://counseling.siu.edu/",
+        "https://wellness.siu.edu/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "University of Michigan",
+      "state": "michigan",
+      "location": "Ann Arbor, Michigan",
+      "latitude": 42.278,
+      "longitude": -83.7382,
+      "website": "https://umich.edu",
+      "mental_health_urls": [
+        "https://caps.umich.edu/",
+        "https://www.umich.edu/~caps/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Michigan State University",
+      "state": "michigan",
+      "location": "East Lansing, Michigan",
+      "latitude": 42.7018,
+      "longitude": -84.4822,
+      "website": "https://msu.edu",
+      "mental_health_urls": [
+        "https://counseling.msu.edu/",
+        "https://msu.edu/counseling/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Wayne State University",
+      "state": "michigan",
+      "location": "Detroit, Michigan",
+      "latitude": 42.3591,
+      "longitude": -83.0688,
+      "website": "https://wayne.edu",
+      "mental_health_urls": [
+        "https://wayne.edu/counseling/",
+        "https://wayne.edu/health/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Central Michigan University",
+      "state": "michigan",
+      "location": "Mount Pleasant, Michigan",
+      "latitude": 43.5887,
+      "longitude": -84.775,
+      "website": "https://cmich.edu",
+      "mental_health_urls": [
+        "https://www.cmich.edu/pages.aspx?cn=3440",
+        "https://www.cmich.edu/student-affairs/counseling-center"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Western Michigan University",
+      "state": "michigan",
+      "location": "Kalamazoo, Michigan",
+      "latitude": 42.2832,
+      "longitude": -85.5796,
+      "website": "https://wmich.edu",
+      "mental_health_urls": [
+        "https://wmich.edu/counseling/",
+        "https://wmich.edu/health-services/counseling"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Oakland University",
+      "state": "michigan",
+      "location": "Rochester Hills, Michigan",
+      "latitude": 42.6714,
+      "longitude": -83.2148,
+      "website": "https://oakland.edu",
+      "mental_health_urls": [
+        "https://www.oakland.edu/counseling/",
+        "https://www.oakland.edu/sds/counseling"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Penn State University",
+      "state": "pennsylvania",
+      "location": "University Park, Pennsylvania",
+      "latitude": 40.7982,
+      "longitude": -77.8599,
+      "website": "https://psu.edu",
+      "mental_health_urls": [
+        "https://studentaffairs.psu.edu/counseling/",
+        "https://www.psu.edu/counseling-services"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "University of Pittsburgh",
+      "state": "pennsylvania",
+      "location": "Pittsburgh, Pennsylvania",
+      "latitude": 40.4443,
+      "longitude": -79.9608,
+      "website": "https://pitt.edu",
+      "mental_health_urls": [
+        "https://www.counsel.pitt.edu/",
+        "https://www.pitt.edu/counseling-services"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Temple University",
+      "state": "pennsylvania",
+      "location": "Philadelphia, Pennsylvania",
+      "latitude": 39.9812,
+      "longitude": -75.1553,
+      "website": "https://temple.edu",
+      "mental_health_urls": [
+        "https://counseling.temple.edu/",
+        "https://www.temple.edu/student-affairs/counseling-services"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "University of Pennsylvania",
+      "state": "pennsylvania",
+      "location": "Philadelphia, Pennsylvania",
+      "latitude": 39.9526,
+      "longitude": -75.1652,
+      "website": "https://upenn.edu",
+      "mental_health_urls": [
+        "https://www.wellness.upenn.edu/",
+        "https://www.counseling.studyabroad.pitt.edu/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Carnegie Mellon University",
+      "state": "pennsylvania",
+      "location": "Pittsburgh, Pennsylvania",
+      "latitude": 40.4536,
+      "longitude": -79.9604,
+      "website": "https://cmu.edu",
+      "mental_health_urls": [
+        "https://www.cmu.edu/counseling/",
+        "https://www.cmu.edu/counseling-center"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Indiana University of Pennsylvania",
+      "state": "pennsylvania",
+      "location": "Indiana, Pennsylvania",
+      "latitude": 40.6214,
+      "longitude": -79.1547,
+      "website": "https://iup.edu",
+      "mental_health_urls": [
+        "https://www.iup.edu/counseling/",
+        "https://www.iup.edu/student-services/counseling"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Columbia University",
+      "state": "new york",
+      "location": "New York, New York",
+      "latitude": 40.8075,
+      "longitude": -73.9626,
+      "website": "https://columbia.edu",
+      "mental_health_urls": [
+        "https://www.cucolumbia.org/counseling",
+        "https://www.columbia.edu/cu/counseling"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "New York University",
+      "state": "new york",
+      "location": "New York, New York",
+      "latitude": 40.7295,
+      "longitude": -73.9965,
+      "website": "https://nyu.edu",
+      "mental_health_urls": [
+        "https://www.nyu.edu/student-health-wellness/counseling.html",
+        "https://www.nyu.edu/counseling"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "SUNY Buffalo",
+      "state": "new york",
+      "location": "Buffalo, New York",
+      "latitude": 43.0008,
+      "longitude": -78.789,
+      "website": "https://buffalo.edu",
+      "mental_health_urls": [
+        "https://www.buffalo.edu/counseling.html",
+        "https://student-affairs.buffalo.edu/counseling/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Stony Brook University",
+      "state": "new york",
+      "location": "Stony Brook, New York",
+      "latitude": 40.9176,
+      "longitude": -73.1262,
+      "website": "https://stonybrook.edu",
+      "mental_health_urls": [
+        "https://www.stonybrook.edu/counseling/",
+        "https://stonybrook.edu/sb/counseling/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "University at Albany",
+      "state": "new york",
+      "location": "Albany, New York",
+      "latitude": 42.6868,
+      "longitude": -73.8291,
+      "website": "https://albany.edu",
+      "mental_health_urls": [
+        "https://www.albany.edu/counseling/",
+        "https://www.albany.edu/health-counseling/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Syracuse University",
+      "state": "new york",
+      "location": "Syracuse, New York",
+      "latitude": 43.0392,
+      "longitude": -76.1351,
+      "website": "https://syracuse.edu",
+      "mental_health_urls": [
+        "https://syracuse.edu/counseling/",
+        "https://studentaffairs.syracuse.edu/counseling/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Binghamton University",
+      "state": "new york",
+      "location": "Binghamton, New York",
+      "latitude": 42.0888,
+      "longitude": -75.9689,
+      "website": "https://binghamton.edu",
+      "mental_health_urls": [
+        "https://www.binghamton.edu/counseling/",
+        "https://www.binghamton.edu/student-affairs/counseling"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "University of Wisconsin-Madison",
+      "state": "wisconsin",
+      "location": "Madison, Wisconsin",
+      "latitude": 43.0766,
+      "longitude": -89.4125,
+      "website": "https://wisc.edu",
+      "mental_health_urls": [
+        "https://www.uhs.wisc.edu/counseling/",
+        "https://www.wisc.edu/students/counseling/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "University of Minnesota",
+      "state": "minnesota",
+      "location": "Minneapolis, Minnesota",
+      "latitude": 44.974,
+      "longitude": -93.2277,
+      "website": "https://umn.edu",
+      "mental_health_urls": [
+        "https://counseling.umn.edu/",
+        "https://www.mentalhealth.umn.edu/"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "University of Iowa",
+      "state": "iowa",
+      "location": "Iowa City, Iowa",
+      "latitude": 41.6611,
+      "longitude": -91.5302,
+      "website": "https://uiowa.edu",
+      "mental_health_urls": [
+        "https://counseling.uiowa.edu/",
+        "https://studenthealth.iowa.uiowa.edu/counseling"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "University of Nebraska-Lincoln",
+      "state": "nebraska",
+      "location": "Lincoln, Nebraska",
+      "latitude": 40.8202,
+      "longitude": -96.7005,
+      "website": "https://unl.edu",
+      "mental_health_urls": [
+        "https://www.unl.edu/counseling/",
+        "https://www.unl.edu/student-life/counseling"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "University of Maryland",
+      "state": "maryland",
+      "location": "College Park, Maryland",
+      "latitude": 38.9869,
+      "longitude": -76.9426,
+      "website": "https://umd.edu",
+      "mental_health_urls": [
+        "https://www.counseling.umd.edu/",
+        "https://www.umd.edu/counseling-services"
+      ],
+      "source": "pending"
+    },
+    {
+      "name": "Rutgers University",
+      "state": "new jersey",
+      "location": "New Brunswick, New Jersey",
+      "latitude": 40.5008,
+      "longitude": -74.4474,
+      "website": "https://rutgers.edu",
+      "mental_health_urls": [
+        "https://health.rutgers.edu/counseling/",
+        "https://www.rutgers.edu/counseling"
+      ],
+      "source": "pending"
+    }
+  ]
+}
