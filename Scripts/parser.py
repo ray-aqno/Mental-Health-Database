@@ -1,8 +1,4 @@
-try:
-    from bs4 import BeautifulSoup
-except Exception:
-    # reuse fallback from simple_scraper to avoid duplication at runtime
-    from simple_scraper import BeautifulSoup
+from _html_compat import BeautifulSoup
 
 
 class Parser:
