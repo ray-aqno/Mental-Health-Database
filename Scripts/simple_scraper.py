@@ -4,13 +4,96 @@ Reads targets from college_targets.json and scrapes mental health service pages.
 """
 
 import requests
-from bs4 import BeautifulSoup
+try:
+    from bs4 import BeautifulSoup
+except Exception:
+    # Minimal fallback parser to avoid external dependency in lightweight tests.
+    # Provides only the methods used by the scraper: get_text(), find(), find_all(),
+    # find_next(), find_next_siblings(), and basic attribute access.
+    import re
+
+    class _FallbackElement:
+        def __init__(self, tag, text, children=None):
+            self.name = tag
+            self._text = text
+            self._children = children or []
+
+        def get_text(self, strip=False):
+            if strip:
+                return re.sub(r'\s+', ' ', self._text).strip()
+            return self._text
+
+        def find(self, *args, **kwargs):
+            for c in self._children:
+                if c.name in args[0] if isinstance(args[0], (list, tuple)) else [args[0]]:
+                    return c
+            return None
+
+        def find_all(self, *args, **kwargs):
+            names = args[0] if isinstance(args[0], (list, tuple)) else [args[0]]
+            return [c for c in self._children if c.name in names]
+
+        def find_next(self, name=None):
+            return None
+
+        def find_next_siblings(self, limit=None):
+            return []
+
+        def decompose(self):
+            self._text = ''
+
+    class BeautifulSoup:
+        def __init__(self, html, parser):
+            # Accept bytes or str
+            if isinstance(html, bytes):
+                try:
+                    html = html.decode('utf-8')
+                except Exception:
+                    html = html.decode('latin-1', errors='replace')
+            # Very small heuristic parser: capture h1-h5 and p tags and top-level sections
+            self._html = html
+            self._text = re.sub(r'<script.*?>.*?</script>', '', html, flags=re.S|re.I)
+            self._text = re.sub(r'<style.*?>.*?</style>', '', self._text, flags=re.S|re.I)
+            # Extract simple tags
+            self._children = []
+            for tag in re.findall(r'<(h[1-5]|p)\b[^>]*>(.*?)</\1>', self._text, flags=re.S|re.I):
+                name, inner = tag
+                clean = re.sub(r'<[^>]+>', '', inner)
+                self._children.append(_FallbackElement(name.lower(), clean))
+
+        def get_text(self):
+            return re.sub(r'<[^>]+>', '', self._html)
+
+        def find(self, *args, **kwargs):
+            names = args[0] if isinstance(args[0], (list, tuple)) else args[0]
+            if isinstance(names, str):
+                names = [names]
+            for c in self._children:
+                if c.name in names:
+                    return c
+            return None
+
+        def find_all(self, *args, **kwargs):
+            names = args[0] if isinstance(args[0], (list, tuple)) else args[0]
+            if isinstance(names, str):
+                names = [names]
+            return [c for c in self._children if c.name in names]
+
+        def __call__(self, *args, **kwargs):
+            return []
+
 import re
 import json
 import time
 import os
 from datetime import datetime
 from urllib.parse import urljoin, urlparse
+from fetcher import Fetcher
+from parser import Parser
+from scorer import Scorer
+from normalizer import Normalizer
+from persistence import Persistence
+from keywords import MENTAL_HEALTH_KEYWORDS, NON_MENTAL_KEYWORDS
 
 # Configuration
 TARGETS_FILE = os.path.join(os.path.dirname(__file__), 'college_targets.json')
@@ -22,6 +105,22 @@ QUALITY_KEYWORDS = [
     'counseling', 'therapy', 'psychological', 'mental health', 'wellness',
     'crisis', 'support', 'anxiety', 'depression', 'stress', 'appointment',
     'session', 'confidential', 'psychiatry', 'psychologist', 'therapist'
+]
+
+# Strong positive indicators that the page is about mental health services
+MENTAL_HEALTH_KEYWORDS = [
+    'mental health', 'counseling', 'counselling', 'counselor', 'counsellor',
+    'counseling center', 'counselling centre', 'counseling services', 'caps',
+    'counseling services', 'psychological services', 'student counseling',
+    'behavioral health', 'therapy'
+]
+
+# Negative indicators to filter out unrelated departments/programs
+NON_MENTAL_KEYWORDS = [
+    'dental', 'dentistry', 'oral health', 'dental clinic',
+    'admissions', 'financial aid', 'scholarship', 'undergraduate program',
+    'programs and courses', 'majors', 'departments', 'curriculum', 'tuition',
+    'academic advising', 'career services', 'faculty', 'professor'
 ]
 
 # Garbage indicators - words that suggest error pages or cookie notices
@@ -36,9 +135,7 @@ class CollegeScraper:
     def __init__(self):
         self.session = requests.Session()
         self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-            'Accept-Language': 'en-US,en;q=0.5',
+            'User-Agent': 'Mozilla/5.0 (compatible; MentalHealthScraper/1.0)',
         })
         self.session.timeout = 15
         self.colleges_data = []
@@ -49,6 +146,12 @@ class CollegeScraper:
             'skipped': 0,
             'low_quality': 0
         }
+        # Components
+        self.fetcher = Fetcher(self.session)
+        self.parser = Parser()
+        self.scorer = Scorer(MIN_QUALITY_SCORE)
+        self.normalizer = Normalizer()
+        self.persistence = Persistence(OUTPUT_FILE)
 
     def load_targets(self):
         """Load college targets from JSON file."""
@@ -66,12 +169,7 @@ class CollegeScraper:
 
     def fetch_page(self, url):
         """Fetch a page with error handling."""
-        try:
-            response = self.session.get(url, timeout=15)
-            response.raise_for_status()
-            return response
-        except requests.RequestException as e:
-            return None
+        return self.fetcher.fetch(url)
 
     def score_content(self, soup, text):
         """Score content quality (0-100)."""
@@ -113,8 +211,13 @@ class CollegeScraper:
         page_text = soup.get_text()
 
         # Skip low-quality pages early
-        quality_score = self.score_content(soup, page_text)
+        quality_score = self.scorer.score_text(page_text)
         if quality_score < MIN_QUALITY_SCORE:
+            return resources
+
+        # Require at least one strong mental-health keyword on the page
+        page_lower = page_text.lower()
+        if not any(kw in page_lower for kw in MENTAL_HEALTH_KEYWORDS):
             return resources
 
         # Strategy 1: Look for contact/service sections
@@ -123,8 +226,12 @@ class CollegeScraper:
 
         for section in contact_sections[:5]:
             resource = self.extract_from_section(section, url)
+            # Filter out sections that clearly belong to non-mental-health units
+            section_text = section.get_text().lower()
+            if any(bad in section_text for bad in NON_MENTAL_KEYWORDS):
+                continue
             if resource and resource.get('service_name'):
-                resources.append(resource)
+                resources.append(self.normalizer.normalize(resource, url))
 
         # Strategy 2: Look for relevant headings
         headings = soup.find_all(['h1', 'h2', 'h3', 'h4'])
@@ -132,14 +239,17 @@ class CollegeScraper:
             heading_text = heading.get_text(strip=True).lower()
             if any(kw in heading_text for kw in ['counseling', 'mental', 'wellness', 'caps', 'psych', 'health']):
                 resource = self.extract_near_heading(heading, url)
+                # Exclude headings that are about academic programs or dental/health clinics
+                if any(bad in heading_text for bad in NON_MENTAL_KEYWORDS):
+                    continue
                 if resource:
-                    resources.append(resource)
+                    resources.append(self.normalizer.normalize(resource, url))
 
         # Strategy 3: Fallback - create from page content
         if not resources:
             resource = self.extract_fallback(soup, page_text, url)
             if resource:
-                resources.append(resource)
+                resources.append(self.normalizer.normalize(resource, url))
 
         return resources
 
@@ -303,7 +413,7 @@ class CollegeScraper:
         filtered = []
         for resource in resources:
             text = json.dumps(resource)
-            score = self.score_content(None, text)
+            score = self.scorer.score_text(text)
             if score >= MIN_QUALITY_SCORE:
                 filtered.append(resource)
             else:
@@ -380,9 +490,7 @@ class CollegeScraper:
 
     def save_results(self):
         """Save scraped data to JSON file."""
-        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            json.dump(self.colleges_data, f, indent=2, ensure_ascii=False)
-
+        self.persistence.save(self.colleges_data)
         print(f"\n[OK] Saved {len(self.colleges_data)} colleges to {OUTPUT_FILE}")
 
     def print_stats(self):

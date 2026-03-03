@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: [ '8.0.x' ]
+        python-version: [ '3.10' ]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install Python deps
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f Scripts/requirements.txt ]; then pip install -r Scripts/requirements.txt; fi
+
+    - name: Run Python tests
+      run: |
+        python3 -m pytest -q
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}
+
+    - name: Restore .NET packages
+      run: dotnet restore
+
+    - name: Run .NET tests
+      run: |
+        dotnet test --no-build --verbosity normal
+
+    - name: Install dotnet-ef tool
+      run: dotnet tool restore
+
+    - name: Run EF migrations (dry-run)
+      env:
+        ConnectionStrings__DefaultConnection: ${{ secrets.DATABASE_URL }}
+      run: |
+        # Attempt to apply migrations against a test/staging DB if provided
+        if [ -n "${{ secrets.DATABASE_URL }}" ]; then
+          dotnet ef database update --no-build
+        else
+          echo "DATABASE_URL not provided; skipping migrations"
+        fi
+
+    - name: Build Web App
+      run: dotnet publish -c Release -o publish

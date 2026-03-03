@@ -3,53 +3,17 @@
 A modern web application that displays mental health resources available at colleges in the Midwest region using an interactive map interface. Features real-time search, filtering, and detailed resource information with special emphasis on freshman guidance.
 
 ---
-
 ##  Features
 
 ###  Interactive Map
-- **Leaflet.js Integration**: Lightweight, no API key needed
-- **OpenStreetMap Tiles**: Free, high-quality map tiles
-- **Smart Zoom**: Automatically fits all colleges in view
-- **Custom Markers**: Click to view detailed information
-- **Smooth Animations**: Professional transitions and effects
-
 ###  Modern UI
-- **Gradient Header**: Professional blue gradient design
-- **Real-time Search**: Filter by college name or location
-- **State Filters**: Quick buttons for Ohio, Kentucky, Indiana
-- **Statistics Dashboard**: Live counts of colleges, resources, states
-- **Responsive Design**: Perfect on desktop, tablet, and mobile
-- **Loading States**: Visual feedback during data fetching
-- **Error Handling**: User-friendly error messages
 
-###  Detailed Information
-- College name and location
-- Direct website links
-- Complete mental health resources
-- Contact information (clickable email/phone)
-- Office hours and locations
-- **Highlighted freshman-specific guidance** 
 
-###  Crisis Support
-- 988 Suicide & Crisis Lifeline
-- Crisis Text Line information
-- Prominently displayed in footer
 
 ---
 
-##  Technology Stack
-
-### Backend
-- **Framework**: ASP.NET Core 6+
-- **Database**: SQL Server
 - **ORM**: Entity Framework Core
 - **API**: RESTful endpoints with JSON
-- **Architecture**: MVC with services layer
-
-### Frontend
-- **Maps**: Leaflet.js (lightweight, open-source)
-- **UI**: Modern responsive design
-- **JavaScript**: Vanilla ES6+ (class-based)
 - **Styling**: Custom CSS with CSS Grid & Flexbox
 - **No Dependencies**: No jQuery, Bootstrap, or other heavy frameworks
 
@@ -89,61 +53,32 @@ Mental_Health_Database/
 │   ├── create_starter_data.py         # Sample data generator
 │   ├── run_scraper_and_import.py      # Automated pipeline
 │   ├── requirements.txt               # Python dependencies
-│   └── starter_colleges_data.json     # Sample data
 ├── Documentation/
-│   ├── UI_IMPLEMENTATION_GUIDE.md     # Complete UI docs
 │   ├── UI_QUICK_START.md              # Quick UI guide
 │   ├── EXECUTION_GUIDE.md             # How to run
 │   ├── PROJECT_OVERVIEW.md            # Architecture
 │   └── SCRAPING_GUIDE.md              # Scraping details
 ├── Program.cs                         # App configuration
-└── appsettings.json                   # Settings
-```
 
 ---
-
-##  Database Schema
-
-### Colleges Table
 ```
 - Id (int, PK)
-- Name (string)
-- Location (string)
-- Latitude (double)
 - Longitude (double)
 - Website (string)
-- CreatedAt (datetime)
-- UpdatedAt (datetime)
-```
 
 ### MentalHealthResources Table
-```
-- Id (int, PK)
 - CollegeId (int, FK)
 - ServiceName (string)
-- Description (string)
-- ContactEmail (string)
 - ContactPhone (string)
 - ContactWebsite (string)
-- Department (string)
-- OfficeHours (string)
 - Location (string)
 - FreshmanNotes (string)         # Special guidance for freshmen
-- CreatedAt (datetime)
-- UpdatedAt (datetime)
 ```
-
-**Relationship**: One-to-Many (College → MentalHealthResources)
 
 ---
 
 ##  API Endpoints
 
-### Colleges
-- `GET /api/colleges` - Get all colleges with resources
-- `GET /api/colleges/{id}` - Get specific college with resources
-- `GET /api/colleges/{id}/resources` - Get resources for a college
-- `POST /api/colleges` - Create new college
 - `PUT /api/colleges/{id}` - Update college
 - `DELETE /api/colleges/{id}` - Delete college
 
@@ -398,6 +333,54 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 ---
 
 ##  Crisis Resources
+
+---
+
+## Render deployment (quick guide)
+
+This project is ready to run on Render. Follow these minimal steps to deploy the Web Service and schedule the scraper worker.
+
+Prereqs on Render:
+- A Postgres database (managed via Render or external). Set `DATABASE_URL` / connection string in Render env.
+- Create two services: **Web Service** (ASP.NET app) and **Scheduled Job** (Python scraper publisher).
+
+Environment variables (minimum):
+- `DATABASE_URL` - primary DB connection string
+- `ASPNETCORE_ENVIRONMENT` - e.g., `Production`
+- `BULK_API_TOKEN` - secret token required by `/api/resources/bulk` (optional but recommended)
+- `SCRAPER_RATE` - rate limit seconds for scraper requests (optional)
+
+Web Service configuration:
+- Build command: `dotnet publish -c Release -o publish`
+- Start command: `dotnet publish/YourApp.dll` (or use default `dotnet run` in development)
+- Health check path: `/health` (ensure app responds 200)
+
+Scheduled Job (Scraper publisher):
+- Command: `python3 Scripts/publish_to_api.py --url https://<your-app>/api/resources/bulk --token $BULK_API_TOKEN --file Scripts/ui_payload.json`
+- Schedule: daily or hourly depending on needs
+- Notes: Prefer running the full scraper worker (Python) that POSTs directly; the scheduled job may instead run `run_scraper_and_import.py` if you keep scraper-per-worker design.
+
+Storage & persistence:
+- Do NOT rely on local disk for persistent data — Render disks are ephemeral.
+- Persist normalized resources to your Postgres DB via the bulk endpoint (recommended) or to object storage.
+
+Security:
+- Store `BULK_API_TOKEN` in Render's dashboard (Environment > Secrets). The bulk endpoint enforces this token if set.
+- Use HTTPS only for endpoint URLs.
+
+CI/CD notes:
+- `.github/workflows/ci.yml` runs Python and .NET tests and publishes build artifacts.
+- Add `BULK_API_TOKEN` and DB connection as GitHub Secrets for test/staging runs if needed.
+
+Rollback & maintenance:
+- Use Render deploy history to rollback to a previous build.
+- For schema changes, run migrations from a safe migration job or include a migration step in deploy.
+
+Troubleshooting:
+- If the API returns 500 during bulk import, check logs for schema validation errors and inspect `raw` payloads stored during normalization.
+- If scheduled jobs fail, increase logging, check rate limits, and verify `BULK_API_TOKEN` is present.
+
+That's the minimal Render guide — let me know if you want me to add a Render-specific `render.yaml` or Docker compose blueprint.
 
 **Available 24/7:**
 - **Suicide & Crisis Lifeline**: Call or text **988**

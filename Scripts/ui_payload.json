@@ -1,0 +1,2100 @@
+[
+  {
+    "name": "Bowling Green State University",
+    "location": "Bowling Green, Ohio",
+    "latitude": 41.3748,
+    "longitude": -83.6361,
+    "website": "https://www.bgsu.edu",
+    "scraped_at": "2026-02-28T23:56:38.293888",
+    "cards": [
+      {
+        "title": "Welcome to the BGSU Counseling Center",
+        "subtitle": "Student Affairs",
+        "description": "Welcome to the BGSU Counseling Center. We provide short-term, goal-oriented mental health services to promote student well-being and academic success. Our compassionate team is here to support students through challenges and to help them thrive.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.bgsu.edu/counseling-center.html"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Case Western Reserve University",
+    "location": "Cleveland, Ohio",
+    "latitude": 41.5045,
+    "longitude": -81.6081,
+    "website": "https://www.case.edu",
+    "scraped_at": "2026-02-28T23:56:41.548073",
+    "cards": [
+      {
+        "title": "Counseling Services",
+        "subtitle": "Student Affairs",
+        "description": "Counseling Services at UH&CS includes group counseling, skill-based workshops, support spaces, prevention and recovery services, psychiatry, individual counseling, crisis intervention and care management. Students can choose to make virtual or in-person appointments.",
+        "contact": {
+          "email": "",
+          "phone": "(216) 368-5872",
+          "website": "https://case.edu/studentlife/healthcounseling/counseling-services"
+        },
+        "meta": {
+          "location": "address immediate concerns or establish care. In the initial appointment",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "University Wellness",
+        "subtitle": "Student Affairs",
+        "description": "From medical care to fitness classes, counseling appointments to support groups, we offer a variety of services and resources to keep our students healthy, happy and productive.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://case.edu/wellness/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Miami University",
+    "location": "Oxford, Ohio",
+    "latitude": 39.5097,
+    "longitude": -84.733,
+    "website": "https://www.miamioh.edu",
+    "scraped_at": "2026-02-28T23:56:45.138327",
+    "cards": [
+      {
+        "title": "Student Counseling Service",
+        "subtitle": "Student Affairs",
+        "description": "Miami Student Counseling Service helps students build and maintain strong and emotional and mental Health.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://miamioh.edu/life-at-miami/health-well-being/student-counseling-service/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Upcoming Health and Wellness Events",
+        "subtitle": "Student Affairs",
+        "description": "No description available.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://miamioh.edu/life-at-miami/health-well-being/student-counseling-service/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Ohio University",
+    "location": "Athens, Ohio",
+    "latitude": 39.3292,
+    "longitude": -82.1013,
+    "website": "https://www.ohio.edu",
+    "scraped_at": "2026-02-28T23:56:48.608279",
+    "cards": [
+      {
+        "title": "Counseling and Psychological Services",
+        "subtitle": "Student Affairs",
+        "description": "Counseling and Psychological Services is open Monday through Friday from 8 a.m. to 5 p.m.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.ohio.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Telehealth",
+        "subtitle": "Student Affairs",
+        "description": "Telehealth services via Zoom are available to students who are currently enrolled in Athens Campus, reside in the state of Ohio, and have been screened as being appropriate for mental health services through Telehealth. Learn More About Telehealth Get Started on Zoom",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.ohio.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Hudson Health Center",
+        "subtitle": "Student Affairs",
+        "description": "Our offices are located on the third floor of Hudson Health Center.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.ohio.edu/counseling"
+        },
+        "meta": {
+          "location": "floor of Hudson Health Center. Find Hudson",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "The Ohio State University",
+    "location": "Columbus, Ohio",
+    "latitude": 40.0067,
+    "longitude": -83.0305,
+    "website": "https://www.osu.edu",
+    "scraped_at": "2026-02-28T23:56:51.274564",
+    "cards": [
+      {
+        "title": "Counseling and Consultation Service",
+        "subtitle": "Student Affairs",
+        "description": "Reach out today.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://ccs.osu.edu/"
+        },
+        "meta": {
+          "location": "Center at 1640 Neil Avenue Lincoln Tower office",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "University of Akron",
+    "location": "Akron, Ohio",
+    "latitude": 41.0747,
+    "longitude": -81.5129,
+    "website": "https://www.uakron.edu",
+    "scraped_at": "2026-02-28T23:56:53.952283",
+    "cards": [
+      {
+        "title": "Counseling Services",
+        "subtitle": "Student Affairs",
+        "description": "Counseling and Testing Center | Simmons Hall 306 | Meet the StaffOffice: 330-972-7082 | Fax: 330-972-5777Hours: Monday-Friday | 8 am-5 pmEmergency Services After Business Hrs: Call 330-972-7082 and select option 2 to speak with a counselor Follow us @uakroncat",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.uakron.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "University of Cincinnati",
+    "location": "Cincinnati, Ohio",
+    "latitude": 39.1329,
+    "longitude": -84.515,
+    "website": "https://www.uc.edu",
+    "scraped_at": "2026-02-28T23:56:56.234092",
+    "cards": [
+      {
+        "title": "Connect with CAPS Counselors",
+        "subtitle": "Student Affairs",
+        "description": "CAPS prioritizes accessible and effective services that you can access when you need them. We take a collaborative, strengths-based approach to help you identify tools, resources, and strategies to meet your mental health goals. This might only take one meeting, or it might take a little more support. Either way, we’re here to help you on your Bearcat journey.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.uc.edu/campus-life/caps.html"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "University of Dayton",
+    "location": "Dayton, Ohio",
+    "latitude": 39.74,
+    "longitude": -84.18,
+    "website": "https://www.udayton.edu",
+    "scraped_at": "2026-02-28T23:57:00.521628",
+    "cards": [
+      {
+        "title": "Counseling and Mental Health Services",
+        "subtitle": "Student Affairs",
+        "description": "You tried to get to: https://udayton.edu/studev/counselingcenter/",
+        "contact": {
+          "email": "itservicecenter@udayton.edu",
+          "phone": "(937) 229-3888",
+          "website": "https://www.udayton.edu/studev/counselingcenter/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": "Visit the counseling center website for information about services."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "University of Toledo",
+    "location": "Toledo, Ohio",
+    "latitude": 41.6528,
+    "longitude": -83.6147,
+    "website": "https://www.utoledo.edu",
+    "scraped_at": "2026-02-28T23:57:04.544725",
+    "cards": [
+      {
+        "title": "A to Z List",
+        "subtitle": "Student Affairs",
+        "description": "For cancellations and other weather-related information, visit theWeather Information website.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.utoledo.edu/students/counseling/"
+        },
+        "meta": {
+          "location": "room Services Clinical Skills Center, Hillebrand College - Judith Herb College of Arts, Social Sciences a",
+          "office_hours": "",
+          "freshman_notes": "Visit the counseling center website for information about services."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "University of Kentucky",
+    "location": "Lexington, Kentucky",
+    "latitude": 38.0346,
+    "longitude": -84.5037,
+    "website": "https://www.uky.edu",
+    "scraped_at": "2026-02-28T23:57:09.547808",
+    "cards": [
+      {
+        "title": "A Smarter Model Built for a Stronger Kentucky",
+        "subtitle": "Student Affairs",
+        "description": "With its new Commonwealth AI Transdisciplinary Strategy (CATS AI), the University of Kentucky becomes one of the first U.S. institutions to collaborate with Microsoft on scaling ethical, impactful artificial-intelligence initiatives.",
+        "contact": {
+          "email": "",
+          "phone": "859 257-9000",
+          "website": "https://www.uky.edu/studentlife/counseling-services"
+        },
+        "meta": {
+          "location": "building and the continued expansion of a",
+          "office_hours": "",
+          "freshman_notes": "Visit the counseling center website for information about services."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "University of Louisville",
+    "location": "Louisville, Kentucky",
+    "latitude": 38.2159,
+    "longitude": -85.7588,
+    "website": "https://louisville.edu",
+    "scraped_at": "2026-02-28T23:57:12.475713",
+    "cards": [
+      {
+        "title": "Contact Us",
+        "subtitle": "Student Affairs",
+        "description": "Call502-852-6585to schedule an appointment, inquire about services, or to ask any other questions",
+        "contact": {
+          "email": "coping@louisville.edu",
+          "phone": "502-852-6585",
+          "website": "https://louisville.edu/counseling"
+        },
+        "meta": {
+          "location": "Building 500 S. Preston St, Suite 219Louisville, KY 40202 School of Dentistry 501 S. Preston St., Rm. 039Loui",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Counseling Center",
+        "subtitle": "Student Affairs",
+        "description": "We provide individual, group, and couples counseling, crisis intervention, urgent consultation and referral, medication management referral, consultation, and outreach to students.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://louisville.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Spring 2026 Wellness Week",
+        "subtitle": "Student Affairs",
+        "description": "Sunrise Yoga8-9am at the SRCSponsored by Campus Rec. & WellnessMental Health and Wellness Week Kickoff Event12-1pm in the SAC on the 2nd floor in front of the MPR/Commuter LoungeSponsored by the Counseling Center",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://louisville.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Counseling Center Survey",
+        "subtitle": "Student Affairs",
+        "description": "Call 502-852-6585 to schedule an appointment, inquire about services, or to ask any other questions",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://louisville.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Western Kentucky University",
+    "location": "Bowling Green, Kentucky",
+    "latitude": 36.9868,
+    "longitude": -86.4557,
+    "website": "https://www.wku.edu",
+    "scraped_at": "2026-02-28T23:57:15.001889",
+    "cards": [
+      {
+        "title": "Counseling and Student Affairs",
+        "subtitle": "Student Affairs",
+        "description": "At Western Kentucky University, our nationally-accredited Counseling and Student Affairs graduate programs are designed to prepare you for a meaningful career with real-world impact.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.wku.edu/counseling/"
+        },
+        "meta": {
+          "location": "Center The Talley Family Counseling Center provides mental health services free of charge",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Explore WKU's Accredited Master's Programs in Counseling & Student Affairs",
+        "subtitle": "Student Affairs",
+        "description": "At Western Kentucky University, our nationally-accredited Counseling and Student Affairs graduate programs are designed to prepare you for a meaningful career with real-world impact.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.wku.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Talley Family Counseling Center",
+        "subtitle": "Student Affairs",
+        "description": "The Talley Family Counseling Center provides mental health services free of charge to couples, families, individuals, and groups.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.wku.edu/counseling/"
+        },
+        "meta": {
+          "location": "Center provides mental health services free of charge to couples, families, i",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Clinical Mental Health Counseling",
+        "subtitle": "Student Affairs",
+        "description": "\"Not only am I learning how to provide adequate counseling, but I am also learning how to schedule clients, write progress notes, and how to have a work-life balance. I think the most impactful experience for me is being able to try different therapeutic techniques so that I can really find my style and become the therapist I want to be.\"",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.wku.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Murray State University",
+    "location": "Murray, Kentucky",
+    "latitude": 36.6123,
+    "longitude": -88.3272,
+    "website": "https://www.murraystate.edu",
+    "scraped_at": "2026-02-28T23:57:18.396617",
+    "cards": [
+      {
+        "title": "Counseling Program Coordinator:",
+        "subtitle": "Student Affairs",
+        "description": "3101D Alexander Hall, Murray, KY 42071",
+        "contact": {
+          "email": "270.809.6123msu.counseloreducation@murraystate.edu",
+          "phone": "270.809.6123",
+          "website": "https://www.murraystate.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Counseling Education",
+        "subtitle": "Student Affairs",
+        "description": "The Counselor Education (CNS) Program at Murray State University will help you build your professional identity as a Professional School Counselor or a Licensed Professional Counselor. As a professional counselor, you will contribute significantly to the mental health and holistic wellbeing of the clients and students that you encounter. Program options include a Master of Arts in School Counseling, Education Specialist in School Counseling, and Education Specialist in Clinical Mental Health Cou",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.murraystate.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "School Counseling and Clinical Mental Health Counseling",
+        "subtitle": "Student Affairs",
+        "description": "The Counselor Education (CNS) Program at Murray State University will help you build your professional identity as a Professional School Counselor or a Licensed Professional Counselor. As a professional counselor, you will contribute significantly to the mental health and holistic wellbeing of the clients and students that you encounter. Program options include a Master of Arts in School Counseling, Education Specialist in School Counseling, and Education Specialist in Clinical Mental Health Cou",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.murraystate.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Assistant Dean, Department ChairEducational Studies, Leadership and Counseling Department",
+        "subtitle": "Student Affairs",
+        "description": "270.809.4426",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.murraystate.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Council for Accreditation of Counseling and Related Educational Programs (CACREP)",
+        "subtitle": "Student Affairs",
+        "description": "The Council for Accreditation of Counseling and Related Educational Programs (CACREP), a specialized accrediting body recognized by the Council for Higher Education Accreditations (CHEA), has granted accreditation to the following programs in the Department of Educational Studies, Leadership, and Counseling at Murray State University: Clinical Mental Health Counseling (Ed.S. degree) through March 31, 2031.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.murraystate.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Eastern Kentucky University",
+    "location": "Richmond, Kentucky",
+    "latitude": 37.7486,
+    "longitude": -84.3052,
+    "website": "https://www.eku.edu",
+    "scraped_at": "2026-02-28T23:57:21.948231",
+    "cards": [
+      {
+        "title": "Counseling Center",
+        "subtitle": "Student Affairs",
+        "description": "Whitlock Building Room 571",
+        "contact": {
+          "email": "",
+          "phone": "859-622-1303",
+          "website": "https://www.eku.edu/counselingcenter/"
+        },
+        "meta": {
+          "location": "Room 571 Hours",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Purdue University",
+    "location": "West Lafayette, Indiana",
+    "latitude": 40.4237,
+    "longitude": -86.9212,
+    "website": "https://www.purdue.edu",
+    "scraped_at": "2026-02-28T23:57:24.503482",
+    "cards": [
+      {
+        "title": "Counseling and Psychological Services",
+        "subtitle": "Student Affairs",
+        "description": "Counseling and Psychological Services (CAPS) offers same-day/next-day services for any student seeking care with no predefined session limits and most services are free. Treatment services are brief and based on need. CAPS offers 24/7 access to crisis services by calling their main line at (765) 494-6995.",
+        "contact": {
+          "email": "",
+          "phone": "(765) 494-6995",
+          "website": "https://www.purdue.edu/caps/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "How to Connect with CAPS",
+        "subtitle": "Student Affairs",
+        "description": "UWILL Telehealth Services",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.purdue.edu/caps/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Ball State University",
+    "location": "Muncie, Indiana",
+    "latitude": 40.2044,
+    "longitude": -85.4113,
+    "website": "https://www.bsu.edu",
+    "scraped_at": "2026-02-28T23:57:29.216088",
+    "cards": [
+      {
+        "title": "Counseling Center",
+        "subtitle": "Student Affairs",
+        "description": "8 a.m. - 5 p.m., Monday - Friday",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.bsu.edu/counselingcenter"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "If you are experiencing a mental health crisis, please contact the new Crisis Line at 765-285-4673. If you are experiencing a life-threatening emergency, please contact University Police at 765-285-1111, call 911, or go to the nearest emergency room.",
+        "subtitle": "Student Affairs",
+        "description": "8 a.m. - 5 p.m., Monday - Friday",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.bsu.edu/counselingcenter"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Indiana State University",
+    "location": "Terre Haute, Indiana",
+    "latitude": 39.4706,
+    "longitude": -87.4086,
+    "website": "https://www.indstate.edu",
+    "scraped_at": "2026-02-28T23:57:36.117408",
+    "cards": [
+      {
+        "title": "Indiana State University",
+        "subtitle": "Student Affairs",
+        "description": "At Indiana State, finding your passion is a journey—not a prerequisite. Take the first step by discovering our undergraduate majors and graduate programs, including many fully online degrees.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.indstate.edu/counseling"
+        },
+        "meta": {
+          "location": "room learning opportunity. Discover Your Experience",
+          "office_hours": "",
+          "freshman_notes": "Visit the counseling center website for information about services."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "University of Illinois Urbana-Champaign",
+    "location": "Champaign, Illinois",
+    "latitude": 40.102,
+    "longitude": -88.2272,
+    "website": "https://illinois.edu",
+    "scraped_at": "2026-02-28T23:57:50.531458",
+    "cards": [
+      {
+        "title": "Wellness Tools",
+        "subtitle": "Student Affairs",
+        "description": "Learn more about using substances more safely as we move closer to Spring Break!",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.counselingcenter.illinois.edu/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "University of Chicago",
+    "location": "Chicago, Illinois",
+    "latitude": 41.7886,
+    "longitude": -87.5987,
+    "website": "https://www.uchicago.edu",
+    "scraped_at": "2026-02-28T23:57:54.262220",
+    "cards": [
+      {
+        "title": "Get Help Now",
+        "subtitle": "Student Affairs",
+        "description": "Join us for Winter Quarter's Pet Love on Thursday, March 5th from 11:30am-1:00pm!",
+        "contact": {
+          "email": "",
+          "phone": "773.834.9355",
+          "website": "https://wellness.uchicago.edu/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "Thursday, March 5th from 11:30",
+          "freshman_notes": "Visit the counseling center website for information about services."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Northwestern University",
+    "location": "Evanston, Illinois",
+    "latitude": 42.0565,
+    "longitude": -87.6753,
+    "website": "https://www.northwestern.edu",
+    "scraped_at": "2026-02-28T23:57:56.554142",
+    "cards": [
+      {
+        "title": "Mental Health Services for Northwestern Students",
+        "subtitle": "Student Affairs",
+        "description": "Counseling and Psychological Services",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.northwestern.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Welcome to CAPS!",
+        "subtitle": "Student Affairs",
+        "description": "Welcome to Counseling and Psychological Services (CAPS)! CAPS serves as the primary mental health service at Northwestern University with offices on both the Evanston and Chicago campuses. CAPS provides a set of core services, including clinical services, educational workshops, and consultation with faculty, staff, and parents.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.northwestern.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Illinois State University",
+    "location": "Normal, Illinois",
+    "latitude": 40.5106,
+    "longitude": -89.0153,
+    "website": "https://illinoisstate.edu",
+    "scraped_at": "2026-02-28T23:57:59.583825",
+    "cards": [
+      {
+        "title": "Student Counseling Services",
+        "subtitle": "Student Affairs",
+        "description": "Schedule an Appointment Virtual Counseling with TimelyCare",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://counseling.illinoisstate.edu/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Campus Mental Health Emergencies",
+        "subtitle": "Student Affairs",
+        "description": "If you're facing life-threatening situations, traumatic crises, or serious mental health challenges, we offer Same-day Crisis Walk-in Services, Monday through Friday, 10am through close. Some examples of mental health emergencies may include: suicidal/homicidal thoughts or actions, a recent incident of sexual assault, or the death of a significant person in your life.",
+        "contact": {
+          "email": "",
+          "phone": "(309) 438-3655",
+          "website": "https://counseling.illinoisstate.edu/"
+        },
+        "meta": {
+          "location": "room 320 on the third floor of the Student Services Building or call",
+          "office_hours": "Monday through Friday, 10am",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Off-Campus Counseling Services",
+        "subtitle": "Student Affairs",
+        "description": "Read more Student Counseling Articles",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://counseling.illinoisstate.edu/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Student Counseling Articles",
+        "subtitle": "Student Affairs",
+        "description": "Read more Student Counseling Articles",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://counseling.illinoisstate.edu/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Northern Illinois University",
+    "location": "DeKalb, Illinois",
+    "latitude": 41.9465,
+    "longitude": -88.7679,
+    "website": "https://www.niu.edu",
+    "scraped_at": "2026-02-28T23:58:02.007201",
+    "cards": [
+      {
+        "title": "Contact Us",
+        "subtitle": "Student Affairs",
+        "description": "No description available.",
+        "contact": {
+          "email": "",
+          "phone": "815-753-1206",
+          "website": "https://www.niu.edu/counseling/"
+        },
+        "meta": {
+          "location": "room 200 815-753-1206Monday-Friday8 a.m.-4",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Events",
+        "subtitle": "Student Affairs",
+        "description": "No description available.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.niu.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Counseling and Consultation Services",
+        "subtitle": "Student Affairs",
+        "description": "We provide comprehensive mental health support to students currently enrolled at NIU. With a full range of services, presentations and programs, we focus on a variety of health and wellness topics. Our trained professionals are committed to improving your mental health as you work toward your academic and personal goals.",
+        "contact": {
+          "email": "",
+          "phone": "815-753-1206",
+          "website": "https://www.niu.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Southern Illinois University Carbondale",
+    "location": "Carbondale, Illinois",
+    "latitude": 37.709,
+    "longitude": -89.2172,
+    "website": "https://siu.edu",
+    "scraped_at": "2026-02-28T23:58:04.849749",
+    "cards": [
+      {
+        "title": "Wellness and Health Promotion Services",
+        "subtitle": "Student Affairs",
+        "description": "Student Health Services 374 East Grand Avenue - MC 6740 Carbondale, Illinois 62901",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://wellness.siu.edu/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "MENTAL HEALTHSCREENING TOOL",
+        "subtitle": "Student Affairs",
+        "description": "How are you feeling?",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://wellness.siu.edu/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "AFTER-HOURS MENTAL HEALTH SUPPORT LINE",
+        "subtitle": "Student Affairs",
+        "description": "Counseling and risk assessment support after 9 p.m. is available by calling 1-833-434-1217",
+        "contact": {
+          "email": "",
+          "phone": "1-833-434-1217",
+          "website": "https://wellness.siu.edu/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "University of Michigan",
+    "location": "Ann Arbor, Michigan",
+    "latitude": 42.278,
+    "longitude": -83.7382,
+    "website": "https://umich.edu",
+    "scraped_at": "2026-02-28T23:58:07.796975",
+    "cards": [
+      {
+        "title": "Need Care? Click below to find important medical and mental health care information, including how to make an appointment:",
+        "subtitle": "Student Affairs",
+        "description": "How to Get Care",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://caps.umich.edu/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "UHC Medical Services (also known as University Health Service or UHS):",
+        "subtitle": "Student Affairs",
+        "description": "207 Fletcher StreetAnn Arbor, MI 48109ContactUHC@med.umich.eduPhone: 734-764-8320 | Fax: 734-936-3063",
+        "contact": {
+          "email": "48109ContactUHC@med.umich.eduPhone",
+          "phone": "734-764-8320",
+          "website": "https://caps.umich.edu/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "UHC Counseling and Psychological Services (CAPS):",
+        "subtitle": "Student Affairs",
+        "description": "Michigan Union, Suite 4079530 South State StreetAnn Arbor, MI 48109CAPS-UofM@umich.edu Phone: 734-764-8312",
+        "contact": {
+          "email": "48109CAPS-UofM@umich.edu",
+          "phone": "734-764-8312",
+          "website": "https://caps.umich.edu/"
+        },
+        "meta": {
+          "location": "Suite 4079530 South State StreetAnn Arbor, MI 48109CAPS-UofM",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Oakland University",
+    "location": "Rochester Hills, Michigan",
+    "latitude": 42.6714,
+    "longitude": -83.2148,
+    "website": "https://oakland.edu",
+    "scraped_at": "2026-02-28T23:58:19.031009",
+    "cards": [
+      {
+        "title": "DEPARTMENT OF COUNSELING",
+        "subtitle": "Student Affairs",
+        "description": "The Department of Counseling within Oakland University's School of Education and Human Services offers master's and doctoral degree programs that are CACREP accredited and offer excellent training.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.oakland.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Penn State University",
+    "location": "University Park, Pennsylvania",
+    "latitude": 40.7982,
+    "longitude": -77.8599,
+    "website": "https://psu.edu",
+    "scraped_at": "2026-02-28T23:58:21.851901",
+    "cards": [
+      {
+        "title": "Counseling and Psychological Services",
+        "subtitle": "Student Affairs",
+        "description": "Monday–Friday8:00 a.m.–5:00 p.m.",
+        "contact": {
+          "email": "",
+          "phone": "814-863-0395",
+          "website": "https://studentaffairs.psu.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "Friday8:00",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Crisis Services (24/7)",
+        "subtitle": "Student Affairs",
+        "description": "Monday–Friday8:00 a.m.–5:00 p.m.",
+        "contact": {
+          "email": "",
+          "phone": "814-863-0395",
+          "website": "https://studentaffairs.psu.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "Friday8:00",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Mental Health Services",
+        "subtitle": "Student Affairs",
+        "description": "Counseling and Psychological Services (CAPS) is dedicated to supporting your emotional well-being and personal development throughout your Penn State journey. Whether you're facing a specific challenge or just want to check in with yourself, our services are designed to meet you where you are—compassionately and confidentially.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://studentaffairs.psu.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Counseling Support at Penn State",
+        "subtitle": "Student Affairs",
+        "description": "The Center for Collegiate Mental Health is the leading national research center focused on understanding student mental health on campus. Learn more about how CCMH collects data and uses it to help providers across the world.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://studentaffairs.psu.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Leading the Nation in Mental Health Data",
+        "subtitle": "Student Affairs",
+        "description": "The Center for Collegiate Mental Health is the leading national research center focused on understanding student mental health on campus. Learn more about how CCMH collects data and uses it to help providers across the world.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://studentaffairs.psu.edu/counseling/"
+        },
+        "meta": {
+          "location": "Center for Collegiate Mental Health is the leading national research center focused on understanding studen",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Temple University",
+    "location": "Philadelphia, Pennsylvania",
+    "latitude": 39.9812,
+    "longitude": -75.1553,
+    "website": "https://temple.edu",
+    "scraped_at": "2026-02-28T23:58:26.310370",
+    "cards": [
+      {
+        "title": "Group Counseling",
+        "subtitle": "Student Affairs",
+        "description": "TCS groups can be a powerful way to address personal concerns while getting support and feedback from peers",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://counseling.temple.edu/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Wellness Assessment",
+        "subtitle": "Student Affairs",
+        "description": "How are you feeling? Take a wellness assessment to help understand how your daily activities are connected to how you feel.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://counseling.temple.edu/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Carnegie Mellon University",
+    "location": "Pittsburgh, Pennsylvania",
+    "latitude": 40.4536,
+    "longitude": -79.9604,
+    "website": "https://cmu.edu",
+    "scraped_at": "2026-02-28T23:58:29.804216",
+    "cards": [
+      {
+        "title": "CaPS is here for you",
+        "subtitle": "Student Affairs",
+        "description": "Your safety continues to be our priority. CaPS services are available both in-person and virtually. Call us, let us help.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.cmu.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Counseling & Psychological Services",
+        "subtitle": "Student Affairs",
+        "description": "Counseling and Psychological Services (CaPS) provides a safe, confidential environment for students to talk about personal and academic concerns. All students currently enrolled at the Pittsburgh campus are eligible for services at CaPS at no additional cost to them, and all services are confidential. Call today to schedule a consultation.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.cmu.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Accessing CaPS",
+        "subtitle": "Student Affairs",
+        "description": "To access CaPS, call us (412-268-2922) or visit:",
+        "contact": {
+          "email": "",
+          "phone": "(412-268-2922",
+          "website": "https://www.cmu.edu/counseling/"
+        },
+        "meta": {
+          "location": "Hall and Posner Hall",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "CaPS Services",
+        "subtitle": "Student Affairs",
+        "description": "Consultation",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.cmu.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Indiana University of Pennsylvania",
+    "location": "Indiana, Pennsylvania",
+    "latitude": 40.6214,
+    "longitude": -79.1547,
+    "website": "https://iup.edu",
+    "scraped_at": "2026-02-28T23:58:33.767847",
+    "cards": [
+      {
+        "title": "Department of Counseling and Human Development",
+        "subtitle": "Student Affairs",
+        "description": "This unique program is the only one of its kind in the Pennsylvania State System of Higher Education. Its comprehensive curriculum will train you for a wide range of positions that address all aspects of child and family life, from early intervention to counseling at-risk adolescents.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.iup.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Support IUP Counseling Students",
+        "subtitle": "Student Affairs",
+        "description": "When you make a gift in support of our department, you invest in the world’s next generation of leaders. Scholarships and program support create the best possible student experience.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.iup.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Counseling Admissions",
+        "subtitle": "Student Affairs",
+        "description": "(both master’s and doctoral programs)",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.iup.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Nice Interviewed in Counseling Today Magazine",
+        "subtitle": "Student Affairs",
+        "description": "Matthew Nice was interviewed in the September 2025 issue of Counseling Today Magazine. In the interview, Nice discusses his research on young adult mental health and the implications of the college experience on mental health.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.iup.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Page Not Found",
+        "subtitle": "Student Affairs",
+        "description": "Sorry, but it looks like the page you are looking for doesn't exist.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.iup.edu/student-services/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": "Visit the counseling center website for information about services."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "New York University",
+    "location": "New York, New York",
+    "latitude": 40.7295,
+    "longitude": -73.9965,
+    "website": "https://nyu.edu",
+    "scraped_at": "2026-02-28T23:58:53.666532",
+    "cards": [
+      {
+        "title": "Contact Us",
+        "subtitle": "Student Affairs",
+        "description": "No description available.",
+        "contact": {
+          "email": "wellness.exchange@nyu.edu",
+          "phone": "(212) 998-4780",
+          "website": "https://www.nyu.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Counseling Services",
+        "subtitle": "Student Affairs",
+        "description": "Counseling Services can help with any mental health concerns you might experience, including stress, anxiety, alcohol or drugs, eating, depression, family issues, suicidal thoughts, and more.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.nyu.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Individual Counseling",
+        "subtitle": "Student Affairs",
+        "description": "Counseling is a professional relationship that helps you clarify issues, discover your true wishes and feelings, and deal effectively with problems. Individual counseling is available on a single session, short-term, or urgent (same-day) basis. For longer-term treatment, we can make referrals to off-campus providers.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.nyu.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Counseling Groups",
+        "subtitle": "Student Affairs",
+        "description": "Counseling Groups provide a weekly opportunity to connect with other students going through similar challenges. Groups provide a safe and confidential place to explore concerns around a range of issues. Talking to other students who have had similar experiences offers support, healing, and perspective. All groups are led by our counselors.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.nyu.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Wellness Workshops",
+        "subtitle": "Student Affairs",
+        "description": "Wellness Workshops are free and confidential classes offered throughout the semester on a variety of topics — including insomnia, public speaking, anxiety, biofeedback, and more — all centered around wellbeing. These workshops are facilitated by our counselors and held virtually, via Zoom. Some meet once per month, while others meet more frequently.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.nyu.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Psychiatry",
+        "subtitle": "Student Affairs",
+        "description": "Psychiatric medication services are available if you require assessment and treatment with psychiatric medications. Counseling Services professionals will work with you to determine the best course of treatment for you.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.nyu.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Wellness Exchange",
+        "subtitle": "Student Affairs",
+        "description": "The Wellness Exchange is your greatest mental health resource at NYU. Call the 24-hour hotline at 212-443-9999, chat via the Wellness Exchange app anytime, make an appointment, or arrange a same-day Urgent Counseling session to speak with a certified counselor about any day-to-day challenges or health concerns.",
+        "contact": {
+          "email": "",
+          "phone": "212-443-9999",
+          "website": "https://www.nyu.edu/counseling"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Binghamton University",
+    "location": "Binghamton, New York",
+    "latitude": 42.0888,
+    "longitude": -75.9689,
+    "website": "https://binghamton.edu",
+    "scraped_at": "2026-02-28T23:59:03.179320",
+    "cards": [
+      {
+        "title": "University Counseling Center",
+        "subtitle": "Student Affairs",
+        "description": "The University Counseling Center (UCC) provides comprehensive clinical and referral services to Binghamton University's undergraduate students, graduate students and affiliated entities. Our goal is to enhance the psychological well-being of our students so they can take full advantage of the educational opportunities at the University.",
+        "contact": {
+          "email": "",
+          "phone": "607-777-2772",
+          "website": "https://www.binghamton.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Health portal",
+        "subtitle": "Student Affairs",
+        "description": "Access the UCC health portal at: https://binghamton.medicatconnect.com.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.binghamton.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      },
+      {
+        "title": "Looking for private space for a telehealth appointment?",
+        "subtitle": "Student Affairs",
+        "description": "Reserve a quiet and confidential space on campus through Health and Counseling Services.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.binghamton.edu/counseling/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "University of Minnesota",
+    "location": "Minneapolis, Minnesota",
+    "latitude": 44.974,
+    "longitude": -93.2277,
+    "website": "https://umn.edu",
+    "scraped_at": "2026-02-28T23:59:09.861551",
+    "cards": [
+      {
+        "title": "Boynton Health Dental",
+        "subtitle": "Student Affairs",
+        "description": "Whitening and cleaning services available.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://counseling.umn.edu/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "University of Iowa",
+    "location": "Iowa City, Iowa",
+    "latitude": 41.6611,
+    "longitude": -91.5302,
+    "website": "https://uiowa.edu",
+    "scraped_at": "2026-02-28T23:59:12.358553",
+    "cards": [
+      {
+        "title": "Supporting mental well-being and helping students succeed at Iowa",
+        "subtitle": "Student Affairs",
+        "description": "Serving undergraduate students, graduate students, professional students, and postdocs",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://counseling.uiowa.edu/"
+        },
+        "meta": {
+          "location": "",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "University of Maryland",
+    "location": "College Park, Maryland",
+    "latitude": 38.9869,
+    "longitude": -76.9426,
+    "website": "https://umd.edu",
+    "scraped_at": "2026-02-28T23:59:19.430597",
+    "cards": [
+      {
+        "title": "The Counseling Center",
+        "subtitle": "Student Affairs",
+        "description": "Your well-being matters. Our Counseling Center offers a safe and supportive environment where students can find help, guidance, and resources for mental health and personal growth.",
+        "contact": {
+          "email": "",
+          "phone": "",
+          "website": "https://www.counseling.umd.edu/"
+        },
+        "meta": {
+          "location": "Center offers a safe and supportive environment where students can find help, guidance, and resources for m",
+          "office_hours": "",
+          "freshman_notes": ""
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Kent State University",
+    "location": "Kent, Ohio",
+    "latitude": 41.1487,
+    "longitude": -81.3442,
+    "website": "https://www.kent.edu",
+    "scraped_at": "2026-02-10T14:30:00.000000",
+    "cards": [
+      {
+        "title": "Counseling and Psychological Services (CPS)",
+        "subtitle": "Student Affairs",
+        "description": "CPS provides confidential counseling services to help students with personal, social, and academic concerns. Services include individual counseling, group therapy, psychiatric services, and crisis intervention.",
+        "contact": {
+          "email": "cps@kent.edu",
+          "phone": "330-672-2487",
+          "website": "https://www.kent.edu/cps"
+        },
+        "meta": {
+          "location": "DeWeese Health Center, 2nd Floor",
+          "office_hours": "Monday-Friday, 8:00 AM - 5:00 PM",
+          "freshman_notes": "New students can schedule an initial consultation online. Walk-in hours available for urgent concerns. All services are free and confidential."
+        },
+        "raw": ""
+      },
+      {
+        "title": "24/7 Crisis Support",
+        "subtitle": "Student Affairs",
+        "description": "After-hours crisis support available through Partnership Crisis Hotline",
+        "contact": {
+          "email": "",
+          "phone": "330-678-4357",
+          "website": "https://www.kent.edu/cps/crisis-resources"
+        },
+        "meta": {
+          "location": "Phone support",
+          "office_hours": "24/7",
+          "freshman_notes": "Available anytime outside of regular business hours for students in crisis."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Cleveland State University",
+    "location": "Cleveland, Ohio",
+    "latitude": 41.5017,
+    "longitude": -81.6753,
+    "website": "https://www.csuohio.edu",
+    "scraped_at": "2026-02-10T14:30:00.000000",
+    "cards": [
+      {
+        "title": "Counseling Services",
+        "subtitle": "Student Life",
+        "description": "CSU Counseling Services offers individual counseling, group therapy, workshops, and psychiatric consultations. Services address anxiety, depression, relationships, academic stress, and life transitions.",
+        "contact": {
+          "email": "counseling@csuohio.edu",
+          "phone": "216-687-2277",
+          "website": "https://www.csuohio.edu/counseling"
+        },
+        "meta": {
+          "location": "Main Classroom Building, Room 256",
+          "office_hours": "Monday-Friday, 8:30 AM - 5:00 PM",
+          "freshman_notes": "First-year students can schedule initial appointments online or by phone. Same-day crisis consultations available during business hours."
+        },
+        "raw": ""
+      },
+      {
+        "title": "Student Health Services - Mental Health",
+        "subtitle": "Student Life",
+        "description": "Provides psychiatric evaluations, medication management, and referrals for mental health concerns.",
+        "contact": {
+          "email": "health.services@csuohio.edu",
+          "phone": "216-687-2450",
+          "website": "https://www.csuohio.edu/health-services"
+        },
+        "meta": {
+          "location": "Main Classroom Building, Room 110",
+          "office_hours": "Monday-Friday, 8:30 AM - 5:00 PM",
+          "freshman_notes": "Medical services complement counseling support. Insurance accepted."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Youngstown State University",
+    "location": "Youngstown, Ohio",
+    "latitude": 41.1098,
+    "longitude": -80.6495,
+    "website": "https://www.ysu.edu",
+    "scraped_at": "2026-02-10T14:30:00.000000",
+    "cards": [
+      {
+        "title": "Counseling Services",
+        "subtitle": "Student Experience",
+        "description": "YSU Counseling Services provides individual counseling, crisis intervention, group therapy, outreach programming, and consultation services. Specializes in helping students with stress management, anxiety, depression, and adjustment issues.",
+        "contact": {
+          "email": "counseling@ysu.edu",
+          "phone": "330-941-3737",
+          "website": "https://ysu.edu/counseling"
+        },
+        "meta": {
+          "location": "Cushwa Hall, Room 1059",
+          "office_hours": "Monday-Friday, 8:00 AM - 5:00 PM",
+          "freshman_notes": "Walk-in appointments welcome for new students. Online self-help resources available 24/7. All undergraduate students receive 10 free counseling sessions per academic year."
+        },
+        "raw": ""
+      },
+      {
+        "title": "Crisis Text Line",
+        "subtitle": "Student Experience",
+        "description": "24/7 text-based crisis support for YSU students",
+        "contact": {
+          "email": "",
+          "phone": "Text HOME to 741741",
+          "website": "https://ysu.edu/counseling/crisis"
+        },
+        "meta": {
+          "location": "Text-based support",
+          "office_hours": "24/7",
+          "freshman_notes": "Free, confidential crisis support via text message, available anytime."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Cincinnati State Technical and Community College",
+    "location": "Cincinnati, Ohio",
+    "latitude": 39.1118,
+    "longitude": -84.5364,
+    "website": "https://www.cincinnatistate.edu",
+    "scraped_at": "2026-02-10T14:30:00.000000",
+    "cards": [
+      {
+        "title": "Counseling Services",
+        "subtitle": "Student Services",
+        "description": "Cincinnati State offers free, confidential counseling for students dealing with stress, anxiety, depression, relationship issues, and academic concerns. Short-term individual counseling and referrals to community resources available.",
+        "contact": {
+          "email": "counseling@cincinnatistate.edu",
+          "phone": "513-569-1666",
+          "website": "https://www.cincinnatistate.edu/counseling"
+        },
+        "meta": {
+          "location": "Main Campus, Student Success Center",
+          "office_hours": "Monday-Thursday, 8:00 AM - 6:00 PM; Friday, 8:00 AM - 4:30 PM",
+          "freshman_notes": "New students should call or visit the Student Success Center to schedule an intake appointment. Crisis walk-ins accepted during business hours."
+        },
+        "raw": ""
+      },
+      {
+        "title": "Mental Health Resources and Referrals",
+        "subtitle": "Student Services",
+        "description": "Connections to community mental health providers and crisis services for ongoing care needs.",
+        "contact": {
+          "email": "studentservices@cincinnatistate.edu",
+          "phone": "513-569-1555",
+          "website": "https://www.cincinnatistate.edu/student-resources"
+        },
+        "meta": {
+          "location": "Student Services Office",
+          "office_hours": "Monday-Friday, 8:00 AM - 5:00 PM",
+          "freshman_notes": "Staff can help connect students to off-campus resources for longer-term care."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Denison University",
+    "location": "Granville, Ohio",
+    "latitude": 40.0746,
+    "longitude": -82.522,
+    "website": "https://denison.edu",
+    "scraped_at": "2026-02-10T14:30:00.000000",
+    "cards": [
+      {
+        "title": "Counseling and Wellness Services",
+        "subtitle": "Wellness",
+        "description": "Denison's Whisler Center provides individual counseling, group therapy, psychiatric services, and wellness programming. Services address mental health concerns including anxiety, depression, eating disorders, substance use, and identity development.",
+        "contact": {
+          "email": "whisler@denison.edu",
+          "phone": "740-587-6647",
+          "website": "https://denison.edu/campus/wellness"
+        },
+        "meta": {
+          "location": "Whisler Center for Student Wellness",
+          "office_hours": "Monday-Friday, 8:30 AM - 5:00 PM",
+          "freshman_notes": "First-year students are encouraged to attend wellness orientation sessions. Walk-in consultations available daily. Unlimited counseling sessions available to all students."
+        },
+        "raw": ""
+      },
+      {
+        "title": "24/7 Crisis Support - TimelyCare",
+        "subtitle": "Wellness",
+        "description": "Free virtual mental health support available 24/7 through TimelyCare app for all Denison students.",
+        "contact": {
+          "email": "",
+          "phone": "Available through TimelyCare app",
+          "website": "https://denison.edu/campus/wellness/telehealth"
+        },
+        "meta": {
+          "location": "Virtual/Telehealth",
+          "office_hours": "24/7",
+          "freshman_notes": "Download the TimelyCare app for immediate access to counselors anytime, anywhere."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Kenyon College",
+    "location": "Gambier, Ohio",
+    "latitude": 40.3756,
+    "longitude": -82.3979,
+    "website": "https://www.kenyon.edu",
+    "scraped_at": "2026-02-10T14:30:00.000000",
+    "cards": [
+      {
+        "title": "Counseling Center",
+        "subtitle": "Health and Wellness",
+        "description": "The Kenyon Counseling Center provides confidential individual therapy, group counseling, crisis intervention, and psychiatric services. Staff includes licensed psychologists and counselors who specialize in college student mental health.",
+        "contact": {
+          "email": "counselingcenter@kenyon.edu",
+          "phone": "740-427-5668",
+          "website": "https://www.kenyon.edu/student-life/health-wellness/counseling"
+        },
+        "meta": {
+          "location": "Cox Health and Counseling Center",
+          "office_hours": "Monday-Friday, 8:30 AM - 5:00 PM",
+          "freshman_notes": "New students can schedule appointments online through the patient portal. Same-day urgent care appointments available. All services are free and confidential."
+        },
+        "raw": ""
+      },
+      {
+        "title": "After-Hours Crisis Support",
+        "subtitle": "Health and Wellness",
+        "description": "24/7 crisis counseling available through on-call counselor and partnership with Pathways of Central Ohio.",
+        "contact": {
+          "email": "",
+          "phone": "740-427-5000 (Campus Safety - ask for on-call counselor)",
+          "website": "https://www.kenyon.edu/student-life/health-wellness/crisis-resources"
+        },
+        "meta": {
+          "location": "Phone support through Campus Safety",
+          "office_hours": "24/7",
+          "freshman_notes": "In a mental health emergency after hours, call Campus Safety and they will connect you with the on-call counselor immediately."
+        },
+        "raw": ""
+      },
+      {
+        "title": "Wellness Programming",
+        "subtitle": "Health and Wellness",
+        "description": "Workshops, support groups, and wellness activities focused on stress management, mindfulness, sleep, and healthy relationships.",
+        "contact": {
+          "email": "wellness@kenyon.edu",
+          "phone": "740-427-5671",
+          "website": "https://www.kenyon.edu/student-life/health-wellness/wellness-programs"
+        },
+        "meta": {
+          "location": "Cox Health and Counseling Center",
+          "office_hours": "Various program times",
+          "freshman_notes": "First-year students are encouraged to attend wellness workshops during orientation and throughout the year."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Northern Kentucky University",
+    "location": "Highland Heights, Kentucky",
+    "latitude": 39.0325,
+    "longitude": -84.4661,
+    "website": "https://www.nku.edu",
+    "scraped_at": "2026-03-01T00:00:00.000000",
+    "cards": [
+      {
+        "title": "Counseling and Student Development",
+        "subtitle": "Student Affairs",
+        "description": "NKU offers counseling services including individual therapy, group counseling, crisis intervention, and psychiatric consultations. Services address anxiety, depression, academic stress, and personal concerns.",
+        "contact": {
+          "email": "counseling@nku.edu",
+          "phone": "859-572-5650",
+          "website": "https://www.nku.edu/studentaffairs/counseling.html"
+        },
+        "meta": {
+          "location": "University Center 440",
+          "office_hours": "Monday-Friday, 8:00 AM - 5:00 PM",
+          "freshman_notes": "First-year students can access counseling services immediately. Walk-in hours available for urgent concerns."
+        },
+        "raw": ""
+      },
+      {
+        "title": "24/7 Crisis Support",
+        "subtitle": "Student Affairs",
+        "description": "After-hours crisis support available through the NKU Police Department",
+        "contact": {
+          "email": "",
+          "phone": "859-572-7777",
+          "website": "https://www.nku.edu/counseling/crisis"
+        },
+        "meta": {
+          "location": "Emergency: Call 911 or NKU Police",
+          "office_hours": "24/7",
+          "freshman_notes": "In case of mental health emergency after hours, call NKU Police."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Indiana University Bloomington",
+    "location": "Bloomington, Indiana",
+    "latitude": 39.1682,
+    "longitude": -86.523,
+    "website": "https://www.iu.edu",
+    "scraped_at": "2026-03-01T00:00:00.000000",
+    "cards": [
+      {
+        "title": "Counseling and Psychological Services (CAPS)",
+        "subtitle": "Student Affairs",
+        "description": "IU Bloomington offers comprehensive mental health services including individual counseling, group therapy, psychiatric services, crisis intervention, and outreach programs. Specializes in helping students with anxiety, depression, relationships, and academic stress.",
+        "contact": {
+          "email": "caps@iu.edu",
+          "phone": "812-855-5711",
+          "website": "https://studentaffairs.iu.edu/counseling/"
+        },
+        "meta": {
+          "location": "Student Health Center, 3rd Floor",
+          "office_hours": "Monday-Friday, 8:00 AM - 5:00 PM",
+          "freshman_notes": "All students receive free counseling sessions. Initial appointment available within 1-2 weeks. Crisis services available same-day."
+        },
+        "raw": ""
+      },
+      {
+        "title": "24/7 Crisis Line",
+        "subtitle": "Student Affairs",
+        "description": "24/7 crisis support for students in distress",
+        "contact": {
+          "email": "",
+          "phone": "812-855-5711",
+          "website": "https://studentaffairs.iu.edu/counseling/crisis.html"
+        },
+        "meta": {
+          "location": "Phone support",
+          "office_hours": "24/7",
+          "freshman_notes": "Press 1 after calling for immediate crisis support."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "Michigan State University",
+    "location": "East Lansing, Michigan",
+    "latitude": 42.7018,
+    "longitude": -84.4822,
+    "website": "https://msu.edu",
+    "scraped_at": "2026-03-01T00:00:00.000000",
+    "cards": [
+      {
+        "title": "Counseling and Psychiatric Services (CAPS)",
+        "subtitle": "Student Health and Wellness",
+        "description": "MSU Counseling Center provides individual counseling, group therapy, psychiatric services, crisis intervention, and outreach. Services address mental health concerns including anxiety, depression, stress, and relationship issues.",
+        "contact": {
+          "email": "caps@msu.edu",
+          "phone": "517-355-8270",
+          "website": "https://counseling.msu.edu/"
+        },
+        "meta": {
+          "location": "Olin Health Center",
+          "office_hours": "Monday-Friday, 8:00 AM - 5:00 PM",
+          "freshman_notes": "First-year students priority scheduling available. Unlimited free sessions for enrolled students."
+        },
+        "raw": ""
+      },
+      {
+        "title": "After-Hours Crisis Support",
+        "subtitle": "Student Health and Wellness",
+        "description": "24/7 crisis support through ProtoCall",
+        "contact": {
+          "email": "",
+          "phone": "517-355-8270",
+          "website": "https://counseling.msu.edu/crisis/"
+        },
+        "meta": {
+          "location": "Phone support",
+          "office_hours": "24/7",
+          "freshman_notes": "Call the main number and select option 1 for after-hours crisis support."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "University of Wisconsin-Madison",
+    "location": "Madison, Wisconsin",
+    "latitude": 43.0766,
+    "longitude": -89.4125,
+    "website": "https://wisc.edu",
+    "scraped_at": "2026-03-01T00:00:00.000000",
+    "cards": [
+      {
+        "title": "University Health and Counseling Services",
+        "subtitle": "University Health Services",
+        "description": "UW-Madison offers comprehensive counseling services including individual therapy, group counseling, psychiatric services, and crisis intervention. Services address anxiety, depression, academic stress, and personal concerns.",
+        "contact": {
+          "email": "uhs@wisc.edu",
+          "phone": "608-265-5600",
+          "website": "https://www.uhs.wisc.edu/counseling/"
+        },
+        "meta": {
+          "location": "333 East Campus Mall",
+          "office_hours": "Monday-Friday, 8:30 AM - 5:00 PM",
+          "freshman_notes": "All students can access counseling services. Same-day appointments available for urgent concerns."
+        },
+        "raw": ""
+      },
+      {
+        "title": "24/7 Crisis Support",
+        "subtitle": "University Health Services",
+        "description": "After-hours crisis counseling available 24/7",
+        "contact": {
+          "email": "",
+          "phone": "608-265-5600",
+          "website": "https://www.uhs.wisc.edu/counseling/crisis/"
+        },
+        "meta": {
+          "location": "Phone support",
+          "office_hours": "24/7",
+          "freshman_notes": "Press option 8 for after-hours crisis support."
+        },
+        "raw": ""
+      }
+    ]
+  },
+  {
+    "name": "University of Pittsburgh",
+    "location": "Pittsburgh, Pennsylvania",
+    "latitude": 40.4443,
+    "longitude": -79.9608,
+    "website": "https://pitt.edu",
+    "scraped_at": "2026-03-01T00:00:00.000000",
+    "cards": [
+      {
+        "title": "University Counseling Center",
+        "subtitle": "Student Affairs",
+        "description": "Pitt offers comprehensive mental health services including individual counseling, group therapy, psychiatric services, and crisis intervention. Services address anxiety, depression, relationships, and academic stress.",
+        "contact": {
+          "email": "counsel@pitt.edu",
+          "phone": "412-648-7930",
+          "website": "https://www.counsel.pitt.edu/"
+        },
+        "meta": {
+          "location": "3340 O'Hara Student Center",
+          "office_hours": "Monday-Friday, 8:30 AM - 5:00 PM",
+          "freshman_notes": "Free counseling services for all enrolled students. Initial appointment within 1 week."
+        },
+        "raw": ""
+      },
+      {
+        "title": "24/7 Crisis Services",
+        "subtitle": "Student Affairs",
+        "description": "After-hours crisis support available 24/7",
+        "contact": {
+          "email": "",
+          "phone": "412-648-7930",
+          "website": "https://www.counsel.pitt.edu/crisis"
+        },
+        "meta": {
+          "location": "Phone support",
+          "office_hours": "24/7",
+          "freshman_notes": "Press 2 for crisis services when calling."
+        },
+        "raw": ""
+      }
+    ]
+  }
+]

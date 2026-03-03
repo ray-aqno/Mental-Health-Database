@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: mental-health-web
+    env: dotnet
+    plan: free
+    buildCommand: 'dotnet publish -c Release -o publish'
+    startCommand: 'dotnet publish/MentalHealthDatabase.dll'
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase: false
+  - type: job
+    name: mental-health-scraper
+    env: python
+    plan: free
+    schedule:
+      cron: '0 3 * * *' # daily at 03:00 UTC
+    buildCommand: 'pip install -r Scripts/requirements.txt'
+    startCommand: 'python3 Scripts/run_scraper_and_import.py'
+    envVars:
+      - key: BULK_API_TOKEN
+        fromDatabase: false
