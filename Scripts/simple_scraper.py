@@ -4,83 +4,7 @@ Reads targets from college_targets.json and scrapes mental health service pages.
 """
 
 import requests
-try:
-    from bs4 import BeautifulSoup
-except Exception:
-    # Minimal fallback parser to avoid external dependency in lightweight tests.
-    # Provides only the methods used by the scraper: get_text(), find(), find_all(),
-    # find_next(), find_next_siblings(), and basic attribute access.
-    import re
-
-    class _FallbackElement:
-        def __init__(self, tag, text, children=None):
-            self.name = tag
-            self._text = text
-            self._children = children or []
-
-        def get_text(self, strip=False):
-            if strip:
-                return re.sub(r'\s+', ' ', self._text).strip()
-            return self._text
-
-        def find(self, *args, **kwargs):
-            for c in self._children:
-                if c.name in args[0] if isinstance(args[0], (list, tuple)) else [args[0]]:
-                    return c
-            return None
-
-        def find_all(self, *args, **kwargs):
-            names = args[0] if isinstance(args[0], (list, tuple)) else [args[0]]
-            return [c for c in self._children if c.name in names]
-
-        def find_next(self, name=None):
-            return None
-
-        def find_next_siblings(self, limit=None):
-            return []
-
-        def decompose(self):
-            self._text = ''
-
-    class BeautifulSoup:
-        def __init__(self, html, parser):
-            # Accept bytes or str
-            if isinstance(html, bytes):
-                try:
-                    html = html.decode('utf-8')
-                except Exception:
-                    html = html.decode('latin-1', errors='replace')
-            # Very small heuristic parser: capture h1-h5 and p tags and top-level sections
-            self._html = html
-            self._text = re.sub(r'<script.*?>.*?</script>', '', html, flags=re.S|re.I)
-            self._text = re.sub(r'<style.*?>.*?</style>', '', self._text, flags=re.S|re.I)
-            # Extract simple tags
-            self._children = []
-            for tag in re.findall(r'<(h[1-5]|p)\b[^>]*>(.*?)</\1>', self._text, flags=re.S|re.I):
-                name, inner = tag
-                clean = re.sub(r'<[^>]+>', '', inner)
-                self._children.append(_FallbackElement(name.lower(), clean))
-
-        def get_text(self):
-            return re.sub(r'<[^>]+>', '', self._html)
-
-        def find(self, *args, **kwargs):
-            names = args[0] if isinstance(args[0], (list, tuple)) else args[0]
-            if isinstance(names, str):
-                names = [names]
-            for c in self._children:
-                if c.name in names:
-                    return c
-            return None
-
-        def find_all(self, *args, **kwargs):
-            names = args[0] if isinstance(args[0], (list, tuple)) else args[0]
-            if isinstance(names, str):
-                names = [names]
-            return [c for c in self._children if c.name in names]
-
-        def __call__(self, *args, **kwargs):
-            return []
+from _html_compat import BeautifulSoup  # noqa: F401
 
 import re
 import json
@@ -378,7 +302,14 @@ class CollegeScraper:
 
     def extract_hours(self, text):
         """Extract office hours."""
-        pattern = r'(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)[\s\w,-]*(?:AM|PM|am|pm|\d{1,2}[:\s]\d{1,2})'
+        # Match full-name or abbreviated day ranges followed by time spans
+        pattern = (
+            r'(?:Mon(?:day)?|Tue(?:sday)?|Wed(?:nesday)?|Thu(?:rsday)?|'
+            r'Fri(?:day)?|Sat(?:urday)?|Sun(?:day)?)'
+            r'[\s\w,/-]*'                             # day range / connectors
+            r'\d{1,2}:\d{2}\s*(?:AM|PM)'              # first time
+            r'(?:\s*[-–to]+\s*\d{1,2}:\d{2}\s*(?:AM|PM))?'  # optional second time
+        )
         match = re.search(pattern, text, re.IGNORECASE)
         return self.clean_text(match.group(0))[:200] if match else ""
 
@@ -390,6 +321,21 @@ class CollegeScraper:
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
                 return self.clean_text(match.group(0))[:200]
+        return ""
+
+    def extract_freshman_info(self, text):
+        """Extract freshman/first-year specific information from text."""
+        if not text:
+            return ""
+        keywords = ['freshman', 'first-year', 'first year', 'new student']
+        for keyword in keywords:
+            pattern = re.compile(
+                rf'([^.]*\b{re.escape(keyword)}\b[^.]*\.?)',
+                re.IGNORECASE,
+            )
+            match = pattern.search(text)
+            if match:
+                return self.clean_text(match.group(1))[:500]
         return ""
 
     def clean_text(self, text):
@@ -407,6 +353,10 @@ class CollegeScraper:
             if name and name not in unique:
                 unique[name] = resource
         return list(unique.values())
+
+
+    # Backwards-compatible export for older tests/tools
+    # (kept as a module-level alias below)
 
     def filter_low_quality(self, resources):
         """Filter out low-quality resources."""
@@ -527,3 +477,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# Module-level backwards-compatible alias for older tests/tools
+SimpleCollegeScraper = CollegeScraper
