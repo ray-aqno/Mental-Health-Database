@@ -37,11 +37,11 @@ jobs:
         dotnet-version: ${{ matrix.dotnet-version }}
 
     - name: Restore .NET packages
-      run: dotnet restore
+      run: dotnet restore MentalHealthDatabase.sln
 
     - name: Run .NET tests
       run: |
-        dotnet test --no-build --verbosity normal
+        dotnet test MentalHealthDatabase.sln --no-build --verbosity normal
 
     - name: Install dotnet-ef tool
       run: dotnet tool restore
@@ -58,4 +58,4 @@ jobs:
         fi
 
     - name: Build Web App
-      run: dotnet publish -c Release -o publish
+      run: dotnet publish MentalHealthDatabase.sln -c Release -o publish
