@@ -1,4 +1,4 @@
-// =====================================================
+﻿// =====================================================
 // Mental Health Database - Main Application Script
 // =====================================================
 
@@ -13,7 +13,6 @@ class MentalHealthApp {
         this.init();
     }
 
-    // Initialize the application
     init() {
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
@@ -22,41 +21,34 @@ class MentalHealthApp {
                 this.loadColleges();
             });
         } else {
-            // DOM is already loaded
             this.initializeMap();
             this.setupEventListeners();
             this.loadColleges();
         }
     }
 
-    // Initialize Leaflet map
     initializeMap() {
         try {
-            // Check if Leaflet is loaded
             if (typeof L === 'undefined') {
-                throw new Error('Leaflet library is not loaded. Please check your internet connection.');
+                throw new Error('Leaflet library is not loaded.');
             }
 
-            // Create map centered on Midwest USA
             this.map = L.map('map').setView([39.8283, -98.5795], 5);
 
-            // Add OpenStreetMap tile layer
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
                 maxZoom: 19,
                 minZoom: 4
             }).addTo(this.map);
 
-            console.log('✓ Map initialized successfully');
+            console.log('✔ Map initialized successfully');
         } catch (error) {
-            console.error('✗ Map initialization failed:', error);
+            console.error('✖ Map initialization failed:', error);
             this.showError('Failed to initialize map: ' + error.message);
         }
     }
 
-    // Setup event listeners
     setupEventListeners() {
-        // Search input
         const searchInput = document.getElementById('search-input');
         if (searchInput) {
             searchInput.addEventListener('input', (e) => {
@@ -65,7 +57,6 @@ class MentalHealthApp {
             });
         }
 
-        // Filter buttons
         const filterButtons = document.querySelectorAll('.filter-btn');
         filterButtons.forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -73,21 +64,25 @@ class MentalHealthApp {
             });
         });
 
-        // Refresh button
         const refreshBtn = document.getElementById('refresh-btn');
         if (refreshBtn) {
             refreshBtn.addEventListener('click', () => {
                 this.loadColleges();
             });
         }
+
+        const sheetClear = document.getElementById('sheet-clear');
+        if (sheetClear) {
+            sheetClear.addEventListener('click', () => {
+                this.clearFilters();
+            });
+        }
     }
 
-    // Load colleges from API
     async loadColleges() {
         this.showLoading(true);
         try {
             const response = await fetch('/api/colleges');
-            
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({}));
                 const errorMessage = errorData.message || `HTTP error! Status: ${response.status}`;
@@ -95,7 +90,7 @@ class MentalHealthApp {
             }
 
             this.colleges = await response.json();
-            console.log(`✓ Loaded ${this.colleges.length} colleges`);
+            console.log(`✔ Loaded ${this.colleges.length} colleges`);
 
             if (this.colleges.length === 0) {
                 this.showInfo('No colleges found in the database. Please add some colleges first.');
@@ -104,42 +99,37 @@ class MentalHealthApp {
             this.filteredColleges = [...this.colleges];
             this.renderColleges();
             this.updateStats();
+            this.setMapStatus('Data synchronized');
             this.showLoading(false);
-
         } catch (error) {
-            console.error('✗ Failed to load colleges:', error);
+            console.error('✖ Failed to load colleges:', error);
             this.showError('Failed to load college data: ' + error.message + '. The database might not be initialized yet.');
             this.showLoading(false);
         }
     }
 
-    // Render colleges on map and sidebar
     renderColleges() {
-        // Clear existing markers
         Object.values(this.markers).forEach(marker => {
             this.map.removeLayer(marker);
         });
         this.markers = {};
 
-        // Clear sidebar
         const collegeList = document.getElementById('college-list');
         if (collegeList) {
             collegeList.innerHTML = '';
         }
 
-        // Check if we have colleges
         if (this.filteredColleges.length === 0) {
             this.showInfo('No colleges match your search criteria.');
+            this.renderResourceCards();
             return;
         }
 
-        // Add markers and sidebar items
         this.filteredColleges.forEach(college => {
             this.addCollegeMarker(college);
             this.addCollegeToSidebar(college);
         });
 
-        // Fit map to show all markers
         if (this.filteredColleges.length > 0) {
             const bounds = L.latLngBounds(
                 this.filteredColleges.map(c => [c.latitude, c.longitude])
@@ -150,14 +140,63 @@ class MentalHealthApp {
             });
         }
 
-        // Update college count
         const countElement = document.getElementById('college-count');
         if (countElement) {
             countElement.textContent = this.filteredColleges.length;
         }
+
+        this.renderResourceCards();
+        this.updateActiveFilterBadge();
     }
 
-    // Add marker to map
+    renderResourceCards() {
+        const container = document.getElementById('resource-cards');
+        if (!container) return;
+
+        container.innerHTML = '';
+
+        if (this.filteredColleges.length === 0) {
+            container.innerHTML = `
+                <div class="resource-card empty">
+                    <h4>No results</h4>
+                    <p>Try a broader search or clear the filters.</p>
+                </div>
+            `;
+            return;
+        }
+
+        this.filteredColleges.slice(0, 4).forEach(college => {
+            const card = document.createElement('article');
+            card.className = 'resource-card';
+            card.dataset.collegeId = college.id;
+
+            const resourceCount = college.resources ? college.resources.length : 0;
+            const highlightResource = college.resources && college.resources.length > 0
+                ? college.resources[0].serviceName
+                : 'Resources pending';
+
+            card.innerHTML = `
+                <div class="resource-card-top">
+                    <h4>${college.name}</h4>
+                    <p class="resource-card-meta">${college.location || 'Location TBD'}</p>
+                </div>
+                <p>${highlightResource}</p>
+                <p>${resourceCount} resource${resourceCount !== 1 ? 's' : ''} available</p>
+                <div class="resource-card-cta">
+                    <span>Tap to focus</span>
+                    <a href="${college.website}" target="_blank" rel="noopener" class="resource-card-link">Visit site →</a>
+                </div>
+            `;
+
+            card.addEventListener('click', () => {
+                this.zoomToCollege(college);
+                this.highlightCollege(college.id);
+            });
+
+            container.appendChild(card);
+        });
+    }
+
     addCollegeMarker(college) {
         const marker = L.marker([college.latitude, college.longitude], {
             title: college.name
@@ -176,7 +215,6 @@ class MentalHealthApp {
         this.markers[college.id] = marker;
     }
 
-    // Add college to sidebar list
     addCollegeToSidebar(college) {
         const collegeList = document.getElementById('college-list');
         if (!collegeList) return;
@@ -189,12 +227,8 @@ class MentalHealthApp {
 
         listItem.innerHTML = `
             <div class="college-item-name">${college.name}</div>
-            <div class="college-item-location">
-                📍 ${college.location}
-            </div>
-            <div class="college-item-resources">
-                🏥 ${resourceCount} resource${resourceCount !== 1 ? 's' : ''}
-            </div>
+            <div class="college-item-location">📍 ${college.location}</div>
+            <div class="college-item-resources">🔥 ${resourceCount} resource${resourceCount !== 1 ? 's' : ''}</div>
         `;
 
         listItem.addEventListener('click', () => {
@@ -205,12 +239,10 @@ class MentalHealthApp {
         collegeList.appendChild(listItem);
     }
 
-    // Create popup content
     createPopupContent(college) {
         const container = document.createElement('div');
         container.className = 'resource-popup';
 
-        // Header
         const header = document.createElement('div');
         header.className = 'popup-header';
         header.innerHTML = `
@@ -224,14 +256,13 @@ class MentalHealthApp {
         `;
         container.appendChild(header);
 
-        // Resources section
         if (college.resources && college.resources.length > 0) {
             const resourcesSection = document.createElement('div');
             resourcesSection.className = 'resources-section';
 
             const resourcesHeader = document.createElement('div');
             resourcesHeader.className = 'resources-header';
-            resourcesHeader.innerHTML = '🏥 Mental Health Resources';
+            resourcesHeader.innerHTML = '🧭 Mental Health Resources';
             resourcesSection.appendChild(resourcesHeader);
 
             college.resources.forEach(resource => {
@@ -251,18 +282,15 @@ class MentalHealthApp {
         return container;
     }
 
-    // Create resource element
     createResourceElement(resource) {
         const div = document.createElement('div');
         div.className = 'resource-item';
 
-        // Service name
         const name = document.createElement('div');
         name.className = 'resource-name';
         name.textContent = resource.serviceName;
         div.appendChild(name);
 
-        // Description
         if (resource.description) {
             const desc = document.createElement('div');
             desc.className = 'resource-description';
@@ -270,31 +298,30 @@ class MentalHealthApp {
             div.appendChild(desc);
         }
 
-        // Details
         const details = [];
 
         if (resource.department) {
-            details.push({ icon: '🏢', label: 'Department', value: resource.department });
+            details.push({ icon: '🏫', label: 'Department', value: resource.department });
         }
 
         if (resource.contactEmail) {
             details.push({ 
-                icon: '📧', 
-                label: 'Email', 
-                value: `<a href="mailto:${resource.contactEmail}">${resource.contactEmail}</a>` 
+                icon: '✉️',
+                label: 'Email',
+                value: `<a href="mailto:${resource.contactEmail}">${resource.contactEmail}</a>`
             });
         }
 
         if (resource.contactPhone) {
             details.push({ 
-                icon: '📞', 
-                label: 'Phone', 
-                value: `<a href="tel:${resource.contactPhone}">${resource.contactPhone}</a>` 
+                icon: '📞',
+                label: 'Phone',
+                value: `<a href="tel:${resource.contactPhone}">${resource.contactPhone}</a>`
             });
         }
 
         if (resource.officeHours) {
-            details.push({ icon: '🕒', label: 'Hours', value: resource.officeHours });
+            details.push({ icon: '⏰', label: 'Hours', value: resource.officeHours });
         }
 
         if (resource.location) {
@@ -303,9 +330,9 @@ class MentalHealthApp {
 
         if (resource.contactWebsite) {
             details.push({ 
-                icon: '🌐', 
-                label: 'Website', 
-                value: `<a href="${resource.contactWebsite}" target="_blank" rel="noopener noreferrer">Learn More</a>` 
+                icon: '🌐',
+                label: 'Website',
+                value: `<a href="${resource.contactWebsite}" target="_blank" rel="noopener noreferrer">Learn More</a>`
             });
         }
 
@@ -320,7 +347,6 @@ class MentalHealthApp {
             div.appendChild(detailDiv);
         });
 
-        // Freshman notes (highlighted)
         if (resource.freshmanNotes) {
             const freshmanDiv = document.createElement('div');
             freshmanDiv.className = 'freshman-notes';
@@ -338,15 +364,12 @@ class MentalHealthApp {
         return div;
     }
 
-    // Filter colleges
     filterColleges() {
         this.filteredColleges = this.colleges.filter(college => {
-            // Apply search filter
             const matchesSearch = this.searchQuery === '' || 
                 college.name.toLowerCase().includes(this.searchQuery) ||
                 college.location.toLowerCase().includes(this.searchQuery);
 
-            // Apply state filter
             let matchesFilter = true;
             if (this.currentFilter !== 'all') {
                 matchesFilter = college.location.toLowerCase().includes(this.currentFilter.toLowerCase());
@@ -357,13 +380,12 @@ class MentalHealthApp {
 
         this.renderColleges();
         this.updateStats();
+        this.setMapStatus('Filters updated');
     }
 
-    // Set filter
     setFilter(filter) {
         this.currentFilter = filter;
 
-        // Update button states
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.classList.remove('active');
             if (btn.dataset.filter === filter) {
@@ -374,17 +396,23 @@ class MentalHealthApp {
         this.filterColleges();
     }
 
-    // Zoom to specific college
+    clearFilters() {
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.value = '';
+        }
+        this.searchQuery = '';
+        this.setFilter('all');
+    }
+
     zoomToCollege(college) {
         this.map.setView([college.latitude, college.longitude], 13);
-        
         const marker = this.markers[college.id];
         if (marker) {
             marker.openPopup();
         }
     }
 
-    // Highlight college in sidebar
     highlightCollege(collegeId) {
         document.querySelectorAll('.college-item').forEach(item => {
             item.classList.remove('active');
@@ -393,16 +421,21 @@ class MentalHealthApp {
                 item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
         });
+
+        document.querySelectorAll('.resource-card').forEach(card => {
+            card.classList.remove('active');
+            if (parseInt(card.dataset.collegeId) === collegeId) {
+                card.classList.add('active');
+            }
+        });
     }
 
-    // Update statistics
     updateStats() {
         const totalColleges = this.filteredColleges.length;
         const totalResources = this.filteredColleges.reduce((sum, college) => {
             return sum + (college.resources ? college.resources.length : 0);
         }, 0);
 
-        // Get unique states
         const states = new Set(
             this.filteredColleges.map(c => {
                 const parts = c.location.split(',');
@@ -410,7 +443,6 @@ class MentalHealthApp {
             })
         );
 
-        // Update DOM
         const statsElements = {
             'stat-colleges': totalColleges,
             'stat-resources': totalResources,
@@ -425,11 +457,23 @@ class MentalHealthApp {
         });
     }
 
-    // Show loading state
+    setMapStatus(status) {
+        const paceElement = document.getElementById('map-pace');
+        if (paceElement) {
+            paceElement.textContent = status;
+        }
+    }
+
+    updateActiveFilterBadge() {
+        const labelElement = document.getElementById('active-filter');
+        if (labelElement) {
+            labelElement.textContent = this.currentFilter === 'all' ? 'All States' : this.currentFilter;
+        }
+    }
+
     showLoading(show) {
         const loadingElement = document.getElementById('loading');
         const mapElement = document.getElementById('map');
-        
         if (loadingElement) {
             loadingElement.style.display = show ? 'block' : 'none';
         }
@@ -438,32 +482,27 @@ class MentalHealthApp {
         }
     }
 
-    // Show error message
     showError(message) {
         this.showAlert('error', message);
     }
 
-    // Show info message
     showInfo(message) {
         this.showAlert('info', message);
     }
 
-    // Show success message
     showSuccess(message) {
         this.showAlert('success', message);
     }
 
-    // Generic alert function
     showAlert(type, message) {
         const container = document.getElementById('alert-container');
         if (!container) return;
 
         const alert = document.createElement('div');
-        alert.className = `alert alert-${type} fade-in`;
-        
+        alert.className = `alert ${type} fade-in`;
         const icons = {
-            error: '❌',
-            success: '✅',
+            error: '✖',
+            success: '✔',
             info: 'ℹ️'
         };
 
@@ -475,7 +514,6 @@ class MentalHealthApp {
 
         container.appendChild(alert);
 
-        // Auto-remove after 5 seconds
         setTimeout(() => {
             if (alert.parentElement) {
                 alert.remove();
@@ -484,8 +522,5 @@ class MentalHealthApp {
     }
 }
 
-// Initialize the application
 const app = new MentalHealthApp();
-
-// Export for console access (debugging)
 window.app = app;

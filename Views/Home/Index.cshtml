@@ -1,4 +1,4 @@
-@{
+﻿@{
     ViewData["Title"] = "College Mental Health Resources Map";
 }
 
@@ -6,137 +6,124 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Find mental health resources at colleges in the Midwest. Interactive map showing counseling services, crisis support, and freshman-specific information.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Find mental health resources across colleges with a tactile, search-first experience on desktop and handheld devices.">
     <title>@ViewData["Title"]</title>
-    
-    <!-- Leaflet CSS - Local copy -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="~/css/leaflet.css" />
-    
-    <!-- Main CSS -->
     <link rel="stylesheet" href="~/css/main.css" />
 </head>
 <body>
-    
-    <!-- Header Section -->
-    <header class="header">
-        <div class="header-content">
-            <h1>🏥 College Mental Health Resources</h1>
-            <p class="subtitle">Find mental health support services at colleges in the Midwest region</p>
-        </div>
-    </header>
-
-    <!-- Controls Section -->
-    <section class="controls">
-        <div class="controls-content">
-            <!-- Search Box -->
-            <div class="search-box">
-                <span class="search-icon">🔍</span>
-                <input type="text" 
-                       id="search-input" 
-                       placeholder="Search by college name or location..."
-                       aria-label="Search colleges">
+    <div class="app-shell">
+        <header class="hero-panel">
+            <div class="hero-content">
+                <p class="hero-kicker">North Star Sanctuary</p>
+                <h1>North America&#39;s most comprehensive campus mental health atlas</h1>
+                <p class="hero-copy">Search by campus, city, or specialty service and glide straight to the support you need. Mobile-first filters keep the map responsive and the data readable.</p>
+                <div class="hero-command">
+                    <span class="search-icon">ðŸ”</span>
+                    <input type="text"
+                           id="search-input"
+                           placeholder="Search colleges, cities, or services"
+                           aria-label="Search colleges and resources">
+                    <button class="btn btn-tertiary" id="voice-btn" aria-label="Voice search">
+                        ðŸ“¨ Voice
+                    </button>
+                </div>
+                <div class="hero-actions">
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-number" id="stat-colleges">0</span>
+                            <span class="hero-stat-label">Colleges</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number" id="stat-resources">0</span>
+                            <span class="hero-stat-label">Resources</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number" id="stat-states">0</span>
+                            <span class="hero-stat-label">States</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="refresh-btn">
+                        ðŸ”„ Refresh data
+                    </button>
+                </div>
             </div>
+        </header>
 
-            <!-- Filter Buttons -->
-            <div class="filter-buttons">
-                <button class="btn btn-secondary filter-btn active" data-filter="all">
-                    🌐 All States
-                </button>
-                <button class="btn btn-secondary filter-btn" data-filter="ohio">
-                    Ohio
-                </button>
-                <button class="btn btn-secondary filter-btn" data-filter="kentucky">
-                    Kentucky
-                </button>
-                <button class="btn btn-secondary filter-btn" data-filter="indiana">
-                    Indiana
-                </button>
-                <button class="btn btn-secondary filter-btn" data-filter="illinois">
-                    Illinois
-                </button>
-                <button class="btn btn-secondary filter-btn" data-filter="michigan">
-                    Michigan
-                </button>
-                <button class="btn btn-secondary filter-btn" data-filter="pennsylvania">
-                    Pennsylvania
-                </button>
-                <button class="btn btn-secondary filter-btn" data-filter="new york">
-                    New York
-                </button>
-                <button class="btn btn-primary" id="refresh-btn">
-                    🔄 Refresh
-                </button>
+        <div id="alert-container" class="alert-container"></div>
+
+        <main class="content-grid">
+            <section class="map-panel">
+                <div class="map-frame">
+                    <div id="loading" class="loading">
+                        <div class="spinner"></div>
+                        <p>Loading colleges and resources...</p>
+                    </div>
+                    <div id="map"></div>
+                    <div class="map-glow"></div>
+                </div>
+                <div class="map-overlay">
+                    <div class="map-overlay-badge">Active filter: <span id="active-filter">All</span></div>
+                    <div class="map-overlay-badge" id="map-pace">Search ready</div>
+                </div>
+                <div class="floating-sheet" id="filter-sheet">
+                    <div class="sheet-handle"></div>
+                    <div class="sheet-header">
+                        <div>
+                            <p class="sheet-overline">Refine</p>
+                            <h3>Filter campuses</h3>
+                        </div>
+                        <button class="btn btn-secondary" id="sheet-clear">Clear</button>
+                    </div>
+                    <div class="sheet-chips" id="filter-chip-group">
+                        <button class="btn btn-chip filter-btn active" data-filter="all">All States</button>
+                        <button class="btn btn-chip filter-btn" data-filter="ohio">Ohio</button>
+                        <button class="btn btn-chip filter-btn" data-filter="kentucky">Kentucky</button>
+                        <button class="btn btn-chip filter-btn" data-filter="indiana">Indiana</button>
+                        <button class="btn btn-chip filter-btn" data-filter="illinois">Illinois</button>
+                        <button class="btn btn-chip filter-btn" data-filter="michigan">Michigan</button>
+                        <button class="btn btn-chip filter-btn" data-filter="pennsylvania">Pennsylvania</button>
+                        <button class="btn btn-chip filter-btn" data-filter="new york">New York</button>
+                    </div>
+                    <div class="sheet-cta">
+                        <p><strong>Crisis tips</strong></p>
+                        <p class="sheet-cta-copy">Call <strong>988</strong> or text <strong>HELLO</strong> to <strong>741741</strong> if you need immediate support.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="resource-panel">
+                <div class="resource-header">
+                    <div>
+                        <p class="sheet-overline">Campus showcase</p>
+                        <h3>Swipe cards on mobile</h3>
+                    </div>
+                    <span class="college-count" id="college-count">0</span>
+                </div>
+                <ul class="college-list" id="college-list"></ul>
+                <div class="resource-cards" id="resource-cards"></div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div>
+                <p>ðŸŽ“ <strong>Mental Health Resources Database</strong></p>
+                <p>Helping college students find the support they need</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Statistics Bar -->
-    <section class="stats-bar">
-        <div class="stats-content">
-            <div class="stat-item">
-                <span class="stat-number" id="stat-colleges">0</span>
-                <span class="stat-label">Colleges</span>
+            <div class="footer-links">
+                <a href="https://github.com" target="_blank">View on GitHub</a>
+                <span>•</span>
+                <span>Updated for Render deployment</span>
             </div>
-            <div class="stat-item">
-                <span class="stat-number" id="stat-resources">0</span>
-                <span class="stat-label">Resources</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" id="stat-states">0</span>
-                <span class="stat-label">States</span>
-            </div>
-        </div>
-    </section>
+            <p class="footer-crisis">
+                ðŸ†˜ <strong>Crisis Support:</strong> Call or text <strong>988</strong> or text <strong>HELLO</strong> to <strong>741741</strong>
+            </p>
+        </footer>
+    </div>
 
-    <!-- Alert Container -->
-    <div id="alert-container" style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;"></div>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        
-        <!-- Sidebar with College List -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <h3>📚 Colleges</h3>
-                <span class="college-count" id="college-count">0</span>
-            </div>
-            <ul class="college-list" id="college-list">
-                <!-- College items will be dynamically added here -->
-            </ul>
-        </aside>
-
-        <!-- Map Container -->
-        <section class="map-container">
-            <div id="loading" class="loading">
-                <div class="spinner"></div>
-                <p>Loading colleges and resources...</p>
-            </div>
-            <div id="map"></div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>🎓 <strong>Mental Health Resources Database</strong></p>
-        <p>Helping college students find the support they need</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">
-            Built with ❤️ for college mental health awareness | 
-            <a href="https://github.com" target="_blank">View on GitHub</a>
-        </p>
-        <p style="font-size: 0.85rem; margin-top: 0.5rem;">
-            🆘 <strong>Crisis Support:</strong> 
-            Call or text <strong>988</strong> (Suicide & Crisis Lifeline) | 
-            Text <strong>HELLO</strong> to <strong>741741</strong> (Crisis Text Line)
-        </p>
-    </footer>
-
-    <!-- Leaflet JavaScript - Local copy (must load first, no defer/async) -->
     <script src="~/js/leaflet.js"></script>
-    
-    <!-- Main Application Script (no defer - runs immediately after Leaflet) -->
     <script src="~/js/app.js"></script>
-
 </body>
 </html>
