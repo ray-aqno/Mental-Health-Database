@@ -10,10 +10,14 @@ class MentalHealthApp {
         this.filteredColleges = [];
         this.currentFilter = 'all';
         this.searchQuery = '';
+        this.deviceMode = 'desktop';
+        this.resizeTimer = null;
         this.init();
     }
 
     init() {
+        this.detectDeviceMode();
+        window.addEventListener('resize', () => this.handleResize());
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
                 this.initializeMap();
@@ -79,6 +83,35 @@ class MentalHealthApp {
         }
     }
 
+    handleResize() {
+        clearTimeout(this.resizeTimer);
+        this.resizeTimer = setTimeout(() => this.detectDeviceMode(), 120);
+    }
+
+    detectDeviceMode() {
+        const isMobile = typeof window.matchMedia === 'function'
+            ? window.matchMedia('(max-width: 768px)').matches
+            : window.innerWidth <= 768;
+        const mode = isMobile ? 'mobile' : 'desktop';
+        if (mode !== this.deviceMode) {
+            this.deviceMode = mode;
+            this.applyDeviceMode();
+        }
+        const shell = document.getElementById('app-shell');
+        if (shell) {
+            shell.dataset.deviceMode = mode;
+        }
+    }
+
+    applyDeviceMode() {
+        const sheetTitle = document.querySelector('.sheet-header h3');
+        if (sheetTitle) {
+            sheetTitle.textContent = this.deviceMode === 'mobile'
+                ? 'Tap to filter Hope Squad partners'
+                : 'Filter campuses';
+        }
+    }
+
     async loadColleges() {
         this.showLoading(true);
         try {
@@ -122,6 +155,7 @@ class MentalHealthApp {
         if (this.filteredColleges.length === 0) {
             this.showInfo('No colleges match your search criteria.');
             this.renderResourceCards();
+            this.renderMapMetadata();
             return;
         }
 
@@ -147,6 +181,7 @@ class MentalHealthApp {
 
         this.renderResourceCards();
         this.updateActiveFilterBadge();
+        this.renderMapMetadata();
     }
 
     renderResourceCards() {
@@ -194,6 +229,52 @@ class MentalHealthApp {
             });
 
             container.appendChild(card);
+        });
+    }
+
+    renderMapMetadata() {
+        const totalCampuses = this.filteredColleges.length;
+        const totalResources = this.filteredColleges.reduce((sum, college) => {
+            return sum + (college.resources ? college.resources.length : 0);
+        }, 0);
+
+        const states = new Set(
+            this.filteredColleges.map(c => {
+                const parts = c.location ? c.location.split(',') : [];
+                return parts.length ? parts[parts.length - 1].trim() : 'Unknown';
+            })
+        );
+
+        const metaElements = {
+            'meta-colleges': totalCampuses,
+            'meta-resources': totalResources,
+            'meta-states': states.size
+        };
+
+        Object.entries(metaElements).forEach(([id, value]) => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = value;
+            }
+        });
+
+        const list = document.getElementById('metadata-list');
+        if (!list) return;
+
+        list.innerHTML = '';
+        if (totalCampuses === 0) {
+            list.innerHTML = '<li>No campuses in view. Adjust filters to see Hope Squad partners.</li>';
+            return;
+        }
+
+        this.filteredColleges.slice(0, 3).forEach((college, index) => {
+            const item = document.createElement('li');
+            const resourceCount = college.resources ? college.resources.length : 0;
+            item.innerHTML = `
+                <strong>${index + 1}. ${college.name}</strong>
+                <span>${college.location || 'Midwest region'} • ${resourceCount} resource${resourceCount !== 1 ? 's' : ''}</span>
+            `;
+            list.appendChild(item);
         });
     }
 
