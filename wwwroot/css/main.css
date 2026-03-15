@@ -370,6 +370,9 @@ body {
 
 .resource-body-list {
     display: block;
+    max-height: 520px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
 }
 
 .resource-body-cards {
@@ -424,6 +427,19 @@ body {
     gap: 0.9rem;
     overflow-x: auto;
     padding-bottom: 0.5rem;
+}
+
+.mobile-library {
+    max-height: 360px;
+    overflow-y: auto;
+    display: grid;
+    gap: 0.85rem;
+    padding-right: 0.5rem;
+    scroll-snap-type: y proximity;
+}
+
+.mobile-library article {
+    scroll-snap-align: start;
 }
 
 .resource-card {
@@ -654,6 +670,13 @@ body {
 
 .app-shell[data-device-mode="mobile"] .mobile-shell {
     display: flex;
+}
+
+.app-shell[data-device-mode="mobile"] .resource-cards {
+    flex-direction: column;
+    max-height: 360px;
+    overflow-y: auto;
+    padding-bottom: 0;
 }
 .alert-container {
     position: sticky;

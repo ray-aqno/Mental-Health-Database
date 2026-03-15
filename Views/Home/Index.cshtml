@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Hope Squad Midwest atlas helping high school students find local mental health teams across partner campuses.">
+    <meta name="description" content="Midwest College Mental Health Resource Atlas connecting high school students to campus support teams.">
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="~/css/leaflet.css" />
@@ -17,9 +17,9 @@
     <div class="app-shell" id="app-shell" data-device-mode="desktop">
         <header class="hero-panel">
             <div class="hero-content">
-                <p class="hero-kicker">Hope Squad Midwest atlas</p>
-                <h1>Hope Squad Midwest high school support atlas</h1>
-                <p class="hero-copy">Search by campus, city, or specialty service so Midwest high school students reach the right mental health team fast. Every action is tuned whether you are on desktop or handheld.</p>
+                <p class="hero-kicker">Midwest campus resources</p>
+                <h1>Midwest College Mental Health Resource Atlas</h1>
+                <p class="hero-copy">Search by campus, city, or specialty service until you find the counseling team or crisis pathway that fits your high school students. The experience adjusts between desktop and handheld automatically.</p>
                 <div class="hero-command">
                     <span class="search-icon">🔍</span>
                     <input type="text"
@@ -55,7 +55,7 @@
         <div id="alert-container" class="alert-container"></div>
 
         <main class="content-grid">
-            <section class="map-panel">
+            <section class="map-panel desktop-only">
                 <div class="map-frame">
                     <div id="loading" class="loading">
                         <div class="spinner"></div>
@@ -70,8 +70,8 @@
                 </div>
                 <div class="map-metadata" id="map-metadata">
                     <div class="map-metadata-heading">
-                        <p class="sheet-overline">Hope Squad insight</p>
-                        <h3>Midwest high school snapshot</h3>
+                        <p class="sheet-overline">Atlas insight</p>
+                        <h3>Midwest campus snapshot</h3>
                     </div>
                     <dl class="metadata-grid">
                         <div>
@@ -88,7 +88,7 @@
                         </div>
                     </dl>
                     <ul class="metadata-list" id="metadata-list">
-                        <li>Tap or scroll to surface Hope Squad partners near you.</li>
+                        <li>Tap or scroll to surface partner campuses near you.</li>
                     </ul>
                 </div>
                 <div class="floating-sheet" id="filter-sheet">
@@ -111,8 +111,8 @@
                         <button class="btn btn-chip filter-btn" data-filter="new york">New York</button>
                     </div>
                     <div class="sheet-cta">
-                        <p><strong>Hope Squad crisis tips</strong></p>
-                        <p class="sheet-cta-copy">Hope Squad partners stand ready—call <strong>988</strong> or text <strong>HELLO</strong> to <strong>741741</strong> whenever you need immediate support.</p>
+                        <p><strong>Crisis tips</strong></p>
+                        <p class="sheet-cta-copy">Call <strong>988</strong> or text <strong>HELLO</strong> to <strong>741741</strong> whenever you need immediate support—these numbers connect you to the Suicide & Crisis Lifeline.</p>
                     </div>
                 </div>
             </section>
@@ -131,8 +131,8 @@
             <section class="mobile-shell mobile-only">
                 <div class="mobile-shell-header">
                     <div>
-                        <p class="sheet-overline">Mobile command</p>
-                        <h3>Search from your phone</h3>
+                        <p class="sheet-overline">Field guide</p>
+                        <h3>Browse Midwest resources</h3>
                     </div>
                     <span class="college-count" id="college-count-mobile">0 campuses</span>
                 </div>

@@ -107,7 +107,7 @@ class MentalHealthApp {
         const sheetTitle = document.querySelector('.sheet-header h3');
         if (sheetTitle) {
             sheetTitle.textContent = this.deviceMode === 'mobile'
-                ? 'Tap to filter Hope Squad partners'
+                ? 'Tap to filter nearby campuses'
                 : 'Filter campuses';
         }
     }
@@ -263,7 +263,7 @@ class MentalHealthApp {
 
         list.innerHTML = '';
         if (totalCampuses === 0) {
-            list.innerHTML = '<li>No campuses in view. Adjust filters to see Hope Squad partners.</li>';
+            list.innerHTML = '<li>No campuses in view. Adjust filters to highlight partner services.</li>';
             return;
         }
 
@@ -329,8 +329,8 @@ class MentalHealthApp {
             <h3>${college.name}</h3>
             <div class="popup-meta">
                 <span>📍 ${college.location || 'Midwest region'}</span>
-                <span>🧭 Hope Squad partner</span>
-                <span>🌐 <a href="${college.website}" target="_blank" rel="noopener noreferrer">View campus site →</a></span>
+                <span>🧭 Trusted campus service</span>
+                <span>🌐 <a href="${college.website}" target="_blank" rel="noopener noreferrer">Visit campus website →</a></span>
             </div>
         `;
         container.appendChild(header);
@@ -341,8 +341,8 @@ class MentalHealthApp {
         const quickSection = document.createElement('div');
         quickSection.className = 'popup-section';
         quickSection.innerHTML = `
-            <h4>Hope Squad priority</h4>
-            <p>Midwest high school students can use these curated services to connect with campus counseling teams, whether in-person or virtually.</p>
+            <h4>Priority pathway</h4>
+            <p>High school students can tap these curated services to connect with campus counseling teams, in-person or virtually.</p>
         `;
         content.appendChild(quickSection);
 
@@ -359,7 +359,7 @@ class MentalHealthApp {
         } else {
             const placeholder = document.createElement('div');
             placeholder.className = 'popup-section';
-            placeholder.innerHTML = '<h4>No resources yet</h4><p>Hope Squad is adding partner services regularly—check back soon.</p>';
+            placeholder.innerHTML = '<h4>No resources yet</h4><p>The resource library is expanding—check back soon for more campus services.</p>';
             content.appendChild(placeholder);
         }
 
