@@ -375,6 +375,77 @@ body {
     padding-right: 0.5rem;
 }
 
+.detail-summary {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.4rem;
+}
+
+.detail-empty {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin: 0;
+}
+
+.detail-resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.detail-row {
+    background: #fdfdfd;
+    border-radius: 12px;
+    padding: 0.5rem 0.75rem;
+    box-shadow: inset 0 0 0 1px rgba(16, 86, 126, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.detail-row strong {
+    font-size: 0.95rem;
+}
+
+.detail-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.detail-row a {
+    color: var(--teal);
+    text-decoration: none;
+}
+
+.college-details,
+.card-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-top: 0.6rem;
+}
+
+.college-details.expanded,
+.card-details.expanded {
+    max-height: 420px;
+}
+
+.toggle-details {
+    background: none;
+    border: none;
+    color: var(--teal);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.35rem 0;
+    text-align: left;
+}
+
+.card-toggle {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+}
 .resource-body-cards {
     display: none;
 }

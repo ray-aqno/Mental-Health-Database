@@ -223,12 +223,33 @@ class MentalHealthApp {
                 </div>
             `;
 
+            const detailBlock = document.createElement('div');
+            detailBlock.className = 'card-details';
+            this.populateCollegeDetails(detailBlock, college);
+
+            const toggleButton = document.createElement('button');
+            toggleButton.type = 'button';
+            toggleButton.className = 'toggle-details card-toggle';
+            toggleButton.textContent = 'More info';
+            toggleButton.setAttribute('aria-expanded', 'false');
+            toggleButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                this.toggleDetails(detailBlock, toggleButton);
+            });
+
+            card.appendChild(detailBlock);
+            card.appendChild(toggleButton);
+
             card.addEventListener('click', () => {
                 this.zoomToCollege(college);
                 this.highlightCollege(college.id);
             });
 
             container.appendChild(card);
+        });
+        container.querySelectorAll('.card-details').forEach(details => {
+            // ensure collapsed by default
+            details.classList.remove('expanded');
         });
     }
 
@@ -307,12 +328,31 @@ class MentalHealthApp {
         const resourceCount = college.resources ? college.resources.length : 0;
 
         listItem.innerHTML = `
-            <div class="college-item-name">${college.name}</div>
-            <div class="college-item-location">📍 ${college.location}</div>
-            <div class="college-item-resources">🔥 ${resourceCount} resource${resourceCount !== 1 ? 's' : ''}</div>
+            <div class="college-head">
+                <div>
+                    <div class="college-item-name">${college.name}</div>
+                    <div class="college-item-location">📍 ${college.location}</div>
+                </div>
+                <div class="college-item-resources">🔥 ${resourceCount} resource${resourceCount !== 1 ? 's' : ''}</div>
+            </div>
         `;
 
-        listItem.addEventListener('click', () => {
+        const details = document.createElement('div');
+        details.className = 'college-details';
+        this.populateCollegeDetails(details, college);
+
+        const toggleBtn = document.createElement('button');
+        toggleBtn.type = 'button';
+        toggleBtn.className = 'toggle-details';
+        toggleBtn.textContent = 'View details';
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.addEventListener('click', () => this.toggleDetails(details, toggleBtn));
+
+        listItem.appendChild(details);
+        listItem.appendChild(toggleBtn);
+
+        listItem.addEventListener('click', (e) => {
+            if (e.target === toggleBtn) return;
             this.zoomToCollege(college);
             this.highlightCollege(college.id);
         });
@@ -320,6 +360,51 @@ class MentalHealthApp {
         collegeList.appendChild(listItem);
     }
 
+    populateCollegeDetails(container, college) {
+        container.innerHTML = '';
+        const summary = document.createElement('div');
+        summary.className = 'detail-summary';
+        summary.textContent = `Located in ${college.location || 'the Midwest'}, ${college.resources ? college.resources.length : 0} highlighted resource${(college.resources && college.resources.length === 1) ? '' : 's'}.`;
+        container.appendChild(summary);
+
+        if (!college.resources || college.resources.length === 0) {
+            const empty = document.createElement('p');
+            empty.textContent = 'No resources recorded yet.';
+            empty.className = 'detail-empty';
+            container.appendChild(empty);
+            return;
+        }
+
+        const list = document.createElement('div');
+        list.className = 'detail-resource-list';
+        college.resources.slice(0, 3).forEach(resource => {
+            list.appendChild(this.buildDetailRow(resource));
+        });
+
+        container.appendChild(list);
+    }
+
+    toggleDetails(container, button) {
+        const expanded = container.classList.toggle('expanded');
+        button.textContent = expanded ? 'Hide details' : 'View details';
+        button.dataset.expanded = expanded;
+        button.setAttribute('aria-expanded', expanded);
+    }
+
+    buildDetailRow(resource) {
+        const row = document.createElement('div');
+        row.className = 'detail-row';
+        row.innerHTML = `
+            <strong>${resource.serviceName}</strong>
+            <span>${resource.department || 'General service'}</span>
+            <div class="detail-contact">
+                ${resource.contactPhone ? `<a href="tel:${resource.contactPhone}">📞 ${resource.contactPhone}</a>` : ''}
+                ${resource.contactEmail ? `<a href="mailto:${resource.contactEmail}">✉️ ${resource.contactEmail}</a>` : ''}
+                ${resource.contactWebsite ? `<a href="${resource.contactWebsite}" target="_blank" rel="noopener">🌐 website</a>` : ''}
+            </div>
+        `;
+        return row;
+    }
     createPopupContent(college) {
         const container = document.createElement('div');
         container.className = 'custom-popup';
