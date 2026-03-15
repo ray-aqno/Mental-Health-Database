@@ -322,44 +322,48 @@ class MentalHealthApp {
 
     createPopupContent(college) {
         const container = document.createElement('div');
-        container.className = 'resource-popup';
+        container.className = 'custom-popup';
 
         const header = document.createElement('div');
-        header.className = 'popup-header';
         header.innerHTML = `
             <h3>${college.name}</h3>
-            <div class="popup-location">📍 ${college.location}</div>
-            <div class="popup-website">
-                <a href="${college.website}" target="_blank" rel="noopener noreferrer">
-                    🌐 Visit Website →
-                </a>
+            <div class="popup-meta">
+                <span>📍 ${college.location || 'Midwest region'}</span>
+                <span>🧭 Hope Squad partner</span>
+                <span>🌐 <a href="${college.website}" target="_blank" rel="noopener noreferrer">View campus site →</a></span>
             </div>
         `;
         container.appendChild(header);
 
-        if (college.resources && college.resources.length > 0) {
-            const resourcesSection = document.createElement('div');
-            resourcesSection.className = 'resources-section';
+        const content = document.createElement('div');
+        content.className = 'popup-content';
 
-            const resourcesHeader = document.createElement('div');
-            resourcesHeader.className = 'resources-header';
-            resourcesHeader.innerHTML = '🧭 Mental Health Resources';
-            resourcesSection.appendChild(resourcesHeader);
+        const quickSection = document.createElement('div');
+        quickSection.className = 'popup-section';
+        quickSection.innerHTML = `
+            <h4>Hope Squad priority</h4>
+            <p>Midwest high school students can use these curated services to connect with campus counseling teams, whether in-person or virtually.</p>
+        `;
+        content.appendChild(quickSection);
+
+        if (college.resources && college.resources.length > 0) {
+            const resourceGrid = document.createElement('div');
+            resourceGrid.className = 'resource-grid';
 
             college.resources.forEach(resource => {
                 const resourceDiv = this.createResourceElement(resource);
-                resourcesSection.appendChild(resourceDiv);
+                resourceGrid.appendChild(resourceDiv);
             });
 
-            container.appendChild(resourcesSection);
+            content.appendChild(resourceGrid);
         } else {
-            const noResources = document.createElement('p');
-            noResources.className = 'text-center mt-2';
-            noResources.style.color = 'var(--text-light)';
-            noResources.textContent = 'No resources available yet.';
-            container.appendChild(noResources);
+            const placeholder = document.createElement('div');
+            placeholder.className = 'popup-section';
+            placeholder.innerHTML = '<h4>No resources yet</h4><p>Hope Squad is adding partner services regularly—check back soon.</p>';
+            content.appendChild(placeholder);
         }
 
+        container.appendChild(content);
         return container;
     }
 
