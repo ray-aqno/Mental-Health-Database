@@ -117,15 +117,20 @@
                 </div>
             </section>
 
-            <section class="resource-panel desktop-only">
+            <section class="resource-panel desktop-only condensed">
                 <div class="resource-header">
                     <div>
                         <p class="sheet-overline">Campus showcase</p>
                         <h3>Desktop research</h3>
                     </div>
-                    <span class="college-count" id="college-count">0</span>
+                    <div class="resource-header-actions">
+                        <button class="btn btn-chip" id="toggle-panel-view" aria-pressed="false">Expand list</button>
+                        <span class="college-count" id="college-count">0</span>
+                    </div>
                 </div>
-                <ul class="college-list" id="college-list"></ul>
+                <div class="resource-scroll">
+                    <ul class="college-list" id="college-list"></ul>
+                </div>
             </section>
 
             <section class="mobile-shell mobile-only">

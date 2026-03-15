@@ -11,6 +11,9 @@ class MentalHealthApp {
         this.currentFilter = 'all';
         this.searchQuery = '';
         this.deviceMode = 'desktop';
+        this.mapStatus = 'Search ready';
+        this.isPanelCondensed = true;
+        this.panelToggleBtn = null;
         this.resizeTimer = null;
         this.init();
     }
@@ -81,6 +84,14 @@ class MentalHealthApp {
                 this.clearFilters();
             });
         }
+
+        const panelToggle = document.getElementById('toggle-panel-view');
+        if (panelToggle) {
+            this.panelToggleBtn = panelToggle;
+            panelToggle.addEventListener('click', () => this.togglePanelLayout());
+        }
+
+        this.applyPanelLayout();
     }
 
     handleResize() {
@@ -109,6 +120,21 @@ class MentalHealthApp {
             sheetTitle.textContent = this.deviceMode === 'mobile'
                 ? 'Tap to filter nearby campuses'
                 : 'Filter campuses';
+        }
+    }
+
+    togglePanelLayout() {
+        this.isPanelCondensed = !this.isPanelCondensed;
+        this.applyPanelLayout();
+    }
+
+    applyPanelLayout() {
+        const panel = document.querySelector('.resource-panel');
+        if (!panel) return;
+        panel.classList.toggle('condensed', this.isPanelCondensed);
+        if (this.panelToggleBtn) {
+            this.panelToggleBtn.textContent = this.isPanelCondensed ? 'Expand list' : 'Condense view';
+            this.panelToggleBtn.setAttribute('aria-pressed', String(!this.isPanelCondensed));
         }
     }
 
@@ -200,7 +226,11 @@ class MentalHealthApp {
             return;
         }
 
-        this.filteredColleges.slice(0, 4).forEach(college => {
+        const visibleColleges = this.deviceMode === 'mobile'
+            ? this.filteredColleges
+            : this.filteredColleges.slice(0, 4);
+
+        visibleColleges.forEach(college => {
             const card = document.createElement('article');
             card.className = 'resource-card';
             card.dataset.collegeId = college.id;
@@ -210,16 +240,18 @@ class MentalHealthApp {
                 ? college.resources[0].serviceName
                 : 'Resources pending';
 
+            const websiteUrl = college.website || '#';
+
             card.innerHTML = `
                 <div class="resource-card-top">
-                    <h4>${college.name}</h4>
+                    <h4>${college.name || 'Campus partner'}</h4>
                     <p class="resource-card-meta">${college.location || 'Location TBD'}</p>
                 </div>
-                <p>${highlightResource}</p>
-                <p>${resourceCount} resource${resourceCount !== 1 ? 's' : ''} available</p>
+                <p class="resource-card-highlight">${highlightResource}</p>
+                <p class="resource-card-count">${resourceCount} resource${resourceCount !== 1 ? 's' : ''} available</p>
                 <div class="resource-card-cta">
                     <span>Tap to focus</span>
-                    <a href="${college.website}" target="_blank" rel="noopener" class="resource-card-link">Visit site →</a>
+                    <a href="${websiteUrl}" target="_blank" rel="noopener" class="resource-card-link">Visit site →</a>
                 </div>
             `;
 
@@ -247,10 +279,11 @@ class MentalHealthApp {
 
             container.appendChild(card);
         });
+
         container.querySelectorAll('.card-details').forEach(details => {
-            // ensure collapsed by default
             details.classList.remove('expanded');
         });
+        container.classList.toggle('has-scroll', visibleColleges.length > 3);
     }
 
     renderMapMetadata() {
@@ -259,12 +292,14 @@ class MentalHealthApp {
             return sum + (college.resources ? college.resources.length : 0);
         }, 0);
 
-        const states = new Set(
-            this.filteredColleges.map(c => {
-                const parts = c.location ? c.location.split(',') : [];
-                return parts.length ? parts[parts.length - 1].trim() : 'Unknown';
-            })
-        );
+        const stateCounts = {};
+        this.filteredColleges.forEach(college => {
+            const parts = college.location ? college.location.split(',') : [];
+            const state = parts.length ? parts[parts.length - 1].trim() : 'Midwest region';
+            stateCounts[state] = (stateCounts[state] || 0) + 1;
+        });
+
+        const states = new Set(Object.keys(stateCounts));
 
         const metaElements = {
             'meta-colleges': totalCampuses,
@@ -279,23 +314,57 @@ class MentalHealthApp {
             }
         });
 
+        const topStateEntry = Object.entries(stateCounts)
+            .sort((a, b) => b[1] - a[1])[0];
+        const topStateLabel = topStateEntry
+            ? `${topStateEntry[0]} • ${topStateEntry[1]} campus${topStateEntry[1] !== 1 ? 'es' : ''}`
+            : 'Midwest region';
+
+        const featuredCampus = this.filteredColleges[0];
+        const featuredCampusText = featuredCampus
+            ? `${featuredCampus.name} • ${featuredCampus.location || 'Midwest region'} • ${featuredCampus.resources ? featuredCampus.resources.length : 0} resource${featuredCampus.resources && featuredCampus.resources.length === 1 ? '' : 's'}`
+            : 'Campus highlights coming soon';
+
+        const featuredService = featuredCampus && featuredCampus.resources && featuredCampus.resources[0]
+            ? featuredCampus.resources[0].serviceName
+            : 'Services incoming';
+
+        const formattedFilterLabel = this.formatFilterLabel(this.currentFilter);
+        const filterSnapshot = this.currentFilter === 'all'
+            ? 'All states in view'
+            : `Filtered by ${formattedFilterLabel}`;
+
         const list = document.getElementById('metadata-list');
         if (!list) return;
 
         list.innerHTML = '';
+
         if (totalCampuses === 0) {
-            list.innerHTML = '<li>No campuses in view. Adjust filters to highlight partner services.</li>';
+            const emptyCard = document.createElement('li');
+            emptyCard.className = 'metadata-card';
+            emptyCard.innerHTML = `
+                <strong>Empty atlas</strong>
+                <span>Add colleges or clear filters to populate insights.</span>
+            `;
+            list.appendChild(emptyCard);
             return;
         }
 
-        this.filteredColleges.slice(0, 3).forEach((college, index) => {
-            const item = document.createElement('li');
-            const resourceCount = college.resources ? college.resources.length : 0;
-            item.innerHTML = `
-                <strong>${index + 1}. ${college.name}</strong>
-                <span>${college.location || 'Midwest region'} • ${resourceCount} resource${resourceCount !== 1 ? 's' : ''}</span>
+        const highlights = [
+            { label: 'Campus spotlight', value: featuredCampusText },
+            { label: 'Most mapped region', value: topStateLabel },
+            { label: 'Featured resource', value: featuredService },
+            { label: 'Filter snapshot', value: filterSnapshot }
+        ];
+
+        highlights.forEach(item => {
+            const card = document.createElement('li');
+            card.className = 'metadata-card';
+            card.innerHTML = `
+                <strong>${item.label}</strong>
+                <span>${item.value}</span>
             `;
-            list.appendChild(item);
+            list.appendChild(card);
         });
     }
 
@@ -362,6 +431,7 @@ class MentalHealthApp {
 
     populateCollegeDetails(container, college) {
         container.innerHTML = '';
+        container.appendChild(this.createMapSnapshot(college));
         const summary = document.createElement('div');
         summary.className = 'detail-summary';
         summary.textContent = `Located in ${college.location || 'the Midwest'}, ${college.resources ? college.resources.length : 0} highlighted resource${(college.resources && college.resources.length === 1) ? '' : 's'}.`;
@@ -382,6 +452,40 @@ class MentalHealthApp {
         });
 
         container.appendChild(list);
+    }
+
+    createMapSnapshot(college) {
+        const snapshot = document.createElement('div');
+        snapshot.className = 'map-snapshot';
+        const filterLabel = this.formatFilterLabel(this.currentFilter);
+        const snapshotRows = [
+            { icon: '📍', label: 'Campus location', value: college.location || 'Midwest region' },
+            { icon: '🗺️', label: 'Active filter', value: filterLabel },
+            { icon: '🌀', label: 'Map status', value: this.mapStatus || 'Search ready' }
+        ];
+
+        snapshot.innerHTML = snapshotRows.map(row => `
+            <div class="map-snapshot-row">
+                <span class="map-snapshot-icon">${row.icon}</span>
+                <div>
+                    <strong>${row.value}</strong>
+                    <small>${row.label}</small>
+                </div>
+            </div>
+        `).join('');
+
+        return snapshot;
+    }
+
+    formatFilterLabel(filter) {
+        if (!filter || filter === 'all') {
+            return 'All states';
+        }
+
+        return filter
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
     }
 
     toggleDetails(container, button) {
@@ -410,26 +514,40 @@ class MentalHealthApp {
         container.className = 'custom-popup';
 
         const header = document.createElement('div');
+        header.className = 'popup-header';
         header.innerHTML = `
             <h3>${college.name}</h3>
-            <div class="popup-meta">
-                <span>📍 ${college.location || 'Midwest region'}</span>
-                <span>🧭 Trusted campus service</span>
-                <span>🌐 <a href="${college.website}" target="_blank" rel="noopener noreferrer">Visit campus website →</a></span>
-            </div>
+            <p class="popup-location">${college.location || 'Midwest region'}</p>
         `;
         container.appendChild(header);
 
-        const content = document.createElement('div');
-        content.className = 'popup-content';
+        const highlight = document.createElement('div');
+        highlight.className = 'popup-highlight';
+        highlight.innerHTML = `<p>High school students can connect with curated campus counseling teams for both in-person and virtual support.</p>`;
+        container.appendChild(highlight);
 
-        const quickSection = document.createElement('div');
-        quickSection.className = 'popup-section';
-        quickSection.innerHTML = `
-            <h4>Priority pathway</h4>
-            <p>High school students can tap these curated services to connect with campus counseling teams, in-person or virtually.</p>
+        const filterLabel = this.formatFilterLabel(this.currentFilter);
+        const stats = document.createElement('div');
+        stats.className = 'popup-info-grid';
+        stats.innerHTML = `
+            <div>
+                <span>Filter</span>
+                <strong>${filterLabel}</strong>
+            </div>
+            <div>
+                <span>Resources in view</span>
+                <strong>${college.resources ? college.resources.length : 0}</strong>
+            </div>
+            <div>
+                <span>Map status</span>
+                <strong>${this.mapStatus}</strong>
+            </div>
+            <div>
+                <span>Campus site</span>
+                <strong><a href="${college.website || '#'}" target="_blank" rel="noopener noreferrer">Visit</a></strong>
+            </div>
         `;
-        content.appendChild(quickSection);
+        container.appendChild(stats);
 
         if (college.resources && college.resources.length > 0) {
             const resourceGrid = document.createElement('div');
@@ -440,15 +558,14 @@ class MentalHealthApp {
                 resourceGrid.appendChild(resourceDiv);
             });
 
-            content.appendChild(resourceGrid);
+            container.appendChild(resourceGrid);
         } else {
             const placeholder = document.createElement('div');
             placeholder.className = 'popup-section';
-            placeholder.innerHTML = '<h4>No resources yet</h4><p>The resource library is expanding—check back soon for more campus services.</p>';
-            content.appendChild(placeholder);
+            placeholder.innerHTML = '<h4>No campus services yet</h4><p>The resource library is expanding—check back soon for new support pathways.</p>';
+            container.appendChild(placeholder);
         }
 
-        container.appendChild(content);
         return container;
     }
 
@@ -647,6 +764,7 @@ class MentalHealthApp {
     }
 
     setMapStatus(status) {
+        this.mapStatus = status;
         const paceElement = document.getElementById('map-pace');
         if (paceElement) {
             paceElement.textContent = status;
