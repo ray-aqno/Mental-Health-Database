@@ -605,6 +605,56 @@ body {
     display: none;
 }
 
+.mobile-shell {
+    display: none;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem 0;
+}
+
+.mobile-shell-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.mobile-shell-header h3 {
+    margin: 0.15rem 0 0;
+    font-size: 1.1rem;
+}
+
+.mobile-shell-header span {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+}
+
+.mobile-shell-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-muted);
+    box-shadow: var(--shadow-light);
+    color: #0b1b2b;
+}
+
+.mobile-shell-stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.mobile-shell-stats strong {
+    font-size: 1.4rem;
+    color: var(--teal);
+}
+
+.app-shell[data-device-mode="mobile"] .mobile-shell {
+    display: flex;
+}
 .alert-container {
     position: sticky;
     top: 0;

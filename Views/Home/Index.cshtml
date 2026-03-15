@@ -117,22 +117,36 @@
                 </div>
             </section>
 
-            <section class="resource-panel">
+            <section class="resource-panel desktop-only">
                 <div class="resource-header">
                     <div>
                         <p class="sheet-overline">Campus showcase</p>
-                        <h3>Swipe cards on mobile</h3>
+                        <h3>Desktop research</h3>
                     </div>
                     <span class="college-count" id="college-count">0</span>
                 </div>
-                <div class="resource-body">
-                    <div class="resource-body-list desktop-only">
-                        <ul class="college-list" id="college-list"></ul>
+                <ul class="college-list" id="college-list"></ul>
+            </section>
+
+            <section class="mobile-shell mobile-only">
+                <div class="mobile-shell-header">
+                    <div>
+                        <p class="sheet-overline">Mobile command</p>
+                        <h3>Search from your phone</h3>
                     </div>
-                    <div class="resource-body-cards mobile-only">
-                        <div class="resource-cards" id="resource-cards"></div>
+                    <span class="college-count" id="college-count-mobile">0 campuses</span>
+                </div>
+                <div class="mobile-shell-stats">
+                    <div>
+                        <strong id="stat-colleges-mobile">0</strong>
+                        <span>Campuses</span>
+                    </div>
+                    <div>
+                        <strong id="stat-resources-mobile">0</strong>
+                        <span>Services</span>
                     </div>
                 </div>
+                <div class="resource-cards" id="resource-cards"></div>
             </section>
         </main>
 

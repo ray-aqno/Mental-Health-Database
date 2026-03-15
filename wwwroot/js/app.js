@@ -540,6 +540,25 @@ class MentalHealthApp {
                 element.textContent = value;
             }
         });
+
+        this.updateMobileStats(totalColleges, totalResources);
+    }
+
+    updateMobileStats(totalColleges, totalResources) {
+        const mobileColleges = document.getElementById('stat-colleges-mobile');
+        if (mobileColleges) {
+            mobileColleges.textContent = totalColleges;
+        }
+
+        const mobileResources = document.getElementById('stat-resources-mobile');
+        if (mobileResources) {
+            mobileResources.textContent = totalResources;
+        }
+
+        const mobileCount = document.getElementById('college-count-mobile');
+        if (mobileCount) {
+            mobileCount.textContent = `${totalColleges} campuses`;
+        }
     }
 
     setMapStatus(status) {
