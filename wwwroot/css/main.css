@@ -1111,4 +1111,30 @@ body {
     gap: 0.4rem;
 }
 
+/* Icons rendered inline by app.js (cards, popups, snapshot rows) */
+.ricon {
+    width: 1em;
+    height: 1em;
+    stroke: currentColor;
+    fill: none;
+    vertical-align: -0.15em;
+    flex-shrink: 0;
+}
+
+.college-item-location,
+.college-item-resources,
+.detail-contact a,
+.freshman-notes-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.map-snapshot-icon,
+.resource-detail-icon {
+    display: inline-flex;
+    align-items: center;
+    color: var(--teal);
+}
+
 
