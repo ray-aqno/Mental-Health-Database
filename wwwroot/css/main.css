@@ -118,6 +118,7 @@ body {
 .hero-stats {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .hero-stat {
@@ -1085,6 +1086,29 @@ body {
     #map {
         height: 420px;
     }
+}
+
+/* Inline SVG UI icons (replacing emoji glyphs for cross-platform consistency) */
+.icon {
+    width: 1.05em;
+    height: 1.05em;
+    stroke: currentColor;
+    fill: none;
+    flex-shrink: 0;
+    vertical-align: -0.15em;
+}
+
+.search-icon {
+    display: inline-flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+#voice-btn,
+#refresh-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
 
