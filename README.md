@@ -1,5 +1,7 @@
 #  College Mental Health Resources Database
 
+**[🔗 Live app](https://mental-health-database.onrender.com)** — presented to my graduating class of ~900 seniors.
+
 A modern web application that displays mental health resources available at colleges in the Midwest region using an interactive map interface. Features real-time search, filtering, and detailed resource information with special emphasis on freshman guidance.
 
 ---
@@ -491,7 +493,7 @@ MIT License - Free to use for educational and non-commercial purposes
 
 ##  Status
 
-**Production Ready**
+**Deployed and live at the link above. Built and used as a real resource for our graduating class, not just a demo**
 
 This project is complete and fully functional. All features work as designed:
 - Backend API with database
