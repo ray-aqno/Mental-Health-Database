@@ -2,6 +2,27 @@
 // Mental Health Database - Main Application Script
 // =====================================================
 
+// Inline SVG icon set (replaces emoji glyphs so icons render consistently
+// across platforms). Each renders via innerHTML; sized by the .ricon CSS class.
+const svg = (body) => `<svg class="ricon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${body}</svg>`;
+const ICONS = {
+    pin: svg('<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle>'),
+    list: svg('<line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line>'),
+    filter: svg('<line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line>'),
+    activity: svg('<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>'),
+    phone: svg('<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>'),
+    mail: svg('<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>'),
+    globe: svg('<circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>'),
+    building: svg('<path d="M3 21h18"></path><path d="M5 21V7l8-4v18"></path><path d="M19 21V11l-6-4"></path><line x1="9" y1="9" x2="9" y2="9.01"></line><line x1="9" y1="12" x2="9" y2="12.01"></line><line x1="9" y1="15" x2="9" y2="15.01"></line>'),
+    clock: svg('<circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>'),
+    cap: svg('<path d="M22 10L12 5 2 10l10 5 10-5z"></path><path d="M6 12v5c0 1 2 2 6 2s6-1 6-2v-5"></path>'),
+    heart: svg('<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"></path>'),
+    lifebuoy: svg('<circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line><line x1="9.17" y1="14.83" x2="4.93" y2="19.07"></line>'),
+    xCircle: svg('<circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>'),
+    checkCircle: svg('<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>'),
+    info: svg('<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line>')
+};
+
 class MentalHealthApp {
     constructor() {
         this.map = null;
@@ -400,9 +421,9 @@ class MentalHealthApp {
             <div class="college-head">
                 <div>
                     <div class="college-item-name">${college.name}</div>
-                    <div class="college-item-location">📍 ${college.location}</div>
+                    <div class="college-item-location">${ICONS.pin} ${college.location}</div>
                 </div>
-                <div class="college-item-resources">🔥 ${resourceCount} resource${resourceCount !== 1 ? 's' : ''}</div>
+                <div class="college-item-resources">${ICONS.list} ${resourceCount} resource${resourceCount !== 1 ? 's' : ''}</div>
             </div>
         `;
 
@@ -459,9 +480,9 @@ class MentalHealthApp {
         snapshot.className = 'map-snapshot';
         const filterLabel = this.formatFilterLabel(this.currentFilter);
         const snapshotRows = [
-            { icon: '📍', label: 'Campus location', value: college.location || 'Midwest region' },
-            { icon: '🗺️', label: 'Active filter', value: filterLabel },
-            { icon: '🌀', label: 'Map status', value: this.mapStatus || 'Search ready' }
+            { icon: ICONS.pin, label: 'Campus location', value: college.location || 'Midwest region' },
+            { icon: ICONS.filter, label: 'Active filter', value: filterLabel },
+            { icon: ICONS.activity, label: 'Map status', value: this.mapStatus || 'Search ready' }
         ];
 
         snapshot.innerHTML = snapshotRows.map(row => `
@@ -502,9 +523,9 @@ class MentalHealthApp {
             <strong>${resource.serviceName}</strong>
             <span>${resource.department || 'General service'}</span>
             <div class="detail-contact">
-                ${resource.contactPhone ? `<a href="tel:${resource.contactPhone}">📞 ${resource.contactPhone}</a>` : ''}
-                ${resource.contactEmail ? `<a href="mailto:${resource.contactEmail}">✉️ ${resource.contactEmail}</a>` : ''}
-                ${resource.contactWebsite ? `<a href="${resource.contactWebsite}" target="_blank" rel="noopener">🌐 website</a>` : ''}
+                ${resource.contactPhone ? `<a href="tel:${resource.contactPhone}">${ICONS.phone} ${resource.contactPhone}</a>` : ''}
+                ${resource.contactEmail ? `<a href="mailto:${resource.contactEmail}">${ICONS.mail} ${resource.contactEmail}</a>` : ''}
+                ${resource.contactWebsite ? `<a href="${resource.contactWebsite}" target="_blank" rel="noopener">${ICONS.globe} website</a>` : ''}
             </div>
         `;
         return row;
@@ -588,12 +609,12 @@ class MentalHealthApp {
         const details = [];
 
         if (resource.department) {
-            details.push({ icon: '🏫', label: 'Department', value: resource.department });
+            details.push({ icon: ICONS.building, label: 'Department', value: resource.department });
         }
 
         if (resource.contactEmail) {
             details.push({ 
-                icon: '✉️',
+                icon: ICONS.mail,
                 label: 'Email',
                 value: `<a href="mailto:${resource.contactEmail}">${resource.contactEmail}</a>`
             });
@@ -601,23 +622,23 @@ class MentalHealthApp {
 
         if (resource.contactPhone) {
             details.push({ 
-                icon: '📞',
+                icon: ICONS.phone,
                 label: 'Phone',
                 value: `<a href="tel:${resource.contactPhone}">${resource.contactPhone}</a>`
             });
         }
 
         if (resource.officeHours) {
-            details.push({ icon: '⏰', label: 'Hours', value: resource.officeHours });
+            details.push({ icon: ICONS.clock, label: 'Hours', value: resource.officeHours });
         }
 
         if (resource.location) {
-            details.push({ icon: '📍', label: 'Location', value: resource.location });
+            details.push({ icon: ICONS.pin, label: 'Location', value: resource.location });
         }
 
         if (resource.contactWebsite) {
             details.push({ 
-                icon: '🌐',
+                icon: ICONS.globe,
                 label: 'Website',
                 value: `<a href="${resource.contactWebsite}" target="_blank" rel="noopener noreferrer">Learn More</a>`
             });
@@ -639,7 +660,7 @@ class MentalHealthApp {
             freshmanDiv.className = 'freshman-notes';
             freshmanDiv.innerHTML = `
                 <div class="freshman-notes-label">
-                    🎓 Important for Freshmen
+                    ${ICONS.cap} Important for Freshmen
                 </div>
                 <div class="freshman-notes-text">
                     ${resource.freshmanNotes}
@@ -808,9 +829,9 @@ class MentalHealthApp {
         const alert = document.createElement('div');
         alert.className = `alert ${type} fade-in`;
         const icons = {
-            error: '✖',
-            success: '✔',
-            info: 'ℹ️'
+            error: ICONS.xCircle,
+            success: ICONS.checkCircle,
+            info: ICONS.info
         };
 
         alert.innerHTML = `
