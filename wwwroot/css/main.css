@@ -118,6 +118,7 @@ body {
 .hero-stats {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .hero-stat {
@@ -230,10 +231,8 @@ body {
 }
 
 .map-metadata {
-    position: absolute;
-    bottom: 90px;
-    left: 1.5rem;
-    right: 1.5rem;
+    position: static;
+    margin-top: 1rem;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
     padding: 1rem 1.25rem;
@@ -243,9 +242,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    z-index: 10;
-    max-height: 320px;
-    overflow: hidden;
 }
 
 .map-metadata-heading h3 {
@@ -318,10 +314,8 @@ body {
 }
 
 .floating-sheet {
-    position: absolute;
-    bottom: -1rem;
-    right: clamp(2rem, 4vw, 3rem);
-    left: clamp(2rem, 4vw, 3rem);
+    position: static;
+    margin-top: 1rem;
     background: white;
     border-radius: var(--radius-lg);
     padding: 1rem 1.25rem 1.75rem;
@@ -1092,6 +1086,29 @@ body {
     #map {
         height: 420px;
     }
+}
+
+/* Inline SVG UI icons (replacing emoji glyphs for cross-platform consistency) */
+.icon {
+    width: 1.05em;
+    height: 1.05em;
+    stroke: currentColor;
+    fill: none;
+    flex-shrink: 0;
+    vertical-align: -0.15em;
+}
+
+.search-icon {
+    display: inline-flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+#voice-btn,
+#refresh-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
 
